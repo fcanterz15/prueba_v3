@@ -1,0 +1,778 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>2.4 Descarga de Play by play &#8212; Redefinición de las posiciones de jugadores de baloncesto e identificación de quintetos más eficientes según las nuevas definiciones</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="_static/styles.css?v=9a6b6d33" />
+    <link rel="stylesheet" type="text/css" href="_static/.ipynb_checkpoints/styles-checkpoint.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '2.4 Play by play';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2.5 Descarga de las Cartas de tiro" href="2.5%20Carta%20de%20tiro.html" />
+    <link rel="prev" title="2.3 Descarga de Box Score" href="2.3%20Box%20Score.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="1.%20Introduccion.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Redefinición de las posiciones de jugadores de baloncesto e identificación de quintetos más eficientes según las nuevas definiciones - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Redefinición de las posiciones de jugadores de baloncesto e identificación de quintetos más eficientes según las nuevas definiciones - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="1.%20Introduccion.html">
+                    1. Introducción
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="2.%20Descarga%20de%20datos.html">2. Descarga de datos</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="2.1%20Diccionario%20de%20partidos.html">2.1 Diccionario de partidos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.2%20Diccionario%20de%20plantillas.html">2.2 Diccinario de plantillas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.3%20Box%20Score.html">2.3 Descarga de <em>Box Score</em></a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.4 Descarga de <em>Play by play</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.5%20Carta%20de%20tiro.html">2.5 Descarga de las <em>Cartas de tiro</em></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="3.%20Procesamiento%20de%20los%20datos.html">3. Procesamiento de los datos</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="3.1%20Estadisticas%20totales.html">3.1 <em>Estadisticas totales</em></a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="3.2%20Estad%C3%ADsticas%20totales%20de%20quintetos.html">3.2 <em>Estadísticas totales de quintetos</em></a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="3.3%20Estad%C3%ADsticas%20totales%20de%20tiro.html">3.3 <em>Estadísticas totales de tiro</em></a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="3.4%20Estad%C3%ADsticas%20avanzadas%20individuales.html">3.4 <em>Estadisticas avanzadas individuales</em></a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="4.%20An%C3%A1lisis%20exploratorios.html">4. Análisis exploratorios</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="4.1%20EDA%20Estad%C3%ADsticas%20totales.html">4.1 Análisis exploratorio de <em>estadísticas totales de jugadores</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="4.2%20EDA%20Estad%C3%ADsticas%20totales%20de%20quintetos.html">4.2 Análisis exploratorio de <em>estadísticas totales de quintetos</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="4.3%20EDA%20Estad%C3%ADsticas%20totales%20de%20tiro.html">4.3 Análisis exploratorio de <em>estadísticas totales de tiro</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="4.4%20EDA%20Estad%C3%ADsticas%20avanzadas%20individuales.html">4.4 Análisis exploratorio de <em>estadísticas avanzadas individuales</em></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="5.%20Implementacion.html">5. Implementación</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="5.1%20Construcci%C3%B3n%20de%20tabl%C3%B3n%20de%20estad%C3%ADsticas.html">5.1 Construcción de tablón de estadísticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5.2%20EDA%20Tablon%20estad%C3%ADsticas.html">5.2 Análisis exploratorio del Tablon estadísticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5.3%20PCA%20y%20Kmeans.html">5.3 Redefinición de posiciones de los jugadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5.4%20Regresi%C3%B3n.html">5.4 Selección de los mejores quintetos</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/2.4 Play by play.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>2.4 Descarga de Play by play</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descripcion-del-portal-web-y-metodo-de-descarga">1. Descripción del portal web y método de descarga</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#revision-de-informacion-y-estructura-de-los-ficheros">2. Revisión de información y estructura de los ficheros</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">funciones_auxiliares</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="descarga-de-play-by-play">
+<h1>2.4 Descarga de <em>Play by play</em><a class="headerlink" href="#descarga-de-play-by-play" title="Link to this heading">#</a></h1>
+<p>La tabla del <em>Play by play</em> es la tabla de información que se utilizaba habitualmente en los partidos de baloncesto para reflejar las acciones realizadas por los jugadores durante estos en cada momento del partido. A través de este notebook se buscará dar explicación del lugar de donde ha sido extraida la informació como a que información ha sido descargada. Para ello, se estructurará el notebook en los siguiente puntos:</p>
+<ul class="simple">
+<li><p><strong>1. Descripción del portal web.</strong> Se hará una revisión de la información que es almacenada dentro del portal y se explicará el método de descarga de cada uno de los play by play de cada uno de los partidos.</p></li>
+<li><p><strong>2. Revisión de información y estructura de los ficheros.</strong> Tras la descarga de la información, se hará una revisión de la información individualizada de los ficheros descargados y la revisión conjunta de los ficheros descargados.</p></li>
+</ul>
+<p>A través de esos puntos se realizará la comprensión y entendimiento del trabajo realizado para la descarga de los ficheros referentes al box score.</p>
+<section id="descripcion-del-portal-web-y-metodo-de-descarga">
+<h2>1. Descripción del portal web y método de descarga<a class="headerlink" href="#descripcion-del-portal-web-y-metodo-de-descarga" title="Link to this heading">#</a></h2>
+<p>Para la descarga del <em>Play by play</em> de cada uno de los partidos ha sido utilizado la página web <a class="reference external" href="https://jv.acb.com/es/">https://jv.acb.com/es/</a> que como se ha comentado en la sección de la creación del <em>Diccionario de partidos</em> es la página web en la que los aficionados puede ver los resultados y estadísticas de los partidos disputados. Como se mostró durante la creación del diccionario, cada partido disputado tiene una url la cual permite al usuario acceder a las estadísticas del partido. Esta url, está compuesta por el enlace a la página oficial de la jornada virtual de la liga junto a un identificador numérico del partido y la sección que se quiere visitar. Es por este motivo, que para poder acceder al <em>Box Score</em> de cualquier partido la url debe estar compuesta por la url (<a class="reference external" href="https://jv.acb.com/es/">https://jv.acb.com/es/</a>), el identificador del partido y la sección <em>jugadas</em>.</p>
+<p>Teniendo esto presente, se muestra a continuación el partido disputado en la temporada <em>2022-2023</em> entre el Básquet Girona y el Real Madrid durante la primera jornada de la temporada a la que se puede tener acceso mediante el enlace <a class="reference external" href="https://jv.acb.com/es/103350/jugadas">https://jv.acb.com/es/103350/jugadas</a>. Dentro de la página web del partido, podemos encontras dos secciones, la primera de ellas es la siguiente:</p>
+<p><img alt="imagen" src="_images/ACB_MENU_PLAY_BY_PLAY.png" /></p>
+<p>En esta primera sección podemos encontrar los equipos participantes en el encuentro, la fecha y el resultado del partido junto al tanteo por cuartos. Además, se puede observar como el <em>Box Score</em> se encuentra dentro del apartado <em>Jugadas</em>.</p>
+<p>Por otro lado, la segunda sección de la página web es en la que se muestra el <em>Play by play</em> de los equipos. Esta sección es la siguiente:</p>
+<p><img alt="imagen" src="_images/ACB_PLAY_BY_PLAY.png" /></p>
+<p>Esta sección está compuesta por cinco botones los cuales permiten visualizar las acciones realizadas por los jugadores en todo el partido o en algún cuarto del partido en específico. Dentro de las sección de acciones, podemos encontrar como estas están divididas por cajas en las que se muestra la siguiente información:</p>
+<ul class="simple">
+<li><p>EQUIPO. Hace referencia al que realizó la acción.</p></li>
+<li><p>CUARTO. Hacier referencia al periodo del partido en el que se realizó la acción.</p></li>
+<li><p>MINUTO. Hace referencia al minuto del cuarto en el que se realizó la acción.</p></li>
+<li><p>Puntos del local. Hace referencia a los puntos anotados por el equipo local en el momento de la acción.</p></li>
+<li><p>Puntos del visitante. Hace referencia a los puntos anotados por el equipo visitante en el momento de la acción.</p></li>
+<li><p>NOMBRE. Hace referencia al nombre del jugador que realizó la acción.</p></li>
+<li><p>ACCIÓN. Hace referencia a la acción que se re</p></li>
+</ul>
+<p>A través del <em>Diccionario de partidos</em> y técnicas de web scrapping que permite la interacción con el navegador y la descargar del código fuente de partidos, han sido descargados todos los <em>Play by play</em> de los partidos recogidos dentro del diccionario. Para esta descarga, ha sido desarrolla el script de código <a class="reference download internal" download="" href="_downloads/ee127b07fb340e72accbb8e914b53bba/04_Descargar_Play_By_Play.py"><span class="xref download myst">04_Descargar_Play_By_Play</span></a> que permite la descarga y almacenamiento de los <em>Play by play</em> de ambos equipos en las rutas establecidas.alizó.loración del jugador.</p>
+</section>
+<section id="revision-de-informacion-y-estructura-de-los-ficheros">
+<h2>2. Revisión de información y estructura de los ficheros<a class="headerlink" href="#revision-de-informacion-y-estructura-de-los-ficheros" title="Link to this heading">#</a></h2>
+<p>Como ha sido comentado durante el apartado anterior, se ha realizado la descarga de todos los <em>Play by play</em> de los partidos almacenados en el <em>Diccionario de partidos</em>. Es por este motivo que para entender y explicar que información ha sido descargada, se pasa a realizar la carga del primer partido disputado en cada temporada en la primera jornada:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ruta para acceder a la información de las jornas de cada una de las temporadas</span>
+<span class="n">ruta_jornadas</span> <span class="o">=</span> <span class="s1">&#39;E:/TFM/02. Datos/ACB/JORNADAS&#39;</span>
+
+<span class="c1"># Ruta al primer partido de cada temporada</span>
+<span class="n">partido_2019</span> <span class="o">=</span> <span class="s1">&#39;E:/TFM/02. Datos/ACB/JORNADAS/2019/Jornada 1/20190924_Montakit Fuenlabrada_VS_San Pablo Burgos/PBP_Montakit Fuenlabrada_VS_San Pablo Burgos.csv&#39;</span>
+<span class="n">partido_2020</span> <span class="o">=</span> <span class="s1">&#39;E:/TFM/02. Datos/ACB/JORNADAS/2020/Jornada 1/20200919_Acunsa GBC_VS_Real Madrid/PBP_Acunsa GBC_VS_Real Madrid.csv&#39;</span>
+<span class="n">partido_2021</span> <span class="o">=</span> <span class="s1">&#39;E:/TFM/02. Datos/ACB/JORNADAS/2021/Jornada 1/20210918_Coosur Real Betis_VS_MoraBanc Andorra/PBP_Coosur Real Betis_VS_MoraBanc Andorra.csv&#39;</span>
+<span class="n">partido_2022</span> <span class="o">=</span> <span class="s1">&#39;E:/TFM/02. Datos/ACB/JORNADAS/2022/Jornada 1/20220928_Bàsquet Girona_VS_Real Madrid/PBP_Bàsquet Girona_VS_Real Madrid.csv&#39;</span>
+
+<span class="c1"># Lectura de un partido de muestra cada temporada</span>
+<span class="c1"># Lectura de un partido de muestra cada temporada</span>
+<span class="n">df_partido_2019</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">partido_2019</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+<span class="n">df_partido_2020</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">partido_2020</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+<span class="n">df_partido_2021</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">partido_2021</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+<span class="n">df_partido_2022</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">partido_2022</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Tras realizar la carga de los cuatro partidos, se pasa a mostrar que información ha sido cargada de cada uno de los <em>Play by play</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualización de columnas de cada dataframe</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;###############################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# COLUMNAS DEL PLAY BY PLAY EN CADA TEMPORADA&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;###############################################&quot;</span><span class="p">)</span>
+<span class="n">l_col_2019</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df_partido_2019</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;TEMPORADA 2019:&quot;</span><span class="p">,</span><span class="s1">&#39; | &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">l_col_2019</span><span class="p">))</span>
+<span class="n">l_col_2020</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df_partido_2020</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;TEMPORADA 2020:&quot;</span><span class="p">,</span><span class="s1">&#39; | &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">l_col_2020</span><span class="p">))</span>
+<span class="n">l_col_2021</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df_partido_2021</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;TEMPORADA 2021:&quot;</span><span class="p">,</span><span class="s1">&#39; | &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">l_col_2021</span><span class="p">))</span>
+<span class="n">l_col_2022</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df_partido_2022</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;TEMPORADA 2022:&quot;</span><span class="p">,</span><span class="s1">&#39; | &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">l_col_2022</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>###############################################
+# COLUMNAS DEL PLAY BY PLAY EN CADA TEMPORADA
+###############################################
+TEMPORADA 2019: EQUIPO | CUARTO | MINUTO | PTs_LOCAL | PTS_VISITANTE | NOMBRE | ACCION
+TEMPORADA 2020: EQUIPO | CUARTO | MINUTO | PTs_LOCAL | PTS_VISITANTE | NOMBRE | ACCION
+TEMPORADA 2021: EQUIPO | CUARTO | MINUTO | PTs_LOCAL | PTS_VISITANTE | NOMBRE | ACCION
+TEMPORADA 2022: EQUIPO | CUARTO | MINUTO | PTs_LOCAL | PTS_VISITANTE | NOMBRE | ACCION
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como se puede observar, en las cuatro temporadas, todos las tablas de <em>Play by play</em> tienen la información definida anteriormente. Se pasa a continuación a mostrar la información almacenada en el primer partido de la temporada <em>2022-2023</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;###############################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# ANÁLISIS DE PLAY BY PLAY 2022&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;###############################################&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de columnas:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_partido_2022</span><span class="o">.</span><span class="n">columns</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de registros:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_partido_2022</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cuartos del partido:&quot;</span><span class="p">,</span> <span class="s1">&#39; | &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">df_partido_2022</span><span class="o">.</span><span class="n">CUARTO</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Acciones del partido:&quot;</span><span class="p">,</span> <span class="s1">&#39; | &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">df_partido_2022</span><span class="o">.</span><span class="n">ACCION</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Play by play 2022:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_partido_2022</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_space</span><span class="o">=</span><span class="mi">8</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>###############################################
+# ANÁLISIS DE PLAY BY PLAY 2022
+###############################################
+Nº de columnas: 7
+Nº de registros: 530
+Cuartos del partido: 4C | 3C | 2C | 1C
+Acciones del partido: Asistencia | Triple anotado | Rebote Defensivo | Triple fallado | Tiro Libre anotado | Entra a pista | Sale de la pista | Falta Recibida | Falta Personal 2TL | Tiro Libre fallado | Falta Personal 1TL | Tiro de 2 anotado | Rebote Ofensivo | Pérdida | Falta en Ataque | Falta Personal | Tiempo Muerto | Tapón | Tapón Recibido | Tiro de 2 fallado | Falta Técnica 1TL | Recuperación | Falta Personal 3TL | Mate | Salto perdido | Salto ganado | Cinco Inicial
+
+Play by play 2022:
+        EQUIPO   CUARTO   MINUTO  PTs_LOCAL  PTS_VISITANTE   NOMBRE             ACCION
+Bàsquet Girona       4C    00:02         88             94    Colom         Asistencia
+Bàsquet Girona       4C    00:02         88             94 Figueras     Triple anotado
+Bàsquet Girona       4C    00:09         85             94    Gasol   Rebote Defensivo
+   Real Madrid       4C    00:09         85             94     Musa     Triple fallado
+Bàsquet Girona       4C    00:28         85             94    Gasol Tiro Libre anotado
+Bàsquet Girona       4C    00:28         84             94    Gasol Tiro Libre anotado
+   Real Madrid       4C    00:28         83             94  Poirier      Entra a pista
+   Real Madrid       4C    00:28         83             94 Cornelie   Sale de la pista
+Bàsquet Girona       4C    00:28         83             94    Gasol     Falta Recibida
+   Real Madrid       4C    00:28         83             94 Cornelie Falta Personal 2TL
+Bàsquet Girona       4C    00:28         83             94    Gasol   Rebote Defensivo
+   Real Madrid       4C    00:28         83             94 Yabusele Tiro Libre fallado
+   Real Madrid       4C    00:28         83             94 Yabusele     Falta Recibida
+Bàsquet Girona       4C    00:28         83             94  Miletic Falta Personal 1TL
+   Real Madrid       4C    00:28         83             94 Yabusele  Tiro de 2 anotado
+   Real Madrid       4C    00:28         83             92 Yabusele    Rebote Ofensivo
+   Real Madrid       4C    00:28         83             92  Hezonja     Triple fallado
+Bàsquet Girona       4C    00:49         83             92    Colom  Tiro de 2 anotado
+   Real Madrid       4C    01:02         81             92 Cornelie      Entra a pista
+   Real Madrid       4C    01:02         81             92  Tavares   Sale de la pista
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como se puede observar, el dataframe cargado consta de 530 registros los cuales dan información a las 7 variables anteriormente definidas. Dentro de cada una de las 7 variables a las que se da información se puede observar como en la variable <em>EQUIPO</em> se indica el nombre del equipo que realiza la acción, en la variable <em>CUARTO</em> se indica el cuarto en el que se produjo la acción, en la variable <em>MINUTO</em> se indica el momento en el que se produjo la acción, las variables <em>PTs_LOCAL</em> u <em>PTs_VISITANTE</em> indican los puntos anotados por ambos equipos, la variable <em>NOMBRE</em> indica el apellido del jugador y la variable <em>ACCION</em> indica la acción que realizó este.</p>
+<p>Analizada la información descargada, se pasa a realizar el análisis de volumetrías con respecto a los datos descargados para poder saber el volumen de información con la que se trabajará:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Se seleccionan los directorios de las jornadas</span>
+<span class="n">l_dir_temporada</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">ruta_jornadas</span><span class="p">)</span>
+
+<span class="c1"># Se inicializan los contadores para el estudio</span>
+<span class="n">contador_vacios</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">contador_nulos</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">contador_registros</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">contador_ficheros</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">contador_partidos</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">l_acciones</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">l_cuartos</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">dir_temporada</span> <span class="ow">in</span> <span class="n">l_dir_temporada</span><span class="p">:</span>
+    <span class="n">ruta_temporada</span> <span class="o">=</span> <span class="n">ruta_jornadas</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">dir_temporada</span>
+    <span class="n">l_dir_jornadas</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">ruta_temporada</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">dir_jornada</span> <span class="ow">in</span> <span class="n">l_dir_jornadas</span><span class="p">:</span>
+        <span class="n">ruta_jornada</span> <span class="o">=</span> <span class="n">ruta_temporada</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">dir_jornada</span>
+        <span class="n">l_dir_partido</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">ruta_jornada</span><span class="p">)</span>
+        
+        <span class="k">for</span> <span class="n">dir_partido</span> <span class="ow">in</span> <span class="n">l_dir_partido</span><span class="p">:</span>
+            
+            <span class="c1"># Se extraen los elemenos del partido</span>
+            <span class="n">ruta_partido</span> <span class="o">=</span> <span class="n">ruta_jornada</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">dir_partido</span>
+            <span class="n">l_elementos_partido</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">ruta_partido</span><span class="p">)</span>
+            
+            <span class="c1"># Se selecciona el fichero a cargar y se realiza su carga</span>
+            <span class="n">pbp_partido</span> <span class="o">=</span> <span class="p">[</span><span class="n">elem</span> <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">l_elementos_partido</span> <span class="k">if</span> <span class="s1">&#39;VS&#39;</span> <span class="ow">in</span> <span class="n">elem</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">df_pbp_partido</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">ruta_partido</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">pbp_partido</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;latin-1&#39;</span><span class="p">)</span>
+                       
+            <span class="n">contador_vacios</span> <span class="o">=</span> <span class="n">contador_vacios</span> <span class="o">+</span> <span class="n">df_pbp_partido</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+            <span class="n">contador_registros</span> <span class="o">=</span> <span class="n">contador_registros</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_pbp_partido</span><span class="p">)</span>
+            <span class="n">contador_ficheros</span> <span class="o">=</span> <span class="n">contador_ficheros</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="n">contador_nulos</span> <span class="o">=</span> <span class="n">contador_nulos</span> <span class="o">+</span> <span class="p">(</span><span class="n">df_pbp_partido</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+            <span class="n">contador_partidos</span> <span class="o">=</span> <span class="n">contador_partidos</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="n">l_acciones</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">df_pbp_partido</span><span class="o">.</span><span class="n">ACCION</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+            <span class="n">l_cuartos</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">df_pbp_partido</span><span class="o">.</span><span class="n">CUARTO</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+            
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;###############################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# ANÁLISIS DE CONSISTENCIA EN LOS BOX SCORE&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;###############################################&quot;</span><span class="p">)</span>            
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El número de partidos descargados es:&quot;</span><span class="p">,</span> <span class="n">contador_partidos</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El número de ficheros de box score descargados es:&quot;</span><span class="p">,</span><span class="n">contador_ficheros</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El número de registros de box score descargados es:&quot;</span><span class="p">,</span><span class="n">contador_registros</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El número de valores vacíos dentro del dataframe es:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">contador_vacios</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El número de valores nulos (&#39;&#39;) dentro del dataframe es:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">contador_nulos</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El número de tipos de cuartos existentes es:&quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">l_cuartos</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El número de acciones existentes es:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">l_acciones</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>###############################################
+# ANÁLISIS DE CONSISTENCIA EN LOS BOX SCORE
+###############################################
+El número de partidos descargados es: 1192
+El número de ficheros de box score descargados es: 1192
+El número de registros de box score descargados es: 637317
+El número de valores vacíos dentro del dataframe es:
+ EQUIPO               0
+CUARTO               0
+MINUTO               0
+PTs_LOCAL            0
+PTS_VISITANTE        0
+NOMBRE           18022
+ACCION               0
+dtype: int64
+El número de valores nulos (&#39;&#39;) dentro del dataframe es:
+ EQUIPO           0
+CUARTO           0
+MINUTO           0
+PTs_LOCAL        0
+PTS_VISITANTE    0
+NOMBRE           0
+ACCION           0
+dtype: int64
+El número de tipos de cuartos existentes es: 6
+El número de acciones existentes es: 50
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como se puede observar, el número de partidos descargados es de 1.192 en el que se almacenan en mismo número de play by plays ya que únicamente se almacena uno por encunetro. Desde de estos ficheros, se almacena información para 637.317 registros en donde únicamente en el campo <em>NOMBRE</em> se encuentran 18.022 elementos vacíos debido a que no todas las acciones son realizadas por los jugadores como pueden ser el cambio de cuartos o los tiempos muertos.</p>
+<p>Dentro de los cuartos y las acciones, podemso encontrar diferentes valores, se pasa a mostrar que tiempos de valores pueden encontrarse en cada uno de los campos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;##############################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# VALORES EN VARIABLE CUARTOS&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;##############################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; | &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">l_cuartos</span><span class="p">)))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">##############################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# VALORES EN VARIABLE ACCION&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;##############################&quot;</span><span class="p">)</span>
+<span class="n">l_acciones</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">l_acciones</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; | &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">l_acciones</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">])))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; | &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">l_acciones</span><span class="p">[</span><span class="mi">11</span><span class="p">:</span><span class="mi">20</span><span class="p">])))</span>    
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; | &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">l_acciones</span><span class="p">[</span><span class="mi">21</span><span class="p">:</span><span class="mi">30</span><span class="p">])))</span>   
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; | &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">l_acciones</span><span class="p">[</span><span class="mi">31</span><span class="p">:</span><span class="mi">40</span><span class="p">])))</span>    
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; | &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">l_acciones</span><span class="p">[</span><span class="mi">41</span><span class="p">:</span><span class="mi">50</span><span class="p">])))</span>     
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>##############################
+# VALORES EN VARIABLE CUARTOS
+##############################
+PR1 | PR2 | 4C | 1C | 2C | 3C
+
+##############################
+# VALORES EN VARIABLE ACCION
+##############################
+PÃ©rdida | RecuperaciÃ³n | Falta Personal 1TL | D - Descalificante - 2TL | Cinco Inicial | Pérdida | Falta Personal 2TL | Triple fallado | Falta Antideportiva 1TL | D - Descalificante - No TL
+Tiro de 2 anotado | Tapón | TÃ©cnica al Banquillo | TapÃ³n Recibido | Falta Antideportiva 3TL | TÃ©cnica al Entrenador (2TL) | Falta TÃ©cnica 2TL | Salto ganado | Falta Personal 3TL
+Falta Recibida | Falta Antideportiva | Asistencia | TÃ©cnica al Banquillo (1TL) | Tapón Recibido | Falta en Ataque | Falta TÃ©cnica 1TL | Falta TÃ©cnica | Falta Personal
+TÃ©cnica | TapÃ³n | Entra a pista | Rebote Ofensivo | Rebote Defensivo | TÃ©cnica al Entrenador | Tiro Libre anotado | TÃ©cnica al Entrenador (1TL) | Tiro Libre fallado
+Salto perdido | Recuperación | TÃ©cnica al Banquillo (2TL) | Descalificado del partido | Altercado no TL | Tiempo Muerto | Falta Antideportiva 2TL | Mate fallado | Sale de la pista
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como se puede observar, existen cuatro elementos que hacen referencias a los cuartos (1C, 2C, 3C y 4C) y dos elementos que hacen referencia a las prórrogas (PR1 y PR2). Por otro lado, con respecto a las acciones, existen diferentes tipos de acciones que hacen referencia a diferentes situaciones del juego que se pueden dar durante los partidos de baloncesto. Estas acciones pueden ser englobadas en los siguientes grupos:</p>
+<ul class="simple">
+<li><p><em>Acciones de tiro:</em> Tiro de 2 fallado | Tiro de 2 anotado | Mate | Triple fallado | Triple anotado | Mate fallado | Tiro Libre anotado | Tiro Libre fallado</p></li>
+<li><p>*Acciones de control de balón:*éP�rdida | Recuperaói�n | Recuperación | Tapón Recibido | Asistencia | Pérdida | Tapón | Tóp�n | Tóp�n Recibido</p></li>
+<li><p><em>Acciones de rebote:</em> Rebote Defensivo | Rebote Ofensivo</p></li>
+<li><p><em>Acciones de falta:</em> Técnica al Banquillo (1TL) | Falta Personal 3TL | D - Descalificante - No TL | Falta Personal | Técnica al Banquillo (2TL) | Falta Personal 2TL | Falta Antideportiva 1TL | Falta Antideportiva 3TL | Técnica al Banquillo | Falta Recibida | Técnica al Entrenador (2TL) | Técnica al Entrenador | Falta Técnica | Falta en Ataque | D - Descalificante - 2TL | D - Descalificante - 1TL | Falta Personal 1TL | Falta Antideportiva | Falta Técnica 2TL | Técnica al Entrenador (1TL)  | Técnica | Altercado no TL</p></li>
+<li><p><em>Acciones del juego:</em> Entra a pista | Tiempo Muerto | Salto perdido | Salto ganado | Cinco Inicial</p></li>
+</ul>
+<p>A partir de estas agrupaciones se puede dividir las acciones en función de la finalidad que tenga cada acción. Como punto a tener en cuenta en el trabajo que se realice sobre las acciones, se tendrá que analizar las acciones de control de balón en el que habrá que procesar las pérdidas y recuperaciones ya que existen diferencias en su formato.formato.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="2.3%20Box%20Score.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">2.3 Descarga de <em>Box Score</em></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="2.5%20Carta%20de%20tiro.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">2.5 Descarga de las <em>Cartas de tiro</em></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descripcion-del-portal-web-y-metodo-de-descarga">1. Descripción del portal web y método de descarga</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#revision-de-informacion-y-estructura-de-los-ficheros">2. Revisión de información y estructura de los ficheros</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Francisco Javier Cantero Zorita
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

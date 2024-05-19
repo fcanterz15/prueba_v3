@@ -1,0 +1,1214 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>5.4 Selección de los mejores quintetos &#8212; Redefinición de las posiciones de jugadores de baloncesto e identificación de quintetos más eficientes según las nuevas definiciones</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="_static/styles.css?v=9a6b6d33" />
+    <link rel="stylesheet" type="text/css" href="_static/.ipynb_checkpoints/styles-checkpoint.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '5.4 Regresión';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="5.3 Redefinición de posiciones de los jugadores" href="5.3%20PCA%20y%20Kmeans.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="1.%20Introduccion.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Redefinición de las posiciones de jugadores de baloncesto e identificación de quintetos más eficientes según las nuevas definiciones - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Redefinición de las posiciones de jugadores de baloncesto e identificación de quintetos más eficientes según las nuevas definiciones - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="1.%20Introduccion.html">
+                    1. Introducción
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="2.%20Descarga%20de%20datos.html">2. Descarga de datos</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.1%20Diccionario%20de%20partidos.html">2.1 Diccionario de partidos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.2%20Diccionario%20de%20plantillas.html">2.2 Diccinario de plantillas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.3%20Box%20Score.html">2.3 Descarga de <em>Box Score</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.4%20Play%20by%20play.html">2.4 Descarga de <em>Play by play</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.5%20Carta%20de%20tiro.html">2.5 Descarga de las <em>Cartas de tiro</em></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="3.%20Procesamiento%20de%20los%20datos.html">3. Procesamiento de los datos</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="3.1%20Estadisticas%20totales.html">3.1 <em>Estadisticas totales</em></a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="3.2%20Estad%C3%ADsticas%20totales%20de%20quintetos.html">3.2 <em>Estadísticas totales de quintetos</em></a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="3.3%20Estad%C3%ADsticas%20totales%20de%20tiro.html">3.3 <em>Estadísticas totales de tiro</em></a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="3.4%20Estad%C3%ADsticas%20avanzadas%20individuales.html">3.4 <em>Estadisticas avanzadas individuales</em></a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="4.%20An%C3%A1lisis%20exploratorios.html">4. Análisis exploratorios</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="4.1%20EDA%20Estad%C3%ADsticas%20totales.html">4.1 Análisis exploratorio de <em>estadísticas totales de jugadores</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="4.2%20EDA%20Estad%C3%ADsticas%20totales%20de%20quintetos.html">4.2 Análisis exploratorio de <em>estadísticas totales de quintetos</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="4.3%20EDA%20Estad%C3%ADsticas%20totales%20de%20tiro.html">4.3 Análisis exploratorio de <em>estadísticas totales de tiro</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="4.4%20EDA%20Estad%C3%ADsticas%20avanzadas%20individuales.html">4.4 Análisis exploratorio de <em>estadísticas avanzadas individuales</em></a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="5.%20Implementacion.html">5. Implementación</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="5.1%20Construcci%C3%B3n%20de%20tabl%C3%B3n%20de%20estad%C3%ADsticas.html">5.1 Construcción de tablón de estadísticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5.2%20EDA%20Tablon%20estad%C3%ADsticas.html">5.2 Análisis exploratorio del Tablon estadísticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5.3%20PCA%20y%20Kmeans.html">5.3 Redefinición de posiciones de los jugadores</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.4 Selección de los mejores quintetos</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/5.4 Regresión.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>5.4 Selección de los mejores quintetos</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparacion-de-los-datos">1. Preparación de los datos.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-del-modelo-de-regresion">2. Selección del modelo de regresión.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion-lineal">2.1 Regresión lineal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">2.2 Random forest</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svr-lineal">2.3 SVR lineal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xgboost">2.4 XGBoost</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-del-mejor-modelo">2.5 Selección del mejor modelo</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entrenamineto-y-prediccion">3. Entrenamineto y predicción.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-resultados">4. Análisis de resultados</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">funciones_auxiliares</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestRegressor</span>
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVR</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
+<span class="kn">from</span> <span class="nn">xgboost</span> <span class="kn">import</span> <span class="n">XGBRegressor</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">statistics</span> <span class="kn">import</span> <span class="n">median</span><span class="p">,</span> <span class="n">mode</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="seleccion-de-los-mejores-quintetos">
+<h1>5.4 Selección de los mejores quintetos<a class="headerlink" href="#seleccion-de-los-mejores-quintetos" title="Link to this heading">#</a></h1>
+<p>Como segundo objetivo del Trabajo Fin de Máster, ha sido definido la <em>selección de los mejores quintentos</em> de jugadores a patir de las nuevas posiciones definidas mientras la aplicación de la clusterización. Para ello, durante este apartado será realizada esa selección de quintetos mediante la implementación de un modelo de regresión con el cual se espera obtener un rating que permita clasificar cada uno de los quintetos existentes en la liga. Para la realización de la <em>selección de mejores quinteto</em>. en este notebook, se abordarán los siguientes apartados:</p>
+<ul class="simple">
+<li><p><strong>1. Preparación de los datos.</strong> Mediante la <em>Estadísticas totales de quintetos</em> y la nuevas posiciones definidas se realizará la selección de estadísticas que serán utilizadas para la creación del conjunto de datos que será incluido en el modelo de regresión.</p></li>
+<li><p><strong>2. Selección del modelo de regresión.</strong> Se realizará la ejecución de distintos modelos de regresión para obtener los mejores hiperparámetros y modelo que mejor se ajusten al conjunto de datos.</p></li>
+<li><p><strong>3. Entrenamineto y predicción.</strong> Se realizará el entrenamiento del modelo con los hiperparámetros seleccionados, y se realizará la predicción para obtención de rating de clasicicación del modelo.</p></li>
+<li><p><strong>4. Análisis de resultados.</strong> Se realizará el análisis de los resultados obtenidos tras las predicción sobre el conjunto de datos y se obtendrá los mejores quintetos con las nuevas posiciones.</p></li>
+</ul>
+<p>A través de estos paso se espera por un lado obtener las nuevas posiciones y que se entienda todo el proceso implementado para su obtención.</p>
+<section id="preparacion-de-los-datos">
+<h2>1. Preparación de los datos.<a class="headerlink" href="#preparacion-de-los-datos" title="Link to this heading">#</a></h2>
+<p>Dentro de la preparación de los datos, como se ha comentado en el apartado anterior, será necesario hacer uso de las <em>Estadísticas totales de los quintetos</em> y de las <em>Nuevas posiciones definidas</em>. Es por este motivo, que se realiza la carga de ambos tipos de información:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ruta de clustering</span>
+<span class="n">ruta_clustering</span> <span class="o">=</span> <span class="s1">&#39;E:/TFM/02. Datos/ACB/CLUSTERING&#39;</span>
+<span class="n">df_tablon_control</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">ruta_clustering</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="s1">&#39;01_CLUSTERING_PLAYERS_KMEANS.csv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+<span class="n">df_tablon_control</span> <span class="o">=</span> <span class="n">df_tablon_control</span><span class="p">[[</span><span class="s1">&#39;TEMPORADA&#39;</span><span class="p">,</span> <span class="s1">&#39;EQUIPO&#39;</span><span class="p">,</span> <span class="s1">&#39;JUGADOR_PBP&#39;</span><span class="p">,</span> <span class="s1">&#39;CLUSTER&#39;</span><span class="p">]]</span>
+
+<span class="c1"># Ruta de estadísticas</span>
+<span class="n">ruta_estadisticas</span> <span class="o">=</span> <span class="s1">&#39;E:/TFM/02. Datos/ACB/ESTADISTICAS&#39;</span>
+<span class="n">df_estadisticas_quinteto</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">l_dir_temporadas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;2020&#39;</span><span class="p">,</span> <span class="s1">&#39;2021&#39;</span><span class="p">,</span> <span class="s1">&#39;2022&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">temporada</span> <span class="ow">in</span> <span class="n">l_dir_temporadas</span><span class="p">:</span>
+    <span class="c1"># Se extrae el listado de directorios de equipos</span>
+    <span class="n">ruta_dir_temporada</span> <span class="o">=</span> <span class="n">ruta_estadisticas</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">temporada</span>
+    <span class="n">l_dir_equipos</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">ruta_dir_temporada</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">equipo</span> <span class="ow">in</span> <span class="n">l_dir_equipos</span><span class="p">:</span>
+        <span class="c1"># Se inicializa la ruta de estadísticas de un equipo</span>
+        <span class="n">ruta_dir_estadisticas_equipo</span> <span class="o">=</span> <span class="n">ruta_dir_temporada</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">equipo</span>
+        
+        <span class="c1"># Se realiza la carga de ficheros de estadísticas de jugadores</span>
+        <span class="n">df_estadisticas_quinteto_equipo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">ruta_dir_estadisticas_equipo</span> <span class="o">+</span> <span class="s1">&#39;/03_ESTADISTICAS_QUINTETO_EQUIPO.csv&#39;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s1">&#39;;&#39;</span><span class="p">)</span>
+        <span class="n">df_estadisticas_quinteto_equipo</span><span class="p">[</span><span class="s1">&#39;TEMPORADA&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">temporada</span><span class="p">)</span>
+        <span class="n">df_estadisticas_quinteto</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_estadisticas_quinteto</span><span class="p">,</span><span class="n">df_estadisticas_quinteto_equipo</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#######################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# NUEVAS POSICIONES DEFINIDAS&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#######################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_tablon_control</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_space</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">#######################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# ESTADISTICAS TOTALES DE QUINTETOS&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#######################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_estadisticas_quinteto</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_space</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#######################################
+# NUEVAS POSICIONES DEFINIDAS
+#######################################
+ TEMPORADA     EQUIPO JUGADOR_PBP  CLUSTER
+      2020 Acunsa GBC         Dee        3
+      2020 Acunsa GBC       Okouo        4
+      2020 Acunsa GBC    Faggiano        3
+      2020 Acunsa GBC     Carlson        1
+      2020 Acunsa GBC        Span        1
+
+#######################################
+# ESTADISTICAS TOTALES DE QUINTETOS
+#######################################
+    EQUIPO      J1   J2        J3       J4       J5  T2A  T2L  T3A  T3L  TLA  TLL   RO   RD  STL  TOV  AST  BLK  T2A_R  T2L_R  T3A_R  T3L_R  TLA_R  TLL_R  RO_R  RD_R  STL_R  TOV_R  AST_R  BLK_R  TIEMPO_PISTA  TEMPORADA
+Acunsa GBC Carlson  Dee Echenique Radoncic     Span    1    1    0    1    0    0    0    1    0    0    0    0      1      1      1      2      1      4     2     1      0      0      1      0            96       2020
+Acunsa GBC Carlson  Dee  Faggiano Magarity    Motos    4    9    3    4    1    2    0    8    1    1    5    1      2      8      1      3      0      0     0     6      1      3      2      0           381       2020
+Acunsa GBC Carlson  Dee  Faggiano Magarity Radoncic    2    3    1    7    3    4    1    4    0    0    3    0      4      4      3      6      1      2     0     6      0      0      3      0           415       2020
+Acunsa GBC Carlson  Dee  Faggiano Magarity    Tomàs    3    3    1    3    0    0    1    1    0    0    1    0      2      3      1      1      1      1     0     0      0      0      3      0           128       2020
+Acunsa GBC Carlson  Dee  Faggiano    Motos Olaizola    2    2    1    3    0    0    0    3    0    5    1    0      4      5      0      2      4      5     0     2      3      3      1      0           269       2020
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como puede observarse, se ha realizado la carga por un lado de la información de cada jugador junto a la nueva posición que se le ha sido asignada y por otro lado se ha realizado la carga de las estadísticas totales para cada uno de los quintetos. Tras la realización de este paso, se realiza la sustitución dentro del conjunto de datos de cada jugador por la posición que se le ha sido asignada además de ordenar cada una de las posiciones de manera ascendente para las futuras agrupaciones que se realizarán:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Se sustituye cada uno de los jugadores por la nueva posiciön en la que ha sido agrupada</span>
+<span class="n">df_estadisticas_quinteto_aux</span> <span class="o">=</span> <span class="n">df_estadisticas_quinteto</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_tablon_control</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TEMPORADA&#39;</span><span class="p">,</span><span class="s1">&#39;EQUIPO&#39;</span><span class="p">,</span><span class="s1">&#39;J1&#39;</span><span class="p">],</span> <span class="n">right_on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TEMPORADA&#39;</span><span class="p">,</span><span class="s1">&#39;EQUIPO&#39;</span><span class="p">,</span><span class="s1">&#39;JUGADOR_PBP&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;JUGADOR_PBP&#39;</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;CLUSTER&#39;</span><span class="p">:</span><span class="s1">&#39;J1_CLUSTER&#39;</span><span class="p">})</span>
+<span class="n">df_estadisticas_quinteto_aux</span> <span class="o">=</span> <span class="n">df_estadisticas_quinteto_aux</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_tablon_control</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TEMPORADA&#39;</span><span class="p">,</span><span class="s1">&#39;EQUIPO&#39;</span><span class="p">,</span><span class="s1">&#39;J2&#39;</span><span class="p">],</span> <span class="n">right_on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TEMPORADA&#39;</span><span class="p">,</span><span class="s1">&#39;EQUIPO&#39;</span><span class="p">,</span><span class="s1">&#39;JUGADOR_PBP&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;JUGADOR_PBP&#39;</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;CLUSTER&#39;</span><span class="p">:</span><span class="s1">&#39;J2_CLUSTER&#39;</span><span class="p">})</span>
+<span class="n">df_estadisticas_quinteto_aux</span> <span class="o">=</span> <span class="n">df_estadisticas_quinteto_aux</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_tablon_control</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TEMPORADA&#39;</span><span class="p">,</span><span class="s1">&#39;EQUIPO&#39;</span><span class="p">,</span><span class="s1">&#39;J3&#39;</span><span class="p">],</span> <span class="n">right_on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TEMPORADA&#39;</span><span class="p">,</span><span class="s1">&#39;EQUIPO&#39;</span><span class="p">,</span><span class="s1">&#39;JUGADOR_PBP&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;JUGADOR_PBP&#39;</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;CLUSTER&#39;</span><span class="p">:</span><span class="s1">&#39;J3_CLUSTER&#39;</span><span class="p">})</span>
+<span class="n">df_estadisticas_quinteto_aux</span> <span class="o">=</span> <span class="n">df_estadisticas_quinteto_aux</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_tablon_control</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TEMPORADA&#39;</span><span class="p">,</span><span class="s1">&#39;EQUIPO&#39;</span><span class="p">,</span><span class="s1">&#39;J4&#39;</span><span class="p">],</span> <span class="n">right_on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TEMPORADA&#39;</span><span class="p">,</span><span class="s1">&#39;EQUIPO&#39;</span><span class="p">,</span><span class="s1">&#39;JUGADOR_PBP&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;JUGADOR_PBP&#39;</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;CLUSTER&#39;</span><span class="p">:</span><span class="s1">&#39;J4_CLUSTER&#39;</span><span class="p">})</span>
+<span class="n">df_estadisticas_quinteto_aux</span> <span class="o">=</span> <span class="n">df_estadisticas_quinteto_aux</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_tablon_control</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TEMPORADA&#39;</span><span class="p">,</span><span class="s1">&#39;EQUIPO&#39;</span><span class="p">,</span><span class="s1">&#39;J5&#39;</span><span class="p">],</span> <span class="n">right_on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TEMPORADA&#39;</span><span class="p">,</span><span class="s1">&#39;EQUIPO&#39;</span><span class="p">,</span><span class="s1">&#39;JUGADOR_PBP&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;JUGADOR_PBP&#39;</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;CLUSTER&#39;</span><span class="p">:</span><span class="s1">&#39;J5_CLUSTER&#39;</span><span class="p">})</span>
+
+<span class="c1"># Se ordenan las agrupaciones según el cluster</span>
+<span class="n">df_estadisticas_quinteto_aux</span><span class="p">[</span><span class="s1">&#39;J1_CLUSTER_ORDERED&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="n">df_estadisticas_quinteto_aux</span><span class="p">[</span><span class="s1">&#39;J2_CLUSTER_ORDERED&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="n">df_estadisticas_quinteto_aux</span><span class="p">[</span><span class="s1">&#39;J3_CLUSTER_ORDERED&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="n">df_estadisticas_quinteto_aux</span><span class="p">[</span><span class="s1">&#39;J4_CLUSTER_ORDERED&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="n">df_estadisticas_quinteto_aux</span><span class="p">[</span><span class="s1">&#39;J5_CLUSTER_ORDERED&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df_estadisticas_quinteto_aux</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">l_clusters</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">([</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;J1_CLUSTER&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;J2_CLUSTER&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;J3_CLUSTER&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;J4_CLUSTER&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;J5_CLUSTER&#39;</span><span class="p">]])</span>
+    <span class="n">df_estadisticas_quinteto_aux</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">index</span><span class="p">,</span><span class="s1">&#39;J1_CLUSTER_ORDERED&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">l_clusters</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">df_estadisticas_quinteto_aux</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">index</span><span class="p">,</span><span class="s1">&#39;J2_CLUSTER_ORDERED&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">l_clusters</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">df_estadisticas_quinteto_aux</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">index</span><span class="p">,</span><span class="s1">&#39;J3_CLUSTER_ORDERED&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">l_clusters</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">df_estadisticas_quinteto_aux</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">index</span><span class="p">,</span><span class="s1">&#39;J4_CLUSTER_ORDERED&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">l_clusters</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">df_estadisticas_quinteto_aux</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">index</span><span class="p">,</span><span class="s1">&#39;J5_CLUSTER_ORDERED&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">l_clusters</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+
+
+<span class="c1"># Se realiza la selección de variables final con las que se trabajará</span>
+<span class="n">df_estadisticas_quinteto_cluster</span> <span class="o">=</span> <span class="n">df_estadisticas_quinteto_aux</span><span class="p">[[</span><span class="s1">&#39;TEMPORADA&#39;</span><span class="p">,</span><span class="s1">&#39;EQUIPO&#39;</span><span class="p">,</span><span class="s1">&#39;J1_CLUSTER_ORDERED&#39;</span><span class="p">,</span> <span class="s1">&#39;J2_CLUSTER_ORDERED&#39;</span><span class="p">,</span> <span class="s1">&#39;J3_CLUSTER_ORDERED&#39;</span><span class="p">,</span><span class="s1">&#39;J4_CLUSTER_ORDERED&#39;</span><span class="p">,</span> <span class="s1">&#39;J5_CLUSTER_ORDERED&#39;</span><span class="p">,</span> <span class="s1">&#39;T2A&#39;</span><span class="p">,</span> <span class="s1">&#39;T2L&#39;</span><span class="p">,</span> <span class="s1">&#39;T3A&#39;</span><span class="p">,</span> <span class="s1">&#39;T3L&#39;</span><span class="p">,</span> <span class="s1">&#39;TLA&#39;</span><span class="p">,</span> <span class="s1">&#39;TLL&#39;</span><span class="p">,</span> <span class="s1">&#39;RO&#39;</span><span class="p">,</span> <span class="s1">&#39;RD&#39;</span><span class="p">,</span> <span class="s1">&#39;STL&#39;</span><span class="p">,</span> <span class="s1">&#39;TOV&#39;</span><span class="p">,</span> <span class="s1">&#39;AST&#39;</span><span class="p">,</span> <span class="s1">&#39;BLK&#39;</span><span class="p">,</span> <span class="s1">&#39;T2A_R&#39;</span><span class="p">,</span> <span class="s1">&#39;T2L_R&#39;</span><span class="p">,</span> <span class="s1">&#39;T3A_R&#39;</span><span class="p">,</span> <span class="s1">&#39;T3L_R&#39;</span><span class="p">,</span> <span class="s1">&#39;TLA_R&#39;</span><span class="p">,</span> <span class="s1">&#39;TLL_R&#39;</span><span class="p">,</span> <span class="s1">&#39;RO_R&#39;</span><span class="p">,</span> <span class="s1">&#39;RD_R&#39;</span><span class="p">,</span> <span class="s1">&#39;STL_R&#39;</span><span class="p">,</span> <span class="s1">&#39;TOV_R&#39;</span><span class="p">,</span> <span class="s1">&#39;AST_R&#39;</span><span class="p">,</span> <span class="s1">&#39;BLK_R&#39;</span><span class="p">,</span> <span class="s1">&#39;TIEMPO_PISTA&#39;</span><span class="p">]]</span>    
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;####################################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# ESTADISTICAS TOTALES DE QUINTETOS CLUSTERIZADAS&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;####################################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_estadisticas_quinteto_cluster</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_space</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>####################################################
+# ESTADISTICAS TOTALES DE QUINTETOS CLUSTERIZADAS
+####################################################
+ TEMPORADA     EQUIPO J1_CLUSTER_ORDERED J2_CLUSTER_ORDERED J3_CLUSTER_ORDERED J4_CLUSTER_ORDERED J5_CLUSTER_ORDERED  T2A  T2L  T3A  T3L  TLA  TLL  RO  RD  STL  TOV  AST  BLK  T2A_R  T2L_R  T3A_R  T3L_R  TLA_R  TLL_R  RO_R  RD_R  STL_R  TOV_R  AST_R  BLK_R  TIEMPO_PISTA
+      2020 Acunsa GBC                  1                  1                  2                  3                  5    1    1    0    1    0    0   0   1    0    0    0    0      1      1      1      2      1      4     2     1      0      0      1      0            96
+      2020 Acunsa GBC                  1                  2                  3                  3                  5    4    6    4    5   10   11   3   2    5    4    4    0      4      7      4      8      2      2     3     2      1      7      5      0           556
+      2020 Acunsa GBC                  1                  1                  1                  3                  5    6   10    4    7    3    6   2   6    0    1    4    0      3      8      5     11      0      0     3     7      1      0      6      1           589
+      2020 Acunsa GBC                  1                  1                  2                  3                  5    1    4    0    1    1    2   1   4    0    2    2    1      1      6      0      2      0      0     2     3      2      1      1      1           263
+      2020 Acunsa GBC                  1                  1                  1                  3                  5    5    8    2    7    2    5   1   7    4    2    2    0      4      7      2      8      4      6     2     9      1      5      3      0           570
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como puede observarse, tras la sustitución de los nombres de los jugadores por los clusters a los que pertenecen y su ordenación, se obtiene como resultado un cojunto de datos en los que cada uno de los quintetos jugadores en cada uno de los equipos para cada una de las temporadas en el que los jugadores están representados por los clusters a los que pertenecen. Tras esto se va a proceder a la agrupación del conjunto de datos en dos conjuntos de datos diferentes:</p>
+<ul class="simple">
+<li><p><em>Conjunto de datos de entrenamiento.</em> En este conjunto de datos, se realizará la agrupación de las estadísticas teniendo en cuenta la temporada, el equipo y los tipos de posiciones que se encuentran dentro del quinteto. Con esta agrupación, se construye el conjunto de datos que serán utilizado para el entrenamiento y la selección del modelo respetando el contexto en el que se desarrolló el quinteto debido a que no todos los equipos juegan de la misma manera.</p></li>
+<li><p><em>Conjunto de datos para la predicción.</em> En este conjunto de datos, se realizará la agrupación de las estadístias teniendo en cuenta únicamente los tipos de posiciones que se encuentran en el quinteto. Con esta agrupación, se contruye el conjunto de datos sobre el que se realizará la predicción y con el que se obtendrá cual es el tipo de quinteto que obtiene mejores resultados dentro de la liga.</p></li>
+</ul>
+<p>Dicho esto, se pasa a la construcción de ambos cojuntos de datos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Se realiza la agrupación por temporada, equipo y tipos de jugadores</span>
+<span class="n">df_estadisticas_quinteto_grouped</span> <span class="o">=</span>  <span class="n">df_estadisticas_quinteto_cluster</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;TEMPORADA&#39;</span><span class="p">,</span><span class="s1">&#39;EQUIPO&#39;</span><span class="p">,</span><span class="s1">&#39;J1_CLUSTER_ORDERED&#39;</span><span class="p">,</span> <span class="s1">&#39;J2_CLUSTER_ORDERED&#39;</span><span class="p">,</span> <span class="s1">&#39;J3_CLUSTER_ORDERED&#39;</span><span class="p">,</span><span class="s1">&#39;J4_CLUSTER_ORDERED&#39;</span><span class="p">,</span> <span class="s1">&#39;J5_CLUSTER_ORDERED&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;####################################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# CONJUNTOS DE DATOS DE ENTRENAMIENTO&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;####################################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de registros:&quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">df_estadisticas_quinteto_cluster</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de variables:&quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">df_estadisticas_quinteto_cluster</span><span class="o">.</span><span class="n">columns</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_estadisticas_quinteto_cluster</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_space</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+
+
+<span class="c1"># Se realiza la agrupación por tipos de jugadores</span>
+<span class="n">df_estadisticas_total_quinteto_cluster</span> <span class="o">=</span> <span class="n">df_estadisticas_quinteto_aux</span><span class="p">[[</span><span class="s1">&#39;J1_CLUSTER_ORDERED&#39;</span><span class="p">,</span> <span class="s1">&#39;J2_CLUSTER_ORDERED&#39;</span><span class="p">,</span> <span class="s1">&#39;J3_CLUSTER_ORDERED&#39;</span><span class="p">,</span><span class="s1">&#39;J4_CLUSTER_ORDERED&#39;</span><span class="p">,</span> <span class="s1">&#39;J5_CLUSTER_ORDERED&#39;</span><span class="p">,</span> <span class="s1">&#39;T2A&#39;</span><span class="p">,</span> <span class="s1">&#39;T2L&#39;</span><span class="p">,</span> <span class="s1">&#39;T3A&#39;</span><span class="p">,</span> <span class="s1">&#39;T3L&#39;</span><span class="p">,</span> <span class="s1">&#39;TLA&#39;</span><span class="p">,</span> <span class="s1">&#39;TLL&#39;</span><span class="p">,</span> <span class="s1">&#39;RO&#39;</span><span class="p">,</span> <span class="s1">&#39;RD&#39;</span><span class="p">,</span> <span class="s1">&#39;STL&#39;</span><span class="p">,</span> <span class="s1">&#39;TOV&#39;</span><span class="p">,</span> <span class="s1">&#39;AST&#39;</span><span class="p">,</span> <span class="s1">&#39;BLK&#39;</span><span class="p">,</span> <span class="s1">&#39;T2A_R&#39;</span><span class="p">,</span> <span class="s1">&#39;T2L_R&#39;</span><span class="p">,</span> <span class="s1">&#39;T3A_R&#39;</span><span class="p">,</span> <span class="s1">&#39;T3L_R&#39;</span><span class="p">,</span> <span class="s1">&#39;TLA_R&#39;</span><span class="p">,</span> <span class="s1">&#39;TLL_R&#39;</span><span class="p">,</span> <span class="s1">&#39;RO_R&#39;</span><span class="p">,</span> <span class="s1">&#39;RD_R&#39;</span><span class="p">,</span> <span class="s1">&#39;STL_R&#39;</span><span class="p">,</span> <span class="s1">&#39;TOV_R&#39;</span><span class="p">,</span> <span class="s1">&#39;AST_R&#39;</span><span class="p">,</span> <span class="s1">&#39;BLK_R&#39;</span><span class="p">,</span> <span class="s1">&#39;TIEMPO_PISTA&#39;</span><span class="p">]]</span>    
+<span class="n">df_estadisticas_total_quinteto_grouped</span> <span class="o">=</span>  <span class="n">df_estadisticas_total_quinteto_cluster</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;J1_CLUSTER_ORDERED&#39;</span><span class="p">,</span> <span class="s1">&#39;J2_CLUSTER_ORDERED&#39;</span><span class="p">,</span> <span class="s1">&#39;J3_CLUSTER_ORDERED&#39;</span><span class="p">,</span><span class="s1">&#39;J4_CLUSTER_ORDERED&#39;</span><span class="p">,</span> <span class="s1">&#39;J5_CLUSTER_ORDERED&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">####################################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# CONJUNTOS DE DATOS DE PREDICCIÓN&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;####################################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de registros:&quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">df_estadisticas_total_quinteto_grouped</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de variables:&quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">df_estadisticas_total_quinteto_grouped</span><span class="o">.</span><span class="n">columns</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_estadisticas_total_quinteto_grouped</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_space</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>####################################################
+# CONJUNTOS DE DATOS DE ENTRENAMIENTO
+####################################################
+Nº de registros: 13885
+Nº de variables: 32
+ TEMPORADA     EQUIPO J1_CLUSTER_ORDERED J2_CLUSTER_ORDERED J3_CLUSTER_ORDERED J4_CLUSTER_ORDERED J5_CLUSTER_ORDERED  T2A  T2L  T3A  T3L  TLA  TLL  RO  RD  STL  TOV  AST  BLK  T2A_R  T2L_R  T3A_R  T3L_R  TLA_R  TLL_R  RO_R  RD_R  STL_R  TOV_R  AST_R  BLK_R  TIEMPO_PISTA
+      2020 Acunsa GBC                  1                  1                  2                  3                  5    1    1    0    1    0    0   0   1    0    0    0    0      1      1      1      2      1      4     2     1      0      0      1      0            96
+      2020 Acunsa GBC                  1                  2                  3                  3                  5    4    6    4    5   10   11   3   2    5    4    4    0      4      7      4      8      2      2     3     2      1      7      5      0           556
+      2020 Acunsa GBC                  1                  1                  1                  3                  5    6   10    4    7    3    6   2   6    0    1    4    0      3      8      5     11      0      0     3     7      1      0      6      1           589
+      2020 Acunsa GBC                  1                  1                  2                  3                  5    1    4    0    1    1    2   1   4    0    2    2    1      1      6      0      2      0      0     2     3      2      1      1      1           263
+      2020 Acunsa GBC                  1                  1                  1                  3                  5    5    8    2    7    2    5   1   7    4    2    2    0      4      7      2      8      4      6     2     9      1      5      3      0           570
+
+####################################################
+# CONJUNTOS DE DATOS DE PREDICCIÓN
+####################################################
+Nº de registros: 213
+Nº de variables: 30
+ J1_CLUSTER_ORDERED  J2_CLUSTER_ORDERED  J3_CLUSTER_ORDERED  J4_CLUSTER_ORDERED  J5_CLUSTER_ORDERED  T2A  T2L  T3A  T3L  TLA  TLL  RO  RD  STL  TOV  AST  BLK  T2A_R  T2L_R  T3A_R  T3L_R  TLA_R  TLL_R  RO_R  RD_R  STL_R  TOV_R  AST_R  BLK_R  TIEMPO_PISTA
+                  0                   0                   0                   0                   2    1    1    0    1    0    0   0   0    0    0    1    0      0      0      0      0      2      2     0     0      0      0      0      0            51
+                  0                   0                   0                   0                   5    0    0    0    2    2    2   0   1    0    1    0    1      1      2      0      0      4      4     0     2      1      0      0      0           111
+                  0                   0                   0                   1                   1    0    2    1    6    0    0   3   2    0    1    1    0      4      6      0      1      1      2     1     4      1      0      2      0           202
+                  0                   0                   0                   1                   2   47   81   18   63   38   52  22  63   17   30   36    7     42     79     13     65     26     36    29    55     18     30     34      4          5047
+                  0                   0                   0                   1                   3    5    9    1    3    2    2   0   7    3    6    4    0      6     10      1      5      1      2     1     6      3      5      6      0           467
+</pre></div>
+</div>
+</div>
+</div>
+<p>Tras la creación de ambos conjuntos de datos, y como último paso dentro de la preparación de los datos, se realizará la construcción de las estadísticas avanzadas para cada uno de los quintetos que serán utilizadas para las construcción de los conjuntos de datos finales y que estarán formados por las siguiente estadísticas:</p>
+<ul class="simple">
+<li><p><em>POSS.</em> Refleja el número de posesiones que realizó el quinteto y que será utilizada para el filtrado de quintetos con poca participación dentro de la liga.</p></li>
+<li><p><em>OER.</em> Refleja la eficiencia ofensiva del quinteto y será utilizada para la construcción de la variable a predecir.</p></li>
+<li><p><em>DER.</em> Refleja la eficiencia defensiva del quinteto y será utilizada para la construcción de la variable a predecir.</p></li>
+<li><p><em>NET.</em> Refleja la diferencia entre eficiencia ofensiva y defensiva. Esta variable será la variable a predecir por los modelos de regresión.</p></li>
+<li><p><em>eFG%.</em> Refleja la eficiencia en el tiro del quinteto.</p></li>
+<li><p><em>RO%.</em> Refleja el volumen de rebotes ofensivos capturados por el quinteto cuando este estuvo en la pista.</p></li>
+<li><p><em>FT%.</em> Refleja el nivel de verticalidad del quinteto cuando este estuvo en la pista.</p></li>
+<li><p><em>TOV%.</em> Refleha el volumen de acciones que terminaron en pérdida por el quinteto cuando este estuvo en pista.</p></li>
+<li><p><em>eFG%_R.</em> Refleja la eficiencia en el tiro del quinteto rival.</p></li>
+<li><p><em>RO%_R.</em> Refleja el volumen de rebotes ofensivos capturados por el quinteto rival.</p></li>
+<li><p><em>FT%_R.</em> Refleja el nivel de verticalidad del quinteto rival.</p></li>
+<li><p><em>TOV%_R.</em> Refleha el volumen de acciones que terminaron en pérdida por el quinteto rival.</p></li>
+</ul>
+<p>Mediante estas estadísticas avanzadas se construirá el conjunto de datos final tanto de entrenamiento como de predicción.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Se realiza la creación del conjunto de datos de entrenamiento</span>
+<span class="n">df_quintetos_avanzada_grouped</span> <span class="o">=</span> <span class="n">df_estadisticas_quinteto_grouped</span><span class="p">[[</span><span class="s1">&#39;TEMPORADA&#39;</span><span class="p">,</span><span class="s1">&#39;EQUIPO&#39;</span><span class="p">,</span><span class="s1">&#39;J1_CLUSTER_ORDERED&#39;</span><span class="p">,</span> <span class="s1">&#39;J2_CLUSTER_ORDERED&#39;</span><span class="p">,</span> <span class="s1">&#39;J3_CLUSTER_ORDERED&#39;</span><span class="p">,</span><span class="s1">&#39;J4_CLUSTER_ORDERED&#39;</span><span class="p">,</span> <span class="s1">&#39;J5_CLUSTER_ORDERED&#39;</span><span class="p">]]</span>
+<span class="n">df_quintetos_avanzada_grouped</span><span class="p">[</span><span class="s1">&#39;POSS&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">obtener_poss</span><span class="p">(</span><span class="n">df_estadisticas_quinteto_grouped</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">df_quintetos_avanzada_grouped</span><span class="p">[</span><span class="s1">&#39;OER&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">obtener_oer</span><span class="p">(</span><span class="n">df_estadisticas_quinteto_grouped</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">df_quintetos_avanzada_grouped</span><span class="p">[</span><span class="s1">&#39;DER&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">obtener_der</span><span class="p">(</span><span class="n">df_estadisticas_quinteto_grouped</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">df_quintetos_avanzada_grouped</span><span class="p">[</span><span class="s1">&#39;NET&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_quintetos_avanzada_grouped</span><span class="p">[</span><span class="s1">&#39;OER&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df_quintetos_avanzada_grouped</span><span class="p">[</span><span class="s1">&#39;DER&#39;</span><span class="p">]</span>
+<span class="n">df_quintetos_avanzada_grouped</span><span class="p">[</span><span class="s1">&#39;eFG%&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">obtener_eFGp</span><span class="p">(</span><span class="n">df_estadisticas_quinteto_grouped</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">df_quintetos_avanzada_grouped</span><span class="p">[</span><span class="s1">&#39;RO%&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">obtener_ROp</span><span class="p">(</span><span class="n">df_estadisticas_quinteto_grouped</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">df_quintetos_avanzada_grouped</span><span class="p">[</span><span class="s1">&#39;FT%&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">obtener_FTp</span><span class="p">(</span><span class="n">df_estadisticas_quinteto_grouped</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">df_quintetos_avanzada_grouped</span><span class="p">[</span><span class="s1">&#39;TOV%&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">obtener_tovp</span><span class="p">(</span><span class="n">df_estadisticas_quinteto_grouped</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">df_quintetos_avanzada_grouped</span><span class="p">[</span><span class="s1">&#39;eFG%_R&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">obtener_eFGp_rival</span><span class="p">(</span><span class="n">df_estadisticas_quinteto_grouped</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">df_quintetos_avanzada_grouped</span><span class="p">[</span><span class="s1">&#39;RO%_R&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">obtener_ROp_rival</span><span class="p">(</span><span class="n">df_estadisticas_quinteto_grouped</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">df_quintetos_avanzada_grouped</span><span class="p">[</span><span class="s1">&#39;FT%_R&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">obtener_FTp_rival</span><span class="p">(</span><span class="n">df_estadisticas_quinteto_grouped</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">df_quintetos_avanzada_grouped</span><span class="p">[</span><span class="s1">&#39;TOV%_R&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">obtener_tovp_rival</span><span class="p">(</span><span class="n">df_estadisticas_quinteto_grouped</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="c1"># Se realiza la creación del conjuno de datos de predicción</span>
+<span class="n">df_quintetos_avanzada_total_grouped</span> <span class="o">=</span> <span class="n">df_estadisticas_total_quinteto_grouped</span><span class="p">[[</span><span class="s1">&#39;J1_CLUSTER_ORDERED&#39;</span><span class="p">,</span> <span class="s1">&#39;J2_CLUSTER_ORDERED&#39;</span><span class="p">,</span> <span class="s1">&#39;J3_CLUSTER_ORDERED&#39;</span><span class="p">,</span><span class="s1">&#39;J4_CLUSTER_ORDERED&#39;</span><span class="p">,</span> <span class="s1">&#39;J5_CLUSTER_ORDERED&#39;</span><span class="p">]]</span>
+<span class="n">df_quintetos_avanzada_total_grouped</span><span class="p">[</span><span class="s1">&#39;POSS&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">obtener_poss</span><span class="p">(</span><span class="n">df_estadisticas_total_quinteto_grouped</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">df_quintetos_avanzada_total_grouped</span><span class="p">[</span><span class="s1">&#39;OER&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">obtener_oer</span><span class="p">(</span><span class="n">df_estadisticas_total_quinteto_grouped</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">df_quintetos_avanzada_total_grouped</span><span class="p">[</span><span class="s1">&#39;DER&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">obtener_der</span><span class="p">(</span><span class="n">df_estadisticas_total_quinteto_grouped</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">df_quintetos_avanzada_total_grouped</span><span class="p">[</span><span class="s1">&#39;NET&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_quintetos_avanzada_total_grouped</span><span class="p">[</span><span class="s1">&#39;OER&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df_quintetos_avanzada_total_grouped</span><span class="p">[</span><span class="s1">&#39;DER&#39;</span><span class="p">]</span>
+<span class="n">df_quintetos_avanzada_total_grouped</span><span class="p">[</span><span class="s1">&#39;eFG%&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">obtener_eFGp</span><span class="p">(</span><span class="n">df_estadisticas_total_quinteto_grouped</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">df_quintetos_avanzada_total_grouped</span><span class="p">[</span><span class="s1">&#39;RO%&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">obtener_ROp</span><span class="p">(</span><span class="n">df_estadisticas_total_quinteto_grouped</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">df_quintetos_avanzada_total_grouped</span><span class="p">[</span><span class="s1">&#39;FT%&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">obtener_FTp</span><span class="p">(</span><span class="n">df_estadisticas_total_quinteto_grouped</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">df_quintetos_avanzada_total_grouped</span><span class="p">[</span><span class="s1">&#39;TOV%&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">obtener_tovp</span><span class="p">(</span><span class="n">df_estadisticas_total_quinteto_grouped</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">df_quintetos_avanzada_total_grouped</span><span class="p">[</span><span class="s1">&#39;eFG%_R&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">obtener_eFGp_rival</span><span class="p">(</span><span class="n">df_estadisticas_total_quinteto_grouped</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">df_quintetos_avanzada_total_grouped</span><span class="p">[</span><span class="s1">&#39;RO%_R&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">obtener_ROp_rival</span><span class="p">(</span><span class="n">df_estadisticas_total_quinteto_grouped</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">df_quintetos_avanzada_total_grouped</span><span class="p">[</span><span class="s1">&#39;FT%_R&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">obtener_FTp_rival</span><span class="p">(</span><span class="n">df_estadisticas_total_quinteto_grouped</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">df_quintetos_avanzada_total_grouped</span><span class="p">[</span><span class="s1">&#39;TOV%_R&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">obtener_tovp_rival</span><span class="p">(</span><span class="n">df_estadisticas_total_quinteto_grouped</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;####################################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# CONJUNTOS DE DATOS DE ENTRENAMIENTO&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;####################################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de registros:&quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">df_quintetos_avanzada_grouped</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de variables:&quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">df_quintetos_avanzada_grouped</span><span class="o">.</span><span class="n">columns</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_quintetos_avanzada_grouped</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_space</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">####################################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# CONJUNTOS DE DATOS DE PREDICCIÓN&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;####################################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de registros:&quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">df_quintetos_avanzada_total_grouped</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de variables:&quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">df_quintetos_avanzada_total_grouped</span><span class="o">.</span><span class="n">columns</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_quintetos_avanzada_total_grouped</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_space</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>####################################################
+# CONJUNTOS DE DATOS DE ENTRENAMIENTO
+####################################################
+Nº de registros: 2297
+Nº de variables: 19
+ TEMPORADA     EQUIPO  J1_CLUSTER_ORDERED  J2_CLUSTER_ORDERED  J3_CLUSTER_ORDERED  J4_CLUSTER_ORDERED  J5_CLUSTER_ORDERED  POSS    OER    DER     NET   eFG%    RO%   FT%   TOV%  eFG%_R  RO%_R  FT%_R  TOV%_R
+      2020 Acunsa GBC                   1                   1                   1                   1                   2  9.00 0.5556 1.0000 -0.4444 0.2500 0.2500 0.000 0.0909  0.5000 0.2500 0.1250  0.1838
+      2020 Acunsa GBC                   1                   1                   1                   1                   3 62.52 0.9437 1.0397 -0.0960 0.4417 0.2105 0.100 0.0993  0.6170 0.2381 0.1489  0.1469
+      2020 Acunsa GBC                   1                   1                   1                   2                   3 59.72 1.1219 1.1721 -0.0502 0.5192 0.3846 0.250 0.1721  0.7143 0.3333 0.2381  0.2375
+      2020 Acunsa GBC                   1                   1                   1                   2                   5  7.00 0.4286 0.5714 -0.1428 0.3000 0.3333 0.000 0.3750  0.2000 0.5000 0.0000  0.0909
+      2020 Acunsa GBC                   1                   1                   1                   3                   3 39.32 1.5514 1.0173  0.5341 0.7500 0.3333 0.025 0.0462  0.5517 0.1250 0.2759  0.1302
+
+####################################################
+# CONJUNTOS DE DATOS DE PREDICCIÓN
+####################################################
+Nº de registros: 213
+Nº de variables: 17
+ J1_CLUSTER_ORDERED  J2_CLUSTER_ORDERED  J3_CLUSTER_ORDERED  J4_CLUSTER_ORDERED  J5_CLUSTER_ORDERED   POSS    OER    DER     NET   eFG%    RO%    FT%   TOV%  eFG%_R  RO%_R  FT%_R  TOV%_R
+                  0                   0                   0                   0                   2   2.00 1.0000 1.0000  0.0000 0.5000 0.0000 0.0000 0.0000  0.0000 0.0000    inf  0.0000
+                  0                   0                   0                   0                   5   3.88 0.5155 1.5464 -1.0309 0.0000 0.0000 1.0000 0.2577  0.5000 0.0000 2.0000  0.0000
+                  0                   0                   0                   1                   1   6.00 0.5000 1.5000 -1.0000 0.1875 0.4286 0.0000 0.1111  0.5714 0.3333 0.1429  0.0000
+                  0                   0                   0                   1                   2 174.88 1.0636 0.8520  0.2116 0.5139 0.2857 0.2639 0.1524  0.4271 0.3152 0.1806  0.1580
+                  0                   0                   0                   1                   3  18.88 0.7945 0.8475 -0.0530 0.5417 0.0000 0.1667 0.3178  0.5000 0.1250 0.0667  0.2395
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para finalizar, se realiza la limpieza de ambos conjutos de datos seleccionando aquellos registros en los que los quintetos hayan jugado al menos un total de 40 posesiones para que no existan quintetos que tengan valores altamente positivo o negativos por el haber jugado posesiones casi residuales. Además se seleccionan únicamente las variables que se incluirán en el entrenamiento y la variable predictora:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filtrado de ambos conjuntos de datos por 20 posesiones</span>
+<span class="n">df_quintetos_avanzada_grouped</span> <span class="o">=</span> <span class="n">df_quintetos_avanzada_grouped</span><span class="p">[</span><span class="n">df_quintetos_avanzada_grouped</span><span class="p">[</span><span class="s1">&#39;POSS&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">40</span><span class="p">]</span>
+<span class="n">df_quintetos_avanzada_total_grouped</span> <span class="o">=</span> <span class="n">df_quintetos_avanzada_total_grouped</span><span class="p">[</span><span class="n">df_quintetos_avanzada_total_grouped</span><span class="p">[</span><span class="s1">&#39;POSS&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">40</span><span class="p">]</span>
+
+<span class="c1"># Selección de variables</span>
+<span class="n">df_quintetos_avanzada_grouped</span> <span class="o">=</span> <span class="n">df_quintetos_avanzada_grouped</span><span class="p">[[</span> <span class="s1">&#39;J1_CLUSTER_ORDERED&#39;</span><span class="p">,</span> <span class="s1">&#39;J2_CLUSTER_ORDERED&#39;</span><span class="p">,</span><span class="s1">&#39;J3_CLUSTER_ORDERED&#39;</span><span class="p">,</span> <span class="s1">&#39;J4_CLUSTER_ORDERED&#39;</span><span class="p">,</span> <span class="s1">&#39;J5_CLUSTER_ORDERED&#39;</span><span class="p">,</span><span class="s1">&#39;eFG%&#39;</span><span class="p">,</span> <span class="s1">&#39;RO%&#39;</span><span class="p">,</span> <span class="s1">&#39;FT%&#39;</span><span class="p">,</span><span class="s1">&#39;TOV%&#39;</span><span class="p">,</span> <span class="s1">&#39;eFG%_R&#39;</span><span class="p">,</span> <span class="s1">&#39;RO%_R&#39;</span><span class="p">,</span> <span class="s1">&#39;FT%_R&#39;</span><span class="p">,</span> <span class="s1">&#39;TOV%_R&#39;</span><span class="p">,</span><span class="s1">&#39;NET&#39;</span><span class="p">]]</span>
+<span class="n">df_quintetos_avanzada_total_grouped</span> <span class="o">=</span> <span class="n">df_quintetos_avanzada_total_grouped</span><span class="p">[[</span> <span class="s1">&#39;J1_CLUSTER_ORDERED&#39;</span><span class="p">,</span> <span class="s1">&#39;J2_CLUSTER_ORDERED&#39;</span><span class="p">,</span><span class="s1">&#39;J3_CLUSTER_ORDERED&#39;</span><span class="p">,</span> <span class="s1">&#39;J4_CLUSTER_ORDERED&#39;</span><span class="p">,</span> <span class="s1">&#39;J5_CLUSTER_ORDERED&#39;</span><span class="p">,</span><span class="s1">&#39;eFG%&#39;</span><span class="p">,</span> <span class="s1">&#39;RO%&#39;</span><span class="p">,</span> <span class="s1">&#39;FT%&#39;</span><span class="p">,</span><span class="s1">&#39;TOV%&#39;</span><span class="p">,</span> <span class="s1">&#39;eFG%_R&#39;</span><span class="p">,</span> <span class="s1">&#39;RO%_R&#39;</span><span class="p">,</span> <span class="s1">&#39;FT%_R&#39;</span><span class="p">,</span> <span class="s1">&#39;TOV%_R&#39;</span><span class="p">,</span><span class="s1">&#39;NET&#39;</span><span class="p">]]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;####################################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# CONJUNTOS DE DATOS DE ENTRENAMIENTO&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;####################################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de registros:&quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">df_quintetos_avanzada_grouped</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de variables:&quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">df_quintetos_avanzada_grouped</span><span class="o">.</span><span class="n">columns</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_quintetos_avanzada_grouped</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_space</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">####################################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# CONJUNTOS DE DATOS DE PREDICCIÓN&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;####################################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de registros:&quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">df_quintetos_avanzada_total_grouped</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de variables:&quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">df_quintetos_avanzada_total_grouped</span><span class="o">.</span><span class="n">columns</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_quintetos_avanzada_total_grouped</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_space</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>####################################################
+# CONJUNTOS DE DATOS DE ENTRENAMIENTO
+####################################################
+Nº de registros: 797
+Nº de variables: 14
+ J1_CLUSTER_ORDERED  J2_CLUSTER_ORDERED  J3_CLUSTER_ORDERED  J4_CLUSTER_ORDERED  J5_CLUSTER_ORDERED   eFG%    RO%    FT%   TOV%  eFG%_R  RO%_R  FT%_R  TOV%_R     NET
+                  1                   1                   1                   1                   3 0.4417 0.2105 0.1000 0.0993  0.6170 0.2381 0.1489  0.1469 -0.0960
+                  1                   1                   1                   2                   3 0.5192 0.3846 0.2500 0.1721  0.7143 0.3333 0.2381  0.2375 -0.0502
+                  1                   1                   1                   3                   4 0.5167 0.2838 0.1250 0.1489  0.5427 0.4127 0.1282  0.1873 -0.0224
+                  1                   1                   1                   3                   5 0.4732 0.2105 0.0893 0.0898  0.4912 0.3103 0.1404  0.1270 -0.1020
+                  1                   1                   2                   3                   3 0.5152 0.2564 0.1212 0.1935  0.5508 0.3333 0.3051  0.1812 -0.0899
+
+####################################################
+# CONJUNTOS DE DATOS DE PREDICCIÓN
+####################################################
+Nº de registros: 160
+Nº de variables: 14
+ J1_CLUSTER_ORDERED  J2_CLUSTER_ORDERED  J3_CLUSTER_ORDERED  J4_CLUSTER_ORDERED  J5_CLUSTER_ORDERED   eFG%    RO%    FT%   TOV%  eFG%_R  RO%_R  FT%_R  TOV%_R     NET
+                  0                   0                   0                   1                   2 0.5139 0.2857 0.2639 0.1524  0.4271 0.3152 0.1806  0.1580  0.2116
+                  0                   0                   0                   1                   4 0.4970 0.3488 0.2349 0.1517  0.5424 0.2644 0.1515  0.1460  0.0000
+                  0                   0                   0                   2                   2 0.5685 0.3484 0.2500 0.1304  0.4645 0.2982 0.2553  0.1676  0.2107
+                  0                   0                   0                   2                   4 0.5430 0.3494 0.3311 0.1888  0.5915 0.2949 0.3007  0.1675 -0.0671
+                  0                   0                   0                   2                   5 0.5784 0.2885 0.5392 0.1995  0.4675 0.3158 0.2520  0.1582  0.1857
+</pre></div>
+</div>
+</div>
+</div>
+<p>Tras la finalización de la preparación de variables, se obtienen dos conjuntos de datos uno que será utilizado para el entrenamiento del modelo de regresión y otro que será utilizado para la obtención de los mejores quinteto.</p>
+</section>
+<section id="seleccion-del-modelo-de-regresion">
+<h2>2. Selección del modelo de regresión.<a class="headerlink" href="#seleccion-del-modelo-de-regresion" title="Link to this heading">#</a></h2>
+<p>Como se ha comentado al inicio del notebook ha sido decidido que, para la selección de los mejores quintetos conformados por la nuevas posiciones, se realice la implementación de un algoritmo de regresión debido a que mediante este tipo de algoritmo se puede realizar la predicción de una variable numérica lo que permitirá obtención de <em>rating</em> que permita clasificar a los equipos en función diferentes caracteristicas que permitan definir a los quintetos. Es por este motivo que como primer paso dentro de esta implementación, se realizará la evaluación de diferentes modelos de regresión que permitan ajustarse al conjunto de datos de entrenamiento anteriormente construido.</p>
+<p>Para esta evaluación, en primer lugar, se realizará la ejecución de 4 algoritmos de regresión en los que se buscarán los mejores hiperparámetros para cada uno de ellos mediante el método de validación cruzada. Estos algoritmos de regresión son los siguientes:</p>
+<ul class="simple">
+<li><p><em>Regresión lineal.</em> Es uno de los algoritmos de aprendizaje automático más simples y utilizados en regresión debido a que busca minimizar la suma de los errores cuadrados entre las predicciones del modelo y los valores reales.</p></li>
+<li><p><em>Random forest.</em> Es un algortimo de aprendizaje automático basado en arboles de decisión en donde, el modelo, construye múltiples árboles de decisión durante el entrenamiento y emite la media de las predicciones de los árboles individuales para obtener una predicción más precisa y robusta.</p></li>
+<li><p><em>SVR lineal.</em> Es un algoritmo de aprendizaje automático basado en las máquinas de soporte vectorial. Este algoritmo intenta encontrar un hiperplano en un espacio de alta dimensión que minimiza el error de la predcción, a la vez que se asegura de que las desviaciones de las predicciones estén dentro de un margen tolerable.</p></li>
+<li><p><em>XGBoost.</em> Es un método de aprendzaje supervisado que combina las predicciones de múltiples modelos más simples para mejorar la precisión.</p></li>
+</ul>
+<p>Como entrada a los anteriores modelos definidos, y como se ha nombrado anteriormente, se hará uso del conjunto de datos de entrenamiento que ha sido construido en el apartado anterior. Este conjunto de datos, será divido en dos subdonjutos de variables:</p>
+<ul class="simple">
+<li><p><em>Variables predictoras.</em> Ha sido seleccionadas las variables J1_CLUSTER_ORDERED, J2_CLUSTER_ORDERED, J3_CLUSTER_ORDERED, J4_CLUSTER_ORDERED y J5_CLUSTER_ORDERED que representarán las nuevas posiciones de jugadores de baloncesto y las variables eFG%, RO%, FT%, TOV%, eFG%_R, RO%_R, FT%_R y TOV%_R que representarán el desempeño del quinteto y de sus rivales el tiempo que estuvieron en pista.</p></li>
+<li><p><em>Variable a predecir.</em> Ha sido seleccionada la variable <em>NET</em> que es la variable que permite conocer el rendimiento de un quinteto a través de la diferencia del rendimiento ofensivo y defensivo del quinteto.</p></li>
+</ul>
+<p>Dicho esto se pasa a la construcción de los datos de entrada de los modelos, los cuales serán divididos en conjunto de entrenamiento y test para evaluar cual de los modelos es el que mejor se ajusta a los datos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># División de variables predictoras y variable a predecir</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df_quintetos_avanzada_grouped</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;NET&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df_quintetos_avanzada_grouped</span><span class="p">[</span><span class="s1">&#39;NET&#39;</span><span class="p">]</span>
+
+<span class="c1"># División en datos de entrenamiento y text</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Tras la división del conjunto de datos, se pasa a la evaluación de cada uno de los modelos. Para esta evaluación se ha decidido utilizar el coeficiente de determinación (R²), que es una medida estadística que indica la proporción de la variabilidad de la variable dependiente que es explicada por las variables independientes en el modelo en el rango de 0 a 1. Se pasa a la hiperametrización de cada uno de los modelos:</p>
+<section id="regresion-lineal">
+<h3>2.1 Regresión lineal<a class="headerlink" href="#regresion-lineal" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inicialización del modelo e hiperametrización</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;fit_intercept&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span> <span class="s1">&#39;positive&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span> <span class="s1">&#39;n_jobs&#39;</span><span class="p">:</span>  <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]}</span>
+
+<span class="c1"># Obtención de mejores hiperparámetros</span>
+<span class="n">grid_search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;r2&#39;</span><span class="p">)</span>
+<span class="n">grid_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">best_params</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_params_</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mejores hiperparámetros encontrados:&quot;</span><span class="p">,</span> <span class="n">best_params</span><span class="p">)</span>
+
+<span class="c1"># Obtención de resultados con los mejores hiperparámetros</span>
+<span class="n">best_model</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_estimator_</span>
+<span class="n">score</span> <span class="o">=</span> <span class="n">best_model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Coeficiente de determinación (R^2) del modelo:&quot;</span><span class="p">,</span> <span class="n">score</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mejores hiperparámetros encontrados: {&#39;fit_intercept&#39;: True, &#39;n_jobs&#39;: 1, &#39;positive&#39;: False}
+Coeficiente de determinación (R^2) del modelo: 0.9106143574397704
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="random-forest">
+<h3>2.2 Random forest<a class="headerlink" href="#random-forest" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inicialización del modelo e hiperametrización</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;n_estimators&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span> <span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span> <span class="s1">&#39;min_samples_split&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;min_samples_leaf&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]}</span>
+
+<span class="c1"># Obtención de mejores hiperparámetros</span>
+<span class="n">grid_search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;r2&#39;</span><span class="p">)</span>
+<span class="n">grid_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">best_params</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_params_</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mejores hiperparámetros encontrados:&quot;</span><span class="p">,</span> <span class="n">best_params</span><span class="p">)</span>
+
+<span class="c1"># Obtención de resultados con los mejores hiperparámetros</span>
+<span class="n">best_model</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_estimator_</span>
+<span class="n">score</span> <span class="o">=</span> <span class="n">best_model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Coeficiente de determinación (R^2) del modelo:&quot;</span><span class="p">,</span> <span class="n">score</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mejores hiperparámetros encontrados: {&#39;max_depth&#39;: 20, &#39;min_samples_leaf&#39;: 1, &#39;min_samples_split&#39;: 2, &#39;n_estimators&#39;: 200}
+Coeficiente de determinación (R^2) del modelo: 0.805981331715861
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="svr-lineal">
+<h3>2.3 SVR lineal<a class="headerlink" href="#svr-lineal" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inicialización del modelo e hiperametrización</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+<span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;gamma&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;scale&#39;</span><span class="p">,</span> <span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;epsilon&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]}</span>
+
+<span class="c1"># Obtención de mejores hiperparámetros</span>
+<span class="n">grid_search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;r2&#39;</span><span class="p">)</span>
+<span class="n">grid_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">best_params</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_params_</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mejores hiperparámetros encontrados:&quot;</span><span class="p">,</span> <span class="n">best_params</span><span class="p">)</span>
+
+<span class="c1"># Obtención de resultados con los mejores hiperparámetros</span>
+<span class="n">best_model</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_estimator_</span>
+<span class="n">score</span> <span class="o">=</span> <span class="n">best_model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Coeficiente de determinación (R^2) del modelo:&quot;</span><span class="p">,</span> <span class="n">score</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mejores hiperparámetros encontrados: {&#39;C&#39;: 10, &#39;epsilon&#39;: 0.01, &#39;gamma&#39;: &#39;scale&#39;}
+Coeficiente de determinación (R^2) del modelo: 0.9127831129849127
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="xgboost">
+<h3>2.4 XGBoost<a class="headerlink" href="#xgboost" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inicialización del modelo e hiperametrización</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">XGBRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;n_estimators&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">],</span><span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span><span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">]}</span>
+
+<span class="c1"># Obtención de mejores hiperparámetros</span>
+<span class="n">grid_search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;r2&#39;</span><span class="p">)</span>
+<span class="n">grid_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">best_params</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_params_</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mejores hiperparámetros encontrados:&quot;</span><span class="p">,</span> <span class="n">best_params</span><span class="p">)</span>
+
+<span class="c1"># Obtención de resultados con los mejores hiperparámetros</span>
+<span class="n">best_model</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_estimator_</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">best_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Coeficiente de determinación (R^2) del modelo:&quot;</span><span class="p">,</span> <span class="n">r2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mejores hiperparámetros encontrados: {&#39;learning_rate&#39;: 0.1, &#39;max_depth&#39;: 3, &#39;n_estimators&#39;: 300}
+Coeficiente de determinación (R^2) del modelo: 0.8631282005902833
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="seleccion-del-mejor-modelo">
+<h3>2.5 Selección del mejor modelo<a class="headerlink" href="#seleccion-del-mejor-modelo" title="Link to this heading">#</a></h3>
+<p>Tras la ejecución de los 4 modelos definidos junto a su hiperparametrización, se puede observar como todos los modelos han obtenido un <em>coeficiente de determinación</em> superior al 0.7 lo cual muestra que durante la hiperparametrización se han encontrado hiperparametros que se ajustan bien a los datos. Teniendo esto presente, los <em>coeficientes de determinación</em> se obtienen con el modelo de <em>Regresión lineal</em> y con el modelo <em>SVR lineal</em> dando unos valores de 0.910 y de 0.912 respectivamente. Debido a que las diferencias entre ambos resultados no son muy significativas y poniendo por delante la complejidad de los modelos, ha sido decidido que el modelo utilizado para la selección de los mejores quintetos sea el <strong>SVR lineal</strong> debido a que, como se ha comentado anteriormente, este modelo tiene una capacidad robusta para manejar datos de alta dimensionalidad y es menos susceptible a la multicolinealidad entre las variables independientes, lo que puede llevar a mejores resultados en escenarios más complejos.</p>
+</section>
+</section>
+<section id="entrenamineto-y-prediccion">
+<h2>3. Entrenamineto y predicción.<a class="headerlink" href="#entrenamineto-y-prediccion" title="Link to this heading">#</a></h2>
+<p>Tras la selección del modelo <em>SVR Lineal</em> como el escogido para realizar la búsqueda de los mejores quintetos, se pasa a realizar el entrenamiento de este y la predicción del <em>rating</em> que permita obtener estos quintetos. Con respecto al entrenamiento, ha sido decidido realizarlo con todos los quintetos utilizados por cada uno de los equipos a lo largo de una temporada teniendo así presente todos los posibles quintetos en su contexto de juego y evitanto así el sobre ajuste sobre los datos. Es por este motivo que se realiza el entrenamiento sobre el cojunto de datos de entrenamiento preparado anteriormente:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inicialización del modelo y entrenamiento</span>
+<span class="n">model_SVR</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span><span class="n">C</span><span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span> <span class="s1">&#39;scale&#39;</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="n">model_SVR</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>SVR(C=10, epsilon=0.01, kernel=&#x27;linear&#x27;)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">SVR</label><div class="sk-toggleable__content"><pre>SVR(C=10, epsilon=0.01, kernel=&#x27;linear&#x27;)</pre></div></div></div></div></div></div></div>
+</div>
+<p>Tras el entrenamiento del modelo, se pasa a obtener la predicción sobre el conjunto de datos preparado anteriormente en el que se representa cada uno de los quintetos sin tener en cuenta el contexto en el que participaron. Con esto se buscará predecir el <em>rating</em> que represente el desempeño de cada quinteto dentro de la liga:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Se realiza la predicción sobre el conjunto de datos de predicción</span>
+<span class="n">df_quintetos_avanzada_total_grouped</span><span class="p">[</span><span class="s1">&#39;RATING&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">model_SVR</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">df_quintetos_avanzada_total_grouped</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;NET&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;####################################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# RESULTADOS TRAS PREDICCION&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;####################################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_quintetos_avanzada_total_grouped</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;RATING&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_space</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>####################################################
+# RESULTADOS TRAS PREDICCION
+####################################################
+ J1_CLUSTER_ORDERED  J2_CLUSTER_ORDERED  J3_CLUSTER_ORDERED  J4_CLUSTER_ORDERED  J5_CLUSTER_ORDERED   eFG%    RO%    FT%   TOV%  eFG%_R  RO%_R  FT%_R  TOV%_R    NET   RATING
+                  0                   2                   2                   2                   2 0.5282 0.3947 0.3803 0.1665  0.4118 0.1818 0.2500  0.1796 0.3330 0.353195
+                  1                   2                   5                   5                   5 0.6282 0.5500 0.3333 0.1730  0.4444 0.3667 0.2222  0.1159 0.0427 0.320870
+                  0                   3                   3                   5                   5 0.5967 0.3382 0.2164 0.1258  0.4644 0.2928 0.1627  0.1698 0.3143 0.315618
+                  1                   2                   4                   5                   5 0.5636 0.3443 0.3273 0.1680  0.5000 0.2258 0.1667  0.2334 0.1932 0.303222
+                  0                   2                   2                   4                   5 0.5833 0.2976 0.1731 0.1165  0.5385 0.1918 0.2615  0.2394 0.2029 0.280745
+                  5                   5                   5                   5                   5 0.5465 0.4615 0.3256 0.1190  0.3977 0.3929 0.2955  0.1188 0.2778 0.261573
+                  0                   0                   0                   2                   2 0.5685 0.3484 0.2500 0.1304  0.4645 0.2982 0.2553  0.1676 0.2107 0.247162
+                  0                   0                   1                   5                   5 0.5980 0.3169 0.2162 0.1261  0.5154 0.2778 0.2962  0.1637 0.2175 0.174202
+                  0                   3                   5                   5                   5 0.5909 0.2906 0.2860 0.1473  0.5511 0.2821 0.1869  0.1881 0.1649 0.171273
+                  0                   0                   0                   2                   5 0.5784 0.2885 0.5392 0.1995  0.4675 0.3158 0.2520  0.1582 0.1857 0.170572
+                  0                   0                   2                   5                   5 0.5449 0.2849 0.2424 0.1444  0.4875 0.2605 0.2236  0.1868 0.1556 0.165917
+                  1                   1                   1                   2                   4 0.5652 0.3830 0.1522 0.1674  0.4337 0.3729 0.1633  0.1442 0.1675 0.160342
+                  0                   0                   0                   1                   2 0.5139 0.2857 0.2639 0.1524  0.4271 0.3152 0.1806  0.1580 0.2116 0.157661
+                  3                   3                   5                   5                   5 0.6192 0.2583 0.3054 0.1089  0.5655 0.2627 0.1905  0.1363 0.1280 0.153924
+                  0                   3                   4                   4                   5 0.5274 0.3590 0.2192 0.1618  0.5278 0.2687 0.1905  0.2200 0.1708 0.150605
+                  0                   1                   1                   5                   5 0.5586 0.3345 0.2253 0.1395  0.5137 0.2962 0.2383  0.1748 0.1370 0.138348
+                  0                   0                   2                   3                   5 0.5929 0.3062 0.2125 0.1622  0.4847 0.3789 0.2853  0.1785 0.1534 0.126618
+                  1                   1                   1                   2                   5 0.5580 0.3158 0.1014 0.1586  0.3944 0.2941 0.2394  0.1077 0.1442 0.120055
+                  0                   0                   1                   2                   2 0.5390 0.3016 0.2211 0.1508  0.4869 0.2722 0.1980  0.1512 0.1094 0.110389
+                  0                   0                   1                   2                   5 0.5746 0.3087 0.2619 0.1496  0.5214 0.2970 0.2191  0.1613 0.1292 0.110000
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como puede observarse, al conjunto de datos ha sido añadido la variable <em>RATING</em> en la cual se almacena la predicción para cada uno de los quintetos existentes dentro de la liga.</p>
+</section>
+<section id="analisis-de-resultados">
+<h2>4. Análisis de resultados<a class="headerlink" href="#analisis-de-resultados" title="Link to this heading">#</a></h2>
+<p>Tras realizar la predicción sobre el conjunto de datos, se pasa a realizar la evaluación de los resultados obtenidos. Para ello en primer lugar, se va a comparar el <em>NET</em> de cada uno de los quintetos con el <em>RATING</em> predicho por el modelo para comprobar si estos valores mantienen la misma ordenación o por el contrario los nuevos valores permiten obtener una nueva ordenación diferente:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Se obtiene el orden de aparición de cada uno de los registros</span>
+<span class="n">df_quintetos_avanzada_total_grouped</span> <span class="o">=</span> <span class="n">df_quintetos_avanzada_total_grouped</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;RATING&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">l_RATING</span> <span class="o">=</span> <span class="n">df_quintetos_avanzada_total_grouped</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;RATING&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()[</span><span class="s1">&#39;index&#39;</span><span class="p">]</span>
+<span class="n">l_NET</span> <span class="o">=</span> <span class="n">df_quintetos_avanzada_total_grouped</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;NET&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()[</span><span class="s1">&#39;index&#39;</span><span class="p">]</span>
+
+<span class="c1"># Se calcula las métricas sobre las diferencias entre posiciones</span>
+<span class="n">diferencias</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">l_RATING</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">l_NET</span><span class="p">)</span>
+<span class="n">media_diferencias</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">diferencias</span><span class="p">)</span>
+<span class="n">desviacion_diferencias</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">diferencias</span><span class="p">)</span>
+<span class="n">varianza_diferencias</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">diferencias</span><span class="p">)</span>
+<span class="n">moda_diferencias</span> <span class="o">=</span> <span class="n">mode</span><span class="p">(</span><span class="n">diferencias</span><span class="p">)</span>
+<span class="n">mediana_diferencias</span> <span class="o">=</span> <span class="n">median</span><span class="p">(</span><span class="n">diferencias</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;##############################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# MEDIDAS ENTRE LOS RESULTADOS OBTENIDOS&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;##############################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Media de las diferencias:&quot;</span><span class="p">,</span> <span class="n">media_diferencias</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Desviación estándar de las diferencias:&quot;</span><span class="p">,</span> <span class="n">desviacion_diferencias</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mediana de las diferencias:&quot;</span><span class="p">,</span> <span class="n">mediana_diferencias</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Moda de las diferencias:&quot;</span><span class="p">,</span> <span class="n">moda_diferencias</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>  <span class="c1"># Tamaño de la figura</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">l_RATING</span><span class="p">,</span> <span class="n">l_NET</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Comparación RATING vs NET&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;RATING&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;NET&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>##############################################
+# MEDIDAS ENTRE LOS RESULTADOS OBTENIDOS
+##############################################
+Media de las diferencias: 0.0
+Desviación estándar de las diferencias: 19.24935063839817
+Mediana de las diferencias: 1.0
+Moda de las diferencias: 1
+</pre></div>
+</div>
+<img alt="_images/295bce5295d1a80c534b280ef013df9c596b3bfa45f09f32bbde3e03fccb7aa0.png" src="_images/295bce5295d1a80c534b280ef013df9c596b3bfa45f09f32bbde3e03fccb7aa0.png" />
+</div>
+</div>
+<p>Como puede observarse, en la comparativa del <em>RATING</em> predicho y el <em>NET</em> de cada uno de los quintetos se aprecia que el modelo no está deolviendo la misma ordenación de quintetos lo que los valores predichos por el modelo muestran una nueva forma de clasificar a cada uno de los quintetos. Por otro lado, con respecto a los resultados de la predicción, se puede apreciar como no existe un sobre ajuste de los datos ya que se así la dispersión que se esperaría seria la de una línea totalmente vertical. Además, se puede apreciar que no existen una gran diferencia en los 10 quintetos cuyo NET es más alto con el <em>RATING</em> predicho pero si que se pueden encontrar amplias diferencias en a partir del resto de quintetos.</p>
+<p>Una vez visto que no existe sobre ajuste sobre los datos, se pasa a realizar la visualización la importancia de cada una de las variables dentro del modelo a la hora de realizar la predicción:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Selección de coeficientes de cada variable y seleccion de nombres de cada variables</span>
+<span class="n">coef</span> <span class="o">=</span> <span class="n">model_SVR</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">feature_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df_quintetos_avanzada_total_grouped</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;NET&#39;</span><span class="p">,</span> <span class="s1">&#39;RATING&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+
+<span class="c1"># Se genera la visualización</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">bars</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">feature_names</span><span class="p">,</span> <span class="n">coef</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">bar</span> <span class="ow">in</span> <span class="n">bars</span><span class="p">:</span>
+    <span class="n">yval</span> <span class="o">=</span> <span class="n">bar</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">bar</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span> <span class="o">+</span> <span class="n">bar</span><span class="o">.</span><span class="n">get_width</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">yval</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">yval</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">bar</span> <span class="ow">in</span> <span class="n">bars</span><span class="p">:</span>
+    <span class="n">bar</span><span class="o">.</span><span class="n">set_linewidth</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">bar</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Características&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Peso (Coeficiente)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Importancia de las variables en el modelo SVR&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/456d56dbe0b23dd3f9dfda8be43dec3b910bfa591aec38f58e16baf5d6466dcc.png" src="_images/456d56dbe0b23dd3f9dfda8be43dec3b910bfa591aec38f58e16baf5d6466dcc.png" />
+</div>
+</div>
+<p>Siguiendo el gráfico puede observase que las variables están divididas en tres grupos por su importancia:</p>
+<ul class="simple">
+<li><p><em>Variable neutras.</em> Compuestas por las variables que hacen referencia a la posición de los jugadores. La importancia de estas variables es 0 lo cual tiene sentido ya que solo representan la nueva posición del jugador dentro del quinteto.</p></li>
+<li><p><em>Variables con peso positivo.</em> Compuestas por las variable eFG%, TOV%_R, RO% y FT%- La importancia de estas variables es positiva lo cual tiene sentido debido a que representan lo bien que lo hizo un quinteto en cuanto a la eficiencia de tiro, volumen de pérdidas del rival, dominancia del rebote ofensivo y verticalidad al aro respectivamente.</p></li>
+<li><p><em>Variables con peso negativo.</em> Compuestas por las variables eFG%_R, TOV%, RO%_R y FT%_R lo cual tiene sentido debido a que representan lo bien que lo hizo el quinteto rival en cuanto a su eficiencia en el tiro, el volumen de pérdidas que provocó al quinteto, su dominancia en el rebote ofensivo y su verticalidad al aro respectivamente.</p></li>
+</ul>
+<p>Teniendo presente estos tres tipo de variables, se puede concluir que el modelo creado realiza la predicción del <em>RATING</em> siguiendo los estandares lógicos dentro de cada una de los apartados estadísticos, y por lo tanto, tiene sentido con la realidad que se puede encontrar detro de las pistas de baloncesto.</p>
+<p>Dicho esto, se pasa a analizar los resultados del modelo teniendo en cuenta las nuevas posiciones con el fin de conocer los mejores quintetos a utilizar dentro de la liga. Para ello, se pasa a visualizar los 50 mejores quintetos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;####################################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# TOP-50 Mejores quintetos&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;####################################################&quot;</span><span class="p">)</span>
+<span class="n">df_top_50_mejores</span> <span class="o">=</span> <span class="n">df_quintetos_avanzada_total_grouped</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;RATING&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="c1"># Se genera la visualización por posicion</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  <span class="c1"># Asegurar que los subplots se generen horizontalmente</span>
+<span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;J1_CLUSTER_ORDERED&#39;</span><span class="p">,</span> <span class="s1">&#39;J2_CLUSTER_ORDERED&#39;</span><span class="p">,</span> <span class="s1">&#39;J3_CLUSTER_ORDERED&#39;</span><span class="p">,</span> <span class="s1">&#39;J4_CLUSTER_ORDERED&#39;</span><span class="p">,</span> <span class="s1">&#39;J5_CLUSTER_ORDERED&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">column</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">columns</span><span class="p">):</span>
+    <span class="n">obtener_visualizacion_quinteto</span><span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">df_top_50_mejores</span><span class="p">,</span> <span class="n">column</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>####################################################
+# TOP-50 Mejores quintetos
+####################################################
+</pre></div>
+</div>
+<img alt="_images/7b1086007171e416597cbea4f3ad9cb5ead59fccbc07d4a993fd9cfb33d44779.png" src="_images/7b1086007171e416597cbea4f3ad9cb5ead59fccbc07d4a993fd9cfb33d44779.png" />
+</div>
+</div>
+<p>Como puede observarse en los 50 mejores quintetos bansandose en el <em>RATING</em> calculado por el modelo, existe una clara predominancia de que en todos ellos al meno uno de los jugadores pertenezca al cluster 0, es decir, sea un <em>Organizador del juego</em>. Por otro lado, existe también una clara tendencia en los equipos a tener jugadores pertenecientes a los clusters 2 y 5 debido a que estos tipos de jugadores destacan por su capacidad de rebote y su buena puntería desde distintas partes de la línea de tres. Por otro lado, se puede observar como la utilización de jugadores perteneciente al <em>cluster 5</em> es muy reducida en los quintetos por lo que no es tan importante tener a un dominador de la pintura, y los jugadores pertenecientes al <em>cluster 3</em> lo que hace pensar que no es tan necesario tener a un jugador capaz de organizar y tirar desde la esquina.</p>
+<p>Revisados los 25 mejores quintetos según el <em>RATING</em> se pasa a realizar la composición de los quintetos más eficientes dentro de la liga la cual se basará en el porcentaje de aparación de cada una de las nuevas posiciones en función del jugador:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;####################################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# TOP-5 Mejores quintetos&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;####################################################&quot;</span><span class="p">)</span>
+<span class="n">df_top_10_mejores</span> <span class="o">=</span> <span class="n">df_quintetos_avanzada_total_grouped</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;RATING&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">df_top_10_mejores</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_space</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>####################################################
+# TOP-5 Mejores quintetos
+####################################################
+
+  J1_CLUSTER_ORDERED  J2_CLUSTER_ORDERED  J3_CLUSTER_ORDERED  J4_CLUSTER_ORDERED  J5_CLUSTER_ORDERED   eFG%    RO%    FT%   TOV%  eFG%_R  RO%_R  FT%_R  TOV%_R    NET   RATING
+                  0                   2                   2                   2                   2 0.5282 0.3947 0.3803 0.1665  0.4118 0.1818 0.2500  0.1796 0.3330 0.353195
+                  1                   2                   5                   5                   5 0.6282 0.5500 0.3333 0.1730  0.4444 0.3667 0.2222  0.1159 0.0427 0.320870
+                  0                   3                   3                   5                   5 0.5967 0.3382 0.2164 0.1258  0.4644 0.2928 0.1627  0.1698 0.3143 0.315618
+                  1                   2                   4                   5                   5 0.5636 0.3443 0.3273 0.1680  0.5000 0.2258 0.1667  0.2334 0.1932 0.303222
+                  0                   2                   2                   4                   5 0.5833 0.2976 0.1731 0.1165  0.5385 0.1918 0.2615  0.2394 0.2029 0.280745
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como puede observarse, los mejores quintetos de la liga, son los siguientes:</p>
+<ul class="simple">
+<li><p>Primer mejor quinteto compuesto por un jugador <em>Organizador del juego</em> y cuatro <em>Reboteadores con buen porcentaje de tiro en media y larga distancia frontal</em> con un <em>Rating</em> de 0.353195.</p></li>
+<li><p>Segundo mejor quinteto compuesto por un jugador <em>Tirador frontal</em>, uno <em>Reboteador con buen porcentaje de tiro en media y larga distancia</em> y tres <em>Reboteadores con capacidad de tirar de tres puntos</em> con un <em>Rating</em> de 0.320870.</p></li>
+<li><p>Tercer mejor quinteto compuesto por un jugador <em>Organizador del juego</em>, dos <em>Organizadores especialistas del tiro de esquina</em> y dos <em>Reboteadores con capacidad de tirar de tres puntos</em> con un <em>Rating</em> de 0.315618.</p></li>
+<li><p>Cuarto mejor quinteto compuesto por un jugador <em>Tirador frontal</em>, uno <em>Reboteador con buen porcentaje de tiro en media y larga distancia</em>, uno <em>Dominante de pintura</em> y dos <em>Reboteadores con capacidad de tirar de tres puntos</em> con un <em>Rating</em> de 0.303222.</p></li>
+<li><p>Quinteto mejor quinteto compuesto por un jugador <em>Organizador del juego</em>, dos <em>Reboteadores con buen porcentaje de tiro en media y larga distancia frontal</em>, uno <em>Dominante de pintura</em> y uno <em>Reboteador con capacidad de tirar de tres puntos</em> con un <em>Rating</em> de 0.280745.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="5.3%20PCA%20y%20Kmeans.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">5.3 Redefinición de posiciones de los jugadores</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparacion-de-los-datos">1. Preparación de los datos.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-del-modelo-de-regresion">2. Selección del modelo de regresión.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion-lineal">2.1 Regresión lineal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">2.2 Random forest</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#svr-lineal">2.3 SVR lineal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xgboost">2.4 XGBoost</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-del-mejor-modelo">2.5 Selección del mejor modelo</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entrenamineto-y-prediccion">3. Entrenamineto y predicción.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-resultados">4. Análisis de resultados</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Francisco Javier Cantero Zorita
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

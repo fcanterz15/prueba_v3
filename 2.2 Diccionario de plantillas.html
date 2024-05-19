@@ -1,0 +1,923 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>2.2 Diccinario de plantillas &#8212; Redefinición de las posiciones de jugadores de baloncesto e identificación de quintetos más eficientes según las nuevas definiciones</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="_static/styles.css?v=9a6b6d33" />
+    <link rel="stylesheet" type="text/css" href="_static/.ipynb_checkpoints/styles-checkpoint.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '2.2 Diccionario de plantillas';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2.3 Descarga de Box Score" href="2.3%20Box%20Score.html" />
+    <link rel="prev" title="2.1 Diccionario de partidos" href="2.1%20Diccionario%20de%20partidos.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="1.%20Introduccion.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Redefinición de las posiciones de jugadores de baloncesto e identificación de quintetos más eficientes según las nuevas definiciones - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Redefinición de las posiciones de jugadores de baloncesto e identificación de quintetos más eficientes según las nuevas definiciones - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="1.%20Introduccion.html">
+                    1. Introducción
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="2.%20Descarga%20de%20datos.html">2. Descarga de datos</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="2.1%20Diccionario%20de%20partidos.html">2.1 Diccionario de partidos</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.2 Diccinario de plantillas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.3%20Box%20Score.html">2.3 Descarga de <em>Box Score</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.4%20Play%20by%20play.html">2.4 Descarga de <em>Play by play</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.5%20Carta%20de%20tiro.html">2.5 Descarga de las <em>Cartas de tiro</em></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="3.%20Procesamiento%20de%20los%20datos.html">3. Procesamiento de los datos</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="3.1%20Estadisticas%20totales.html">3.1 <em>Estadisticas totales</em></a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="3.2%20Estad%C3%ADsticas%20totales%20de%20quintetos.html">3.2 <em>Estadísticas totales de quintetos</em></a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="3.3%20Estad%C3%ADsticas%20totales%20de%20tiro.html">3.3 <em>Estadísticas totales de tiro</em></a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="3.4%20Estad%C3%ADsticas%20avanzadas%20individuales.html">3.4 <em>Estadisticas avanzadas individuales</em></a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="4.%20An%C3%A1lisis%20exploratorios.html">4. Análisis exploratorios</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="4.1%20EDA%20Estad%C3%ADsticas%20totales.html">4.1 Análisis exploratorio de <em>estadísticas totales de jugadores</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="4.2%20EDA%20Estad%C3%ADsticas%20totales%20de%20quintetos.html">4.2 Análisis exploratorio de <em>estadísticas totales de quintetos</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="4.3%20EDA%20Estad%C3%ADsticas%20totales%20de%20tiro.html">4.3 Análisis exploratorio de <em>estadísticas totales de tiro</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="4.4%20EDA%20Estad%C3%ADsticas%20avanzadas%20individuales.html">4.4 Análisis exploratorio de <em>estadísticas avanzadas individuales</em></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="5.%20Implementacion.html">5. Implementación</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="5.1%20Construcci%C3%B3n%20de%20tabl%C3%B3n%20de%20estad%C3%ADsticas.html">5.1 Construcción de tablón de estadísticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5.2%20EDA%20Tablon%20estad%C3%ADsticas.html">5.2 Análisis exploratorio del Tablon estadísticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5.3%20PCA%20y%20Kmeans.html">5.3 Redefinición de posiciones de los jugadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5.4%20Regresi%C3%B3n.html">5.4 Selección de los mejores quintetos</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/2.2 Diccionario de plantillas.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>2.2 Diccinario de plantillas</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descripcion-del-portal-web">1. Descripción del portal web</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#revision-de-estructura-del-diccionario">2. Revisión de estructura del diccionario</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-exploratorio">3. Análisis exploratorio.</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">funciones_auxiliares</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="diccinario-de-plantillas">
+<h1>2.2 Diccinario de plantillas<a class="headerlink" href="#diccinario-de-plantillas" title="Link to this heading">#</a></h1>
+<p>El <em>Diccionario de plantillas</em> es la estructura ideada para el almacenamiento de las plantillas de jugadores que participaron entre las temporadas <em>2019-2020</em> hasta la temporada <em>2022-2023</em> junto a información de cada uno de los jugadores. A través de este notebook, se dará explicación de donde ha sido sacada la información y que estructura e información es almacenada dentro del diccionario mediante los siguientes puntos:</p>
+<ol class="arabic simple">
+<li><p><strong>Descripción del portal web.</strong> Se hará una revisión de la información que es almacenada dentro del portal y de la que ha sido seleccionada para la construcción del diccionario y la forma de descarga de la información.</p></li>
+<li><p><strong>Revisión de estructura del diccionario.</strong> Será mostrada la estructura y tipo de información que es almacenada dentro del diccionario.</p></li>
+<li><p><strong>Análisis exploratorio.</strong> Será realizado un breve análisis exploratorio en el que serán revisados diferentes puntos de interés referentes al diccionario para la comprensión de los datos descargados.</p></li>
+</ol>
+<p>A través de esos puntos se realizará la comprensión y entendimiento del trabajo realizado para la descarga de este diccionario.</p>
+<section id="descripcion-del-portal-web">
+<h2>1. Descripción del portal web<a class="headerlink" href="#descripcion-del-portal-web" title="Link to this heading">#</a></h2>
+<p>Para la construcción del <em>Diccionario de plantillas</em> ha sido utilizada la página web <a class="reference external" href="https://www.acb.com/club/index/temporada_id/">https://www.acb.com/club/index/temporada_id/</a> la cual es la sección de clubes dentro de la página oficial de la liga ACB en la que se publican las noticias, resultado, clasificaciones y clubes participantes de la liga. Esta página web, que ha sido como la utilizada para la descarga de las plantillas tiene la siguiente estructura:</p>
+<p><img alt="imagen" src="_images/ACB_EQUIPOS_TEMPORADA.png" /></p>
+<p>Como se puede observar, dentro de esta página web, encontramos dos despegables que permiten por un lado la selección de la competición a visualizar las plantillas y por otro lado la selección de la temporada que se desea visualizar. Además, se puede observar que cada uno de los equipos está representado por su escudo el cual es un botón que dirige al usuario a la página del equipo en la plantilla seleccionada. A modo ilustrativo, se muestra a continuación la plantilla del Barça en la temporada 2022-2023:</p>
+<p><img alt="imagen" src="_images/ACB_PLANTILLAS_TEMPORADA.png" /></p>
+<p>Dentro de la página de un equipo podemos observar diferentes secciones de los integrantes de cada plantilla:</p>
+<ul class="simple">
+<li><p><em>Plantilla.</em> Se muestra cada jugador perteneciente a la plantilla del equipo junto a su dorsal, posición, nombre completo. altura, nacionalidad. edad y pasaporte.</p></li>
+<li><p><em>Jugadores de categorías inferirores.</em> Se muestra la información de los jugadores que no pertenecen oficalmente a la plantilla pero que juegan en las categorías inferiores del club y pueden disputar partidos. Para cada jugador se muestra información de su dorsal, posición, nombre completo. altura, nacionalidad. edad y tipo de licencia.</p></li>
+<li><p><em>Entrenadores.</em> Se mueestra la información de los entrenadores que dirigen al equipo junto a su nombre, nacionalidad y edad.</p></li>
+<li><p><em>Jugadores y entrenadores dados de baja.</em> Se muestra la información de los jugadores y entrenadores que fueron inscritos en la plantilla a lo largo de la temporada pero fueron dado de baja si los hubiese. Junto a cada jugador o entrenador se muestra la información de su dorsal, posición, nacionalidad y tipo de licencia.</p></li>
+</ul>
+<p>Mediante técnicas de web scrapping que permite la interacción con el navegador y la descargar del código fuente de partidos, ha sido descarga la información referente a todas la plantillas de los equipos participante entre las temporadas <em>2019-2020</em> hasta la temporada <em>2022-2023</em> mediante el script de código <a class="reference download internal" download="" href="_downloads/54b8849b79f4406628064853fb488dbc/06_Descargar_Info_Jugadores.py"><span class="xref download myst">06_Descargar_Info_Jugadores</span></a>. En este mismo script también se incluye el guardado de la información en el <em>Diccionario de plantillas</em> que será mostrado en los siguientes apartados.</p>
+</section>
+<section id="revision-de-estructura-del-diccionario">
+<h2>2. Revisión de estructura del diccionario<a class="headerlink" href="#revision-de-estructura-del-diccionario" title="Link to this heading">#</a></h2>
+<p>Como ha sido comentado en el apartado anterior, en el <em>Diccionario de plantillas</em> ha sido almacenada todas las plantillas de los equipos que disputaron la liga ACB entre las temporadas <em>2019-2020</em> hasta la temporada <em>2022-2023</em>. Durante este apartado, se busca comprender y entender la estructura que ha sido utilizada para el almacenamiento de los partidos. Para ello, se pasa a realiza la carga del diccionario dentro del entorno:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ruta al archivo donde se guarda el diccionario</span>
+<span class="n">ruta_dicc_plantillas</span> <span class="o">=</span> <span class="s1">&#39;E:/TFM/02. Datos/Trabajo/01. Diccionarios/02_Diccionario_plantillas.json&#39;</span>
+
+<span class="c1"># Se realiza la carga del diccionario</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">ruta_dicc_plantillas</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">archivo</span><span class="p">:</span>
+    <span class="n">diccionario_plantillas</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">archivo</span><span class="p">)</span>      
+</pre></div>
+</div>
+</div>
+</div>
+<p>Tras la carga del diccionario, se pasa a visualizar la estructura del almacenamiento del diccionario. Para este ejemplo de visualización, en primer lugar serán visualizadas las temporadas de las que se tiene información, en segundo lugar la información almacenada en cada una de ellas poniendo de ejemplo la temporada <em>2022-2023</em>, en tercer lugar el tipo de información que almacena el <em>Barça</em> en esa temporada y, por último, la información del jugador <em>Álex Abrines</em> en esa temporada y equipo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">#####################################################################################&quot;</span><span class="p">)</span>
+<span class="n">l_temporadas</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">diccionario_plantillas</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# INFORMACION REFERENTE A LAS TEMPORADAS DESCARGADAS&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#####################################################################################&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">temporada</span> <span class="ow">in</span> <span class="n">l_temporadas</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temporada:&quot;</span><span class="p">,</span><span class="n">temporada</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">#####################################################################################&quot;</span><span class="p">)</span>
+<span class="n">temporada</span> <span class="o">=</span> <span class="s1">&#39;2022&#39;</span>
+<span class="n">l_equipos</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">diccionario_plantillas</span><span class="p">[</span><span class="n">temporada</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# INFORMACION REFERENTE A LA TEMPORADA&quot;</span><span class="p">,</span><span class="n">temporada</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#####################################################################################&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">equipo</span> <span class="ow">in</span> <span class="n">l_equipos</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Equipo almacenado:&quot;</span><span class="p">,</span><span class="n">equipo</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">#####################################################################################&quot;</span><span class="p">)</span>
+<span class="n">temporada</span> <span class="o">=</span> <span class="s1">&#39;2022&#39;</span>
+<span class="n">equipo</span> <span class="o">=</span> <span class="s1">&#39;Barça&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# INFORMACION REFERENTE AL&quot;</span><span class="p">,</span><span class="n">equipo</span><span class="p">,</span> <span class="s2">&quot;en la temporada&quot;</span><span class="p">,</span><span class="n">temporada</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#####################################################################################&quot;</span><span class="p">)</span>
+
+<span class="n">url_equipo</span> <span class="o">=</span> <span class="n">diccionario_plantillas</span><span class="p">[</span><span class="n">temporada</span><span class="p">][</span><span class="n">equipo</span><span class="p">][</span><span class="s1">&#39;url_equipo&#39;</span><span class="p">]</span>
+<span class="n">l_jugadores</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">diccionario_plantillas</span><span class="p">[</span><span class="n">temporada</span><span class="p">][</span><span class="n">equipo</span><span class="p">][</span><span class="s1">&#39;plantilla&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La url_equipo es:&quot;</span><span class="p">,</span> <span class="n">url_equipo</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">La plantilla del&quot;</span><span class="p">,</span> <span class="n">equipo</span><span class="p">,</span> <span class="s2">&quot;en la temporada&quot;</span><span class="p">,</span> <span class="n">temporada</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">jugador</span> <span class="ow">in</span> <span class="n">l_jugadores</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jugador:&quot;</span><span class="p">,</span><span class="n">jugador</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">#####################################################################################&quot;</span><span class="p">)</span>
+<span class="n">temporada</span> <span class="o">=</span> <span class="s1">&#39;2022&#39;</span>
+<span class="n">equipo</span> <span class="o">=</span> <span class="s1">&#39;Barça&#39;</span>
+<span class="n">jugador</span> <span class="o">=</span> <span class="s1">&#39;Álex Abrines&#39;</span>
+<span class="n">l_elem</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">diccionario_plantillas</span><span class="p">[</span><span class="n">temporada</span><span class="p">][</span><span class="n">equipo</span><span class="p">][</span><span class="s1">&#39;plantilla&#39;</span><span class="p">][</span><span class="n">jugador</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# INFORMACION REFERENTE A&quot;</span><span class="p">,</span> <span class="n">jugador</span><span class="p">,</span> <span class="s2">&quot;en la temporada&quot;</span><span class="p">,</span><span class="n">temporada</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#####################################################################################&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">l_elem</span><span class="p">:</span>
+    <span class="n">valor</span> <span class="o">=</span> <span class="n">diccionario_plantillas</span><span class="p">[</span><span class="n">temporada</span><span class="p">][</span><span class="n">equipo</span><span class="p">][</span><span class="s1">&#39;plantilla&#39;</span><span class="p">][</span><span class="n">jugador</span><span class="p">][</span><span class="n">elem</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">,</span><span class="n">elem</span><span class="p">,</span><span class="s2">&quot;-&quot;</span><span class="p">,</span><span class="n">valor</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#####################################################################################
+# INFORMACION REFERENTE A LAS TEMPORADAS DESCARGADAS
+#####################################################################################
+Temporada: 2019
+Temporada: 2020
+Temporada: 2021
+Temporada: 2022
+
+#####################################################################################
+# INFORMACION REFERENTE A LA TEMPORADA 2022
+#####################################################################################
+Equipo almacenado: Barça
+Equipo almacenado: Cazoo Baskonia
+Equipo almacenado: Bàsquet Girona
+Equipo almacenado: BAXI Manresa
+Equipo almacenado: Carplus Fuenlabrada
+Equipo almacenado: Casademont Zaragoza
+Equipo almacenado: Coviran Granada
+Equipo almacenado: Dreamland Gran Canaria
+Equipo almacenado: Joventut Badalona
+Equipo almacenado: Lenovo Tenerife
+Equipo almacenado: Monbus Obradoiro
+Equipo almacenado: Real Betis Baloncesto
+Equipo almacenado: Real Madrid
+Equipo almacenado: Río Breogán
+Equipo almacenado: Surne Bilbao Basket
+Equipo almacenado: UCAM Murcia
+Equipo almacenado: Unicaja
+Equipo almacenado: Valencia Basket
+
+#####################################################################################
+# INFORMACION REFERENTE AL Barça en la temporada 2022
+#####################################################################################
+La url_equipo es: /club/plantilla/id/2
+
+La plantilla del Barça en la temporada 2022
+Jugador: Oscar Da Silva
+Jugador: Oriol Paulí
+Jugador: Sertac Sanli
+Jugador: Jan  Vesely
+Jugador: Sergi Martínez
+Jugador: Nikola Kalinic
+Jugador: Tomas Satoransky
+Jugador: Nico Laprovittola
+Jugador: Álex Abrines
+Jugador: Kyle Kuric
+Jugador: Rokas Jokubaitis
+Jugador: Nikola Mirotic
+Jugador: James Nnaji
+Jugador: Dame Sarr
+Jugador: Kasparas  Jakucionis
+Jugador: Cory Higgins
+Jugador: Mike Tobey
+Jugador: Michael Caicedo
+Jugador: Rafael Villar
+
+#####################################################################################
+# INFORMACION REFERENTE A Álex Abrines en la temporada 2022
+#####################################################################################
+- Dorsal - 21
+- url_jugador - /jugador/ver/20209223-Álex-Abrines
+- Altura - 1,98 m
+- Posición - Escolta
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como puede observarse, en el diccionario se almacena información de las plantillas de los distintos equipos que participaron en la liga ACB desde la temporada <em>2019-2020</em> hasta la temporada <em>2022-2023</em>. En cada uno de los equipo es almacenada por una lado la url de acceso a la plantilla del equipo y por otro lado la información de los jugadores que conformaron la plantilla excluyendo a los entrenadores. Por último, para cada uno de los jugadores es almacenada la información de su dorsal, altura y posición junto a la página del jugador dentro de la liga.</p>
+<p>Una vez comentada la estructura del diccionario, se pasa a visualizar la estructura de equipos y jugadores en cada una de la temporadas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#####################################################################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# INFORMACION REFERENTE AL DICCIONARIO&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#####################################################################################</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">l_temporadas</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">diccionario_plantillas</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+<span class="k">for</span> <span class="n">temporada</span> <span class="ow">in</span> <span class="n">l_temporadas</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;* En el diccionario se almacena información de la temporada:&quot;</span><span class="p">,</span><span class="n">temporada</span><span class="p">)</span>
+    <span class="n">l_equipos</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">diccionario_plantillas</span><span class="p">[</span><span class="n">temporada</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">+ El número de equipos que se almacenan en la temporada es:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">l_equipos</span><span class="p">))</span>
+    <span class="n">num_jugadores</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">equipo</span> <span class="ow">in</span> <span class="n">l_equipos</span><span class="p">:</span>
+        <span class="n">num_jugadores</span> <span class="o">=</span> <span class="n">num_jugadores</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">diccionario_plantillas</span><span class="p">[</span><span class="n">temporada</span><span class="p">][</span><span class="n">equipo</span><span class="p">][</span><span class="s1">&#39;plantilla&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">+ El número de jugadores que se almacenan en la temporada es:&quot;</span><span class="p">,</span> <span class="n">num_jugadores</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#####################################################################################
+# INFORMACION REFERENTE AL DICCIONARIO
+#####################################################################################
+
+* En el diccionario se almacena información de la temporada: 2019
+	+ El número de equipos que se almacenan en la temporada es: 18
+	+ El número de jugadores que se almacenan en la temporada es: 320 
+
+* En el diccionario se almacena información de la temporada: 2020
+	+ El número de equipos que se almacenan en la temporada es: 19
+	+ El número de jugadores que se almacenan en la temporada es: 366 
+
+* En el diccionario se almacena información de la temporada: 2021
+	+ El número de equipos que se almacenan en la temporada es: 18
+	+ El número de jugadores que se almacenan en la temporada es: 328 
+
+* En el diccionario se almacena información de la temporada: 2022
+	+ El número de equipos que se almacenan en la temporada es: 18
+	+ El número de jugadores que se almacenan en la temporada es: 331 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como puede observarse el número de equipos en la temporadas <em>2019-2020</em>, <em>2020-2021</em> y <em>2021-2022</em> es de 18 mientras que en la temporada <em>2022-2023</em> el número de equipo es de 19 debido a que solo hubo un único descenso la temporada anterior debido a la pandemia del Covid-19. Por otro lado, con respecto al volumen de jugador, en la temporada <em>2022-2023</em> aumenta debido al aumento de un equipo más y que debido a la pandemia los equipos se vieron obligados a tener una rotación poco habitual de jugadores.</p>
+</section>
+<section id="analisis-exploratorio">
+<h2>3. Análisis exploratorio.<a class="headerlink" href="#analisis-exploratorio" title="Link to this heading">#</a></h2>
+<p>Tras el análisis estructural del diccionario, se pasa a realizar un breve análisis exploratio para conocer la distribución de equipos y jugadores en cada una de las temporadas. Para ello, en primer lugar, se pasa a crear un dataframe que permita la construcción de las visualizaciones:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Se recorre el diccionario mediante un bucle que permite construir un dataframe a partir de la información almacenada en cada uno de los diccionarios</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">l_temporadas</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">diccionario_plantillas</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+<span class="k">for</span> <span class="n">temporada</span> <span class="ow">in</span> <span class="n">l_temporadas</span><span class="p">:</span>
+    <span class="n">l_equipos</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">diccionario_plantillas</span><span class="p">[</span><span class="n">temporada</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="k">for</span> <span class="n">equipo</span> <span class="ow">in</span> <span class="n">l_equipos</span><span class="p">:</span>
+        <span class="n">l_jugadores</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">diccionario_plantillas</span><span class="p">[</span><span class="n">temporada</span><span class="p">][</span><span class="n">equipo</span><span class="p">][</span><span class="s1">&#39;plantilla&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="k">for</span> <span class="n">jugador</span> <span class="ow">in</span> <span class="n">l_jugadores</span><span class="p">:</span>
+            <span class="n">altura</span> <span class="o">=</span> <span class="n">diccionario_plantillas</span><span class="p">[</span><span class="n">temporada</span><span class="p">][</span><span class="n">equipo</span><span class="p">][</span><span class="s1">&#39;plantilla&#39;</span><span class="p">][</span><span class="n">jugador</span><span class="p">][</span><span class="s1">&#39;Altura&#39;</span><span class="p">]</span>
+            <span class="n">posicion</span> <span class="o">=</span> <span class="n">diccionario_plantillas</span><span class="p">[</span><span class="n">temporada</span><span class="p">][</span><span class="n">equipo</span><span class="p">][</span><span class="s1">&#39;plantilla&#39;</span><span class="p">][</span><span class="n">jugador</span><span class="p">][</span><span class="s1">&#39;Posición&#39;</span><span class="p">]</span>
+            <span class="n">jugador_info</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;TEMPORADA&quot;</span><span class="p">:</span> <span class="n">temporada</span><span class="p">,</span> <span class="s2">&quot;EQUIPO&quot;</span><span class="p">:</span><span class="n">equipo</span><span class="p">,</span> <span class="s2">&quot;NOMBRE_JUGADOR&quot;</span><span class="p">:</span><span class="n">jugador</span><span class="p">,</span> <span class="s2">&quot;ALTURA&quot;</span><span class="p">:</span><span class="n">altura</span><span class="p">,</span> <span class="s2">&quot;POSICION&quot;</span><span class="p">:</span><span class="n">posicion</span><span class="p">}</span>
+            <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">jugador_info</span><span class="p">)</span>
+            
+<span class="c1"># Construcción de dataframe y visualización de la cabecera de este</span>
+<span class="n">df_trabajo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>            
+<span class="n">df_trabajo</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>            
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>TEMPORADA</th>
+      <th>EQUIPO</th>
+      <th>NOMBRE_JUGADOR</th>
+      <th>ALTURA</th>
+      <th>POSICION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2019</td>
+      <td>Barça</td>
+      <td>Pau Ribas</td>
+      <td>1,94 m</td>
+      <td>Escolta</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2019</td>
+      <td>Barça</td>
+      <td>Adam Hanga</td>
+      <td>2,00 m</td>
+      <td>Alero</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2019</td>
+      <td>Barça</td>
+      <td>Rolands Smits</td>
+      <td>2,07 m</td>
+      <td>Ala-pívot</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2019</td>
+      <td>Barça</td>
+      <td>Thomas Heurtel</td>
+      <td>1,89 m</td>
+      <td>Base</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2019</td>
+      <td>Barça</td>
+      <td>Pierre Oriola</td>
+      <td>2,08 m</td>
+      <td>Ala-pívot</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Como primer análisis de distribuciones se pasa a observar el número de equipos y jugadores que disputaron cada una de las temporadas y que son almacenados en el diccionario:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Se realiza el conteo de equipos y jugadores que dusputaron cada una de las temporadas</span>
+<span class="n">df_vol_equipos</span> <span class="o">=</span> <span class="n">df_trabajo</span><span class="p">[[</span><span class="s1">&#39;TEMPORADA&#39;</span><span class="p">,</span><span class="s1">&#39;EQUIPO&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;TEMPORADA&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">df_vol_jugadores</span> <span class="o">=</span> <span class="n">df_trabajo</span><span class="p">[[</span><span class="s1">&#39;TEMPORADA&#39;</span><span class="p">,</span><span class="s1">&#39;NOMBRE_JUGADOR&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;TEMPORADA&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="c1"># Se realiza la visualización de la distribución de equipos y jugadores</span>
+<span class="n">colores</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">]</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">temporada</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df_vol_equipos</span><span class="p">[</span><span class="s1">&#39;TEMPORADA&#39;</span><span class="p">]):</span>
+    <span class="n">equipos</span> <span class="o">=</span> <span class="n">df_vol_equipos</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_vol_equipos</span><span class="p">[</span><span class="s1">&#39;TEMPORADA&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">temporada</span><span class="p">,</span> <span class="s1">&#39;EQUIPO&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">temporada</span><span class="p">,</span> <span class="n">equipos</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colores</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">temporada</span><span class="p">,</span> <span class="n">equipos</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">equipos</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Equipos por temporada&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Temporada&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Nº de equipos&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">temporada</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df_vol_jugadores</span><span class="p">[</span><span class="s1">&#39;TEMPORADA&#39;</span><span class="p">]):</span>
+    <span class="n">jugadores</span> <span class="o">=</span> <span class="n">df_vol_jugadores</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_vol_jugadores</span><span class="p">[</span><span class="s1">&#39;TEMPORADA&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">temporada</span><span class="p">,</span> <span class="s1">&#39;NOMBRE_JUGADOR&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">temporada</span><span class="p">,</span> <span class="n">jugadores</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colores</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">temporada</span><span class="p">,</span> <span class="n">jugadores</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">jugadores</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Nº de jugadores por temporada&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Temporada&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Nº de jugadores&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4101f4f4cfa0e7b1aeb924b73ffd9ab7a1fa0a5a4ed7ead55f847888d38eeed6.png" src="_images/4101f4f4cfa0e7b1aeb924b73ffd9ab7a1fa0a5a4ed7ead55f847888d38eeed6.png" />
+</div>
+</div>
+<p>Como puede observarse, el número de equipos en tres de las cuatro temporadas es de 18 mientras que en la temporada <em>2020-2021</em> el número de equipo aumenta a 19 por la pandemia del Covid-19. Por otro lado, el volumen de jugadores aumenta en esta temporada debido al aumento en un equipo y el número de bajas causado por el Covid-19.</p>
+<p>Se pasa a visualizar la distribución de jugadores por equipo en cada una de las temporadas que son almacenadas en el diccionario:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Se extrae el volumen de jugadores que fueron inscritos en cada uno de los equipos</span>
+<span class="n">df_vol_equipo_jugadores</span> <span class="o">=</span> <span class="n">df_trabajo</span><span class="p">[[</span><span class="s1">&#39;TEMPORADA&#39;</span><span class="p">,</span><span class="s1">&#39;EQUIPO&#39;</span><span class="p">,</span><span class="s1">&#39;NOMBRE_JUGADOR&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;TEMPORADA&#39;</span><span class="p">,</span><span class="s1">&#39;EQUIPO&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="n">l_temporadas</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df_vol_equipo_jugadores</span><span class="o">.</span><span class="n">TEMPORADA</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<span class="n">colores</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">]</span>
+
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">temporada</span> <span class="ow">in</span> <span class="n">l_temporadas</span><span class="p">:</span>
+    <span class="n">generar_visualizacion_barras_jugadores</span><span class="p">(</span><span class="n">df_vol_equipo_jugadores</span><span class="p">[</span><span class="n">df_vol_equipo_jugadores</span><span class="p">[</span><span class="s1">&#39;TEMPORADA&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">temporada</span><span class="p">],</span><span class="n">colores</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">temporada</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/e2ad700a8979a39d4b9b1e2abe1652e7869a6eac3046f0e65606329d391d88ef.png" src="_images/e2ad700a8979a39d4b9b1e2abe1652e7869a6eac3046f0e65606329d391d88ef.png" />
+<img alt="_images/773481f789b654f2ead468d720370052587069895a727487eb8f0df651e4827b.png" src="_images/773481f789b654f2ead468d720370052587069895a727487eb8f0df651e4827b.png" />
+<img alt="_images/8569774369b0fa7af0e86a969e8d397e6997e31599fb15a0ffd30524d77c3fbd.png" src="_images/8569774369b0fa7af0e86a969e8d397e6997e31599fb15a0ffd30524d77c3fbd.png" />
+<img alt="_images/9e761cf1bd5754dbd6c524efba6ddcb1a1e0dafa32eef85a7defdc7920981641.png" src="_images/9e761cf1bd5754dbd6c524efba6ddcb1a1e0dafa32eef85a7defdc7920981641.png" />
+</div>
+</div>
+<p>Como puede observarse, la distribución de jugadores en cada uno de los equipos no es regular debido a que el número de jugadores inscritos a lo largo de una temporada suelen verse afectado por el nivel deportivo del equipo, la situación económica del club o por las lesiones que tuviesen los jugadores durante esas temporadas. Ejemplos de esto podemos encontrar al Carplus Fuenlabrada en la temporada <em>2022-2023</em> en el cual hubo una rotación de jugadores muy elevada intentado evitar el descenso.</p>
+<p>Se pasa por último a revisar la volumetría de jugadores por posición en cada una de la temporadas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Se construye calcula el volumen de jugadores por temporada y posición</span>
+<span class="n">df_vol_posiciones</span> <span class="o">=</span> <span class="n">df_trabajo</span><span class="p">[[</span><span class="s1">&#39;TEMPORADA&#39;</span><span class="p">,</span><span class="s1">&#39;POSICION&#39;</span><span class="p">,</span><span class="s1">&#39;NOMBRE_JUGADOR&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;TEMPORADA&#39;</span><span class="p">,</span><span class="s1">&#39;POSICION&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">df_vol_posiciones</span> <span class="o">=</span> <span class="n">df_vol_posiciones</span><span class="p">[</span><span class="n">df_vol_posiciones</span><span class="p">[</span><span class="s1">&#39;POSICION&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+
+<span class="c1"># Definimos el orden deseado de las posiciones y los colores de cada temporada</span>
+<span class="n">posiciones_ordenadas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Base&#39;</span><span class="p">,</span> <span class="s1">&#39;Escolta&#39;</span><span class="p">,</span> <span class="s1">&#39;Alero&#39;</span><span class="p">,</span> <span class="s1">&#39;Ala-pívot&#39;</span><span class="p">,</span> <span class="s1">&#39;Pívot&#39;</span><span class="p">]</span>
+<span class="n">colores</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="n">bar_width</span> <span class="o">=</span> <span class="mf">0.2</span>
+<span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">posiciones_ordenadas</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">temporada</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df_vol_posiciones</span><span class="p">[</span><span class="s1">&#39;TEMPORADA&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()):</span>
+    <span class="n">temp_df</span> <span class="o">=</span> <span class="n">df_vol_posiciones</span><span class="p">[</span><span class="n">df_vol_posiciones</span><span class="p">[</span><span class="s1">&#39;TEMPORADA&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">temporada</span><span class="p">]</span>
+
+    <span class="n">volumenes_temporada</span> <span class="o">=</span> <span class="p">{</span><span class="n">posicion</span><span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">posicion</span> <span class="ow">in</span> <span class="n">posiciones_ordenadas</span><span class="p">}</span>
+    <span class="k">for</span> <span class="n">posicion</span><span class="p">,</span> <span class="n">volumen</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">temp_df</span><span class="p">[</span><span class="s1">&#39;POSICION&#39;</span><span class="p">],</span> <span class="n">temp_df</span><span class="p">[</span><span class="s1">&#39;NOMBRE_JUGADOR&#39;</span><span class="p">]):</span>
+        <span class="k">if</span> <span class="n">posicion</span> <span class="ow">in</span> <span class="n">posiciones_ordenadas</span><span class="p">:</span>
+            <span class="n">volumenes_temporada</span><span class="p">[</span><span class="n">posicion</span><span class="p">]</span> <span class="o">+=</span> <span class="n">volumen</span>
+
+    <span class="n">bars</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="n">bar_width</span><span class="p">,</span> <span class="p">[</span><span class="n">volumenes_temporada</span><span class="p">[</span><span class="n">posicion</span><span class="p">]</span> <span class="k">for</span> <span class="n">posicion</span> <span class="ow">in</span> <span class="n">posiciones_ordenadas</span><span class="p">],</span> 
+                  <span class="n">bar_width</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">temporada</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">colores</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">bar</span> <span class="ow">in</span> <span class="n">bars</span><span class="p">:</span>
+        <span class="n">height</span> <span class="o">=</span> <span class="n">bar</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">bar</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span> <span class="o">+</span> <span class="n">bar</span><span class="o">.</span><span class="n">get_width</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">height</span><span class="p">)),</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Nº de jugadores&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Nº de jugadores por posición en cada temporada&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="n">bar_width</span> <span class="o">*</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_vol_posiciones</span><span class="p">[</span><span class="s1">&#39;TEMPORADA&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">posiciones_ordenadas</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Temporada&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/e04dadf30016372d3f7d757b6e380ce826218fe46c0c79e5dc728437c0591b81.png" src="_images/e04dadf30016372d3f7d757b6e380ce826218fe46c0c79e5dc728437c0591b81.png" />
+</div>
+</div>
+<p>Como puede observarse, dentro de la liga, las posiciones de jugadores exteriores son las que más jugadores tienen (Base, Escolta y Alero) siendo predominantes sobre las posiciones interiores. Esto puede deberse a que el ritmo de juego o las necesidades de los equipos no dependan tanto de las posiciones interiores o que el número de jugadores accesibles para la liga en estas posiciones es más reducido.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="2.1%20Diccionario%20de%20partidos.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">2.1 Diccionario de partidos</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="2.3%20Box%20Score.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">2.3 Descarga de <em>Box Score</em></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descripcion-del-portal-web">1. Descripción del portal web</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#revision-de-estructura-del-diccionario">2. Revisión de estructura del diccionario</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-exploratorio">3. Análisis exploratorio.</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Francisco Javier Cantero Zorita
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

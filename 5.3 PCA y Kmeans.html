@@ -1,0 +1,1125 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>5.3 Redefinición de posiciones de los jugadores &#8212; Redefinición de las posiciones de jugadores de baloncesto e identificación de quintetos más eficientes según las nuevas definiciones</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="_static/styles.css?v=9a6b6d33" />
+    <link rel="stylesheet" type="text/css" href="_static/.ipynb_checkpoints/styles-checkpoint.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '5.3 PCA y Kmeans';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="5.4 Selección de los mejores quintetos" href="5.4%20Regresi%C3%B3n.html" />
+    <link rel="prev" title="5.2 Análisis exploratorio del Tablon estadísticas" href="5.2%20EDA%20Tablon%20estad%C3%ADsticas.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="1.%20Introduccion.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Redefinición de las posiciones de jugadores de baloncesto e identificación de quintetos más eficientes según las nuevas definiciones - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Redefinición de las posiciones de jugadores de baloncesto e identificación de quintetos más eficientes según las nuevas definiciones - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="1.%20Introduccion.html">
+                    1. Introducción
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="2.%20Descarga%20de%20datos.html">2. Descarga de datos</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.1%20Diccionario%20de%20partidos.html">2.1 Diccionario de partidos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.2%20Diccionario%20de%20plantillas.html">2.2 Diccinario de plantillas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.3%20Box%20Score.html">2.3 Descarga de <em>Box Score</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.4%20Play%20by%20play.html">2.4 Descarga de <em>Play by play</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.5%20Carta%20de%20tiro.html">2.5 Descarga de las <em>Cartas de tiro</em></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="3.%20Procesamiento%20de%20los%20datos.html">3. Procesamiento de los datos</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="3.1%20Estadisticas%20totales.html">3.1 <em>Estadisticas totales</em></a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="3.2%20Estad%C3%ADsticas%20totales%20de%20quintetos.html">3.2 <em>Estadísticas totales de quintetos</em></a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="3.3%20Estad%C3%ADsticas%20totales%20de%20tiro.html">3.3 <em>Estadísticas totales de tiro</em></a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="3.4%20Estad%C3%ADsticas%20avanzadas%20individuales.html">3.4 <em>Estadisticas avanzadas individuales</em></a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="4.%20An%C3%A1lisis%20exploratorios.html">4. Análisis exploratorios</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="4.1%20EDA%20Estad%C3%ADsticas%20totales.html">4.1 Análisis exploratorio de <em>estadísticas totales de jugadores</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="4.2%20EDA%20Estad%C3%ADsticas%20totales%20de%20quintetos.html">4.2 Análisis exploratorio de <em>estadísticas totales de quintetos</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="4.3%20EDA%20Estad%C3%ADsticas%20totales%20de%20tiro.html">4.3 Análisis exploratorio de <em>estadísticas totales de tiro</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="4.4%20EDA%20Estad%C3%ADsticas%20avanzadas%20individuales.html">4.4 Análisis exploratorio de <em>estadísticas avanzadas individuales</em></a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="5.%20Implementacion.html">5. Implementación</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="5.1%20Construcci%C3%B3n%20de%20tabl%C3%B3n%20de%20estad%C3%ADsticas.html">5.1 Construcción de tablón de estadísticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5.2%20EDA%20Tablon%20estad%C3%ADsticas.html">5.2 Análisis exploratorio del Tablon estadísticas</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.3 Redefinición de posiciones de los jugadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5.4%20Regresi%C3%B3n.html">5.4 Selección de los mejores quintetos</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/5.3 PCA y Kmeans.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>5.3 Redefinición de posiciones de los jugadores</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reduccion-de-dimensiones">1. Reducción de dimensiones.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#obtenicion-de-agrupaciones">2. Obtenición de agrupaciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-del-numero-optimo-de-agrupaciones">2.1 Selección del número óptimo de agrupaciones.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-del-algoritmo-kmeans">2.2 Aplicación del algoritmo kmeans</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-las-nuevas-posiciones">3. Análisis de las nuevas posiciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-cluster-0">3.1 Análisis cluster 0</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-cluster-1">3.2 Análisis cluster 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-cluster-2">3.3 Análisis cluster 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-cluster-3">3.4 Análisis cluster 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-cluster-4">3.5 Análisis cluster 4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-cluster-5">3.6 Análisis cluster 5</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#guardado-de-la-informacion">4. Guardado de la información</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.cm</span> <span class="k">as</span> <span class="nn">cm</span>
+<span class="kn">from</span> <span class="nn">funciones_auxiliares</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">silhouette_samples</span><span class="p">,</span> <span class="n">silhouette_score</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="redefinicion-de-posiciones-de-los-jugadores">
+<h1>5.3 Redefinición de posiciones de los jugadores<a class="headerlink" href="#redefinicion-de-posiciones-de-los-jugadores" title="Link to this heading">#</a></h1>
+<p>Como primer objetivo del Trabajo Fin de Máster, fue definido la redefinición de las posiciones de los jugadores de baloncesto a partir de las diferentes métricas estadísticas que estos obtuviesen a lo largo de una temporada. Para ello, a través de este notebook, será definido el proceso de refinición de posiciones y el análisis de estas nuevas posiciones. Para ello, será implmentado el algoritmo de clusterización k-meams con el que se espera obtener las nuevas posiciones a través de las estadísticas obtenidas. Además, previsamente a la implementación del algoritmo k-means, será realizada una reducción de dimensiones del conjunto de datos mediante el método PCA para la mejora del rendimiento del algoritmo de agrupamiento.</p>
+<p>Teniendo esto presente, este notebook, estará dividido en los siguiente apartados:</p>
+<ul class="simple">
+<li><p><strong>1. Reducción de dimensiones.</strong> A partir del algoritmo PCA, se realizará la reducción de dimensiones para mejorar el agrupamiento de clusterización.</p></li>
+<li><p><strong>2. Obtención de agrupaciones.</strong> Se seleccionará el número obtimo de grupos en los que se puede englobar a los jugadores y se realizará la implementación del algoritmo k-means.</p></li>
+<li><p><strong>3. Análisis de las nuevas posiciones.</strong> Se realizará un análisis de cada una de las agrupaciones con el fin de conocer como están distribuidos los jugadores y que perfil de jugadores se incluye en cada grupo.</p></li>
+</ul>
+<p>A través de estos paso se espera por un lado obtener las nuevas posiciones y que se entienda todo el proceso implementado para su obtención.</p>
+<section id="reduccion-de-dimensiones">
+<h2>1. Reducción de dimensiones.<a class="headerlink" href="#reduccion-de-dimensiones" title="Link to this heading">#</a></h2>
+<p>En este apartado, se procede a realizar la <em>reducción de dimensiones</em> que es una técnica empleada en análisis de datos y aprendizaje automático que permite disminuir el númer de variables en un cojunto de datos mientras se consera la mayor cantidad posible de información relevante. Como ha sido definido al principio de este notebook, ha sido dedicido realizar esta reducción de dimensiones mediante el algoritmo de Análisis de Componentes Principales o también conocido como PCA que es una ténica que permite la reducción de dimensiones mediante la realización de los siguientes pasos:</p>
+<ol class="arabic simple">
+<li><p>Estandarización de variables. Se realiza la estandarización de los datos para que cada variable contribuya de manera equitativa al análisis mediante el uso de la media y dividiendo por la desviación estándar cada una de las variables.</p></li>
+<li><p>Cálculo de la matriz de covarianza. Se genera la matriz de covarianza en la que se mide cómo varian conjuntamente las diferentes variables del conjunto de datos.</p></li>
+<li><p>Cálculo de los componentes principales y sus valores. Se calculan los vectores de componentes principales y los valores que estos toman.</p></li>
+<li><p>Selección de los componentes principales. Se ordena cada uno de los componentes principales en función de los valores que estos tomas siendo los primeros componentes principales los que menor valor tienes.</p></li>
+<li><p>Transformación de los datos. Por último, se realiza la proyección de los datos originales sobre los nuevos ejes definidos por los nuevos componentes principales.</p></li>
+</ol>
+<p>Mediante la implementación de estos pasos, son obtenidos los componentes principales que permiten la reducción dimensional de variables del conjuntos de datos principal.</p>
+<p>Una vez explicado de manera teórica el algoritmo, se pasa a realizar su implementación. Para ello, en primer lugar se realiza la carga del <em>Tablón de estadísticas</em> que será utilizado durante este notebook:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ruta del tablón y carga del tablón</span>
+<span class="n">ruta_tablon</span> <span class="o">=</span> <span class="s1">&#39;E:/TFM/02. Datos/ACB/TABLON ESTADÍSTICAS&#39;</span>
+<span class="n">df_tablon_estadisticas</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">ruta_tablon</span> <span class="o">+</span> <span class="s1">&#39;/TABLON_ESTADISTICAS_FINAL.csv&#39;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s1">&#39;;&#39;</span><span class="p">)</span>
+
+<span class="c1"># Se realiza la extracción de volumetrías</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#######################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# RESUMEN DEL TABLÓN DE ESTADISTICAS&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#######################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de registros:&quot;</span><span class="p">,</span><span class="n">df_tablon_estadisticas</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de columnas:&quot;</span><span class="p">,</span><span class="n">df_tablon_estadisticas</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Columnas:&quot;</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39; | &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">df_tablon_estadisticas</span><span class="o">.</span><span class="n">columns</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de elementos vacíos:&quot;</span><span class="p">,(</span><span class="n">df_tablon_estadisticas</span><span class="o">==</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de elementos nulos:&quot;</span><span class="p">,</span><span class="n">df_tablon_estadisticas</span><span class="p">[</span><span class="n">df_tablon_estadisticas</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">df_tablon_estadisticas</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_space</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#######################################
+# RESUMEN DEL TABLÓN DE ESTADISTICAS
+#######################################
+Nº de registros: 752
+Nº de columnas: 20
+Columnas: TEMPORADA | EQUIPO | DORSAL | JUGADOR_BS | ORB% | DRB% | STL% | BLK% | TOV% | AST% | FTr | TL% | PINTURA_p | PINTURA_v | MID_RANGE_p | MID_RANGE_v | 3FRONT_p | 3FRONT_v | 3CORNER_p | 3CORNER_v
+Nº de elementos vacíos: 0
+Nº de elementos nulos: 0
+
+  TEMPORADA     EQUIPO  DORSAL  JUGADOR_BS   ORB%   DRB%   STL%   BLK%   TOV%   AST%    FTr      TL%  PINTURA_p  PINTURA_v  MID_RANGE_p  MID_RANGE_v  3FRONT_p  3FRONT_v  3CORNER_p  3CORNER_v
+      2020 Acunsa GBC       1      J. Dee 0.0164 0.1055 0.0210 0.0014 0.1343 0.0445 0.1783 0.857143   0.483333   0.192308     0.212766     0.150641  0.390863  0.631410      0.875   0.025641
+      2020 Acunsa GBC       2    V. Okouo 0.1013 0.2618 0.0157 0.0180 0.1886 0.0105 0.3776 0.592593   0.538760   0.911661     0.217391     0.081272  0.000000  0.007067      0.000   0.000000
+      2020 Acunsa GBC       3 L. Faggiano 0.0164 0.0989 0.0240 0.0035 0.1889 0.1034 0.2054 0.716981   0.487395   0.461240     0.255814     0.166667  0.336842  0.368217      1.000   0.003876
+      2020 Acunsa GBC       5  M. Carlson 0.0557 0.1244 0.0162 0.0104 0.0925 0.0306 0.1442 0.600000   0.619048   0.403846     0.416667     0.115385  0.276596  0.451923      0.000   0.028846
+      2020 Acunsa GBC       6     J. Span 0.0173 0.0528 0.0169 0.0000 0.1446 0.0713 0.0490 0.642857   0.423077   0.272727     0.282609     0.160839  0.229299  0.548951      0.200   0.017483
+</pre></div>
+</div>
+</div>
+</div>
+<p>Tras la carga de los datos y previo paso a la implementación del algoritmo <em>PCA</em> se pasa a realizar la selección de las variables numéricas del conjunto de datos y a la normalización de las variables que representan acciones del juego como son el ORB%, DRB%, STL%, BLK%, TOV%, AST% y FTr mediante el método Min-Max que es el método que realiza la normalización de los datos a un rango específico entre [0,1]. El motivo de la utilización de esta normalización es para poder conseguir que todas las variables tenga la misma escala y en las variables en la que se realiza la normalización los jugadores que hayan tengan mejores número en este apartado se vean recompensados durante la reducción de dimensiones:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Se realiza la normalización de las variables estadísticas</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">()</span>
+<span class="n">df_tablon_estadisticas_aux</span> <span class="o">=</span> <span class="n">df_tablon_estadisticas</span><span class="p">[[</span><span class="s1">&#39;ORB%&#39;</span><span class="p">,</span> <span class="s1">&#39;DRB%&#39;</span><span class="p">,</span> <span class="s1">&#39;STL%&#39;</span><span class="p">,</span><span class="s1">&#39;BLK%&#39;</span><span class="p">,</span> <span class="s1">&#39;TOV%&#39;</span><span class="p">,</span> <span class="s1">&#39;AST%&#39;</span><span class="p">,</span> <span class="s1">&#39;FTr&#39;</span><span class="p">,</span> <span class="s1">&#39;TL%&#39;</span><span class="p">,</span> <span class="s1">&#39;PINTURA_p&#39;</span><span class="p">,</span> <span class="s1">&#39;PINTURA_v&#39;</span><span class="p">,</span><span class="s1">&#39;MID_RANGE_p&#39;</span><span class="p">,</span> <span class="s1">&#39;MID_RANGE_v&#39;</span><span class="p">,</span> <span class="s1">&#39;3FRONT_p&#39;</span><span class="p">,</span> <span class="s1">&#39;3FRONT_v&#39;</span><span class="p">,</span> <span class="s1">&#39;3CORNER_p&#39;</span><span class="p">,</span><span class="s1">&#39;3CORNER_v&#39;</span><span class="p">]]</span>
+<span class="n">df_tablon_estadisticas_aux</span><span class="p">[[</span><span class="s1">&#39;ORB%&#39;</span><span class="p">,</span><span class="s1">&#39;DRB%&#39;</span><span class="p">,</span> <span class="s1">&#39;STL%&#39;</span><span class="p">,</span> <span class="s1">&#39;BLK%&#39;</span><span class="p">,</span> <span class="s1">&#39;TOV%&#39;</span><span class="p">,</span> <span class="s1">&#39;AST%&#39;</span><span class="p">,</span><span class="s1">&#39;FTr&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df_tablon_estadisticas_aux</span><span class="p">[[</span><span class="s1">&#39;ORB%&#39;</span><span class="p">,</span><span class="s1">&#39;DRB%&#39;</span><span class="p">,</span> <span class="s1">&#39;STL%&#39;</span><span class="p">,</span> <span class="s1">&#39;BLK%&#39;</span><span class="p">,</span> <span class="s1">&#39;TOV%&#39;</span><span class="p">,</span> <span class="s1">&#39;AST%&#39;</span><span class="p">,</span><span class="s1">&#39;FTr&#39;</span><span class="p">]])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#######################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# TABLÓN DE ESTADISTICAS NORMALIZADO&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#######################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_tablon_estadisticas_aux</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_space</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#######################################
+# TABLÓN DE ESTADISTICAS NORMALIZADO
+#######################################
+    ORB%     DRB%     STL%     BLK%     TOV%     AST%      FTr      TL%  PINTURA_p  PINTURA_v  MID_RANGE_p  MID_RANGE_v  3FRONT_p  3FRONT_v  3CORNER_p  3CORNER_v
+0.065834 0.239739 0.367133 0.009908 0.261066 0.165186 0.186713 0.857143   0.483333   0.192308     0.212766     0.150641  0.390863  0.631410      0.875   0.025641
+0.473811 0.748860 0.274476 0.127389 0.390290 0.027868 0.408873 0.592593   0.538760   0.911661     0.217391     0.081272  0.000000  0.007067      0.000   0.000000
+0.065834 0.218241 0.419580 0.024770 0.391004 0.403069 0.216921 0.716981   0.487395   0.461240     0.255814     0.166667  0.336842  0.368217      1.000   0.003876
+0.254685 0.301303 0.283217 0.073602 0.161590 0.109047 0.148701 0.600000   0.619048   0.403846     0.416667     0.115385  0.276596  0.451923      0.000   0.028846
+0.070159 0.068078 0.295455 0.000000 0.285578 0.273425 0.042582 0.642857   0.423077   0.272727     0.282609     0.160839  0.229299  0.548951      0.200   0.017483
+</pre></div>
+</div>
+</div>
+</div>
+<p>Tras la selección de las variables numéricas y la normalización de las estadísticas de acciones de los jugadores, se pasa a la aplicación del algoritmo PCA sobre el conjunto de datos. Para su entendimiento, junto a la aplicación del algoritmo se pasa a visualizar la varianza de cada uno de los componentes principales:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inicializa el objeto PCA y ajuste del PCA a los datos</span>
+<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">()</span>
+<span class="n">pca</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df_tablon_estadisticas_aux</span><span class="p">)</span>
+<span class="n">explained_variance_ratio</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span>
+<span class="n">cumulative_explained_variance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">explained_variance_ratio</span><span class="p">)</span>
+<span class="n">componentes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">explained_variance_ratio</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Creación de la visualización</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">line_exp_var</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">componentes</span><span class="p">,</span> <span class="n">explained_variance_ratio</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Varianza Explicada&#39;</span><span class="p">)</span>
+<span class="n">line_cum_var</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">componentes</span><span class="p">,</span> <span class="n">cumulative_explained_variance</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Varianza Acumulada&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">componentes</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Componente&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Varianza Explicada / Acumulada&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Varianza Explicada y Acumulada por Componente Principal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">componentes</span><span class="p">,</span> <span class="n">explained_variance_ratio</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">y</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">componentes</span><span class="p">,</span> <span class="n">cumulative_explained_variance</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">y</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/38a6e8b2fc6d22b5debdfa03ca67515a6fe4677b793953b716ad84f37d439aa2.png" src="_images/38a6e8b2fc6d22b5debdfa03ca67515a6fe4677b793953b716ad84f37d439aa2.png" />
+</div>
+</div>
+<p>Tras la aplicación del algoritmo PCA y la creación de la visualización, se ve claramente para cada uno de los componentes su grado de explicabilidad en la varianzada del conjunto de datos original. Debido a que se ha definido como obtimo un umbral superior 85% en la explicabilidad de los componentes a seleccionar, ha sido decidido seleccionar el número de componentes sobre los que realizar la reducción dimensional en <strong>8</strong> puediendo así reducir las dimensiones del conjuntos de datos a la mitad.</p>
+<p>Por lo tanto, se pasa a realizar la reducción dimensional del conjunto de datos en 8 componente principales y se pasa a crear el conjunto de datos que será utilizado para la obtención de las agrupaciones:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inicializa PCA y ajusta a tus datos a 8 componente principales</span>
+<span class="n">pca_8D</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span> 
+<span class="n">pca_8D_data</span> <span class="o">=</span> <span class="n">pca_8D</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df_tablon_estadisticas_aux</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="obtenicion-de-agrupaciones">
+<h2>2. Obtenición de agrupaciones<a class="headerlink" href="#obtenicion-de-agrupaciones" title="Link to this heading">#</a></h2>
+<p>Tras la reducción de dimensiones del conjunto de datos original, el siguiente paso a realizar es la obtención de agrupaciones en las que serán distribuidos los jugadores de baloncesto y que darán lugar a las nuevas posiciones de baloncesto. Para ello, este apartado estará dividido en dos secciones diferentes:</p>
+<ul class="simple">
+<li><p><em>Selección del número óptimo de agrupaciones.</em> Se realizará la selección del número óptimo de agrupaciones en las que será distribuidos los datos.</p></li>
+<li><p><em>Aplicación del algoritmo kmeans.</em> Se implementará el algoritmo k-means sobre el conjunto de datos reducido dimensionalmente para obtener las agrupaciones a las que pertenece cada uno de los jugadores.</p></li>
+</ul>
+<section id="seleccion-del-numero-optimo-de-agrupaciones">
+<h3>2.1 Selección del número óptimo de agrupaciones.<a class="headerlink" href="#seleccion-del-numero-optimo-de-agrupaciones" title="Link to this heading">#</a></h3>
+<p>La selección del número óptimo de agrupaciones, o clusters, es la etapa dentro de la clusterización en la que se determina cual es el número de agrupaciones se ajusta mejor al conjunto de datos sobre el que se quiere aplicar el algortimo de clusterización. No existe ningún método que permita determinar el número de clusters debido a que la selección del número óptimo de clusters depende de la naturaleza de los datos y el objetivo del análisis. Es por este motivo, que para la obtención del número óptimo de clusters ha sido decidido que se utilice el <em>Criterio de la silueta</em> que es un método que permite media la calidad de los clusters a partir de los similares que son los puntos dentro de un cluster con respecto a otros puntos dentro de otro cluster. Es por este motivo, que ha sido realizado el cálculo de la puntuación de la silueta para diferentes número de clusters y la visualización de cada uno de esas siluetas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Se define número de agrupaciones a observar y se generan las visaulizaciones</span>
+<span class="n">range_n_clusters</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">n_clusters</span> <span class="ow">in</span> <span class="n">range_n_clusters</span><span class="p">:</span>
+    <span class="n">obtener_silueta</span><span class="p">(</span><span class="n">pca_8D_data</span><span class="p">,</span> <span class="n">n_clusters</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/365c75865fb25d36cdc5f536b67970bab37a92c46d965240affd00314300a4ea.png" src="_images/365c75865fb25d36cdc5f536b67970bab37a92c46d965240affd00314300a4ea.png" />
+<img alt="_images/5e9d360be81887462bc27fc7a6cf05d2b202dd0f7e9293883182302cfc2ea741.png" src="_images/5e9d360be81887462bc27fc7a6cf05d2b202dd0f7e9293883182302cfc2ea741.png" />
+<img alt="_images/b9e0c4687de8a3ceecbc6ee286165092e39937e029cc92719b09e175a29e2a1d.png" src="_images/b9e0c4687de8a3ceecbc6ee286165092e39937e029cc92719b09e175a29e2a1d.png" />
+<img alt="_images/d4baefb3ea9f9d4d26c902b85dcb6215b295c6a164f4b3214b7a256d6ea91086.png" src="_images/d4baefb3ea9f9d4d26c902b85dcb6215b295c6a164f4b3214b7a256d6ea91086.png" />
+<img alt="_images/9ee7cf5c8f75725cc9a552d5293e07637261e4d0a81e53deb63844485b3a68ee.png" src="_images/9ee7cf5c8f75725cc9a552d5293e07637261e4d0a81e53deb63844485b3a68ee.png" />
+<img alt="_images/0348f8b9b6c4bc3b7d9d1f74dd63ad8f02cb81762da5c5fccc4f57807300f63d.png" src="_images/0348f8b9b6c4bc3b7d9d1f74dd63ad8f02cb81762da5c5fccc4f57807300f63d.png" />
+<img alt="_images/c5c6d86ea178f57c8c30737c9b10d028a631a8b483a02622e070008443a7f410.png" src="_images/c5c6d86ea178f57c8c30737c9b10d028a631a8b483a02622e070008443a7f410.png" />
+</div>
+</div>
+<p>Tras la extración de las siluetas para los valores de 2 a 8 clusters, se puede observar como la división del conjunto de datos en 5, 7 y 8 clusters no son correctas debido a su alto porcentjae de valores negativos además de que la distribución dentro de que existen siluetas para estos números de clusters que no superar el valor promedio de la silueta. Por otro lado, el número de agrupaciones de 2. 3 y 4 si que dan un porcentaje de error asumible los grupos que se generan son demasiado grandes y se aprecia que existen agrupaciones posibles dentro de esos cluster. Por lo tanto, el número de cluster óptimo que ha sido seleccionado es el de <strong>6</strong> debido a que el porcentaje de error es de 0.15 que es un valor asumible y todos los clusters tiene una distribución forma muy simétrica.</p>
+</section>
+<section id="aplicacion-del-algoritmo-kmeans">
+<h3>2.2 Aplicación del algoritmo kmeans<a class="headerlink" href="#aplicacion-del-algoritmo-kmeans" title="Link to this heading">#</a></h3>
+<p>Tras la obtención del número óptimo de clusters, se pasa a realizar la implementación del algoritmo de clusterización. Com ha sido definido anteriormente, se ha obtado por implemental el algoritmo k-means debido a su eficiencia computacional para el trabajo con conjuntos de datos y la facilidad a la hora implemtar que tiene el algoritmo. Con respecto al funcionamiento del algoritmo k-means este puede dividirse en los siguiente pasos:</p>
+<ol class="arabic simple">
+<li><p><em>Inicialización.</em> Selección de k puntos aleatorios del conjunto de datos como los centroides iniciales. El valor de k es dado al algoritmo debido a que es un algoritmo supervisado.</p></li>
+<li><p><em>Asignación.</em> Asigna cada punto de datos al centroide más cercano.</p></li>
+<li><p><em>Actualización^.</em> Recalcula los centroides de los k clusters utilizando la media de todos los puntos asignados al cluster.</p></li>
+<li><p><em>Repetición.</em> Se repiten los paso 2 y 3 hasta que no se produzcan cambios significativos o se alcance el número maximo de iteraciones.</p></li>
+</ol>
+<p>Tras definir el algoritmo se pasa a su inicialización y entrenamiento para 6 clústers y 8 componentes:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Se inicializa el algoritmo k-means y se realiza su entrenamiento</span>
+<span class="n">algo_kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">algo_kmeans</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">pca_8D_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>KMeans(n_clusters=6, random_state=42)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">KMeans</label><div class="sk-toggleable__content"><pre>KMeans(n_clusters=6, random_state=42)</pre></div></div></div></div></div></div></div>
+</div>
+<p>Como puede observarse la implementación del algoritmo es sencilla. Adicionalmente a este paso, se va a incluir el cluster al que pertenece cada uno de los jugadores:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Se asigna el cluster obtenido</span>
+<span class="n">df_tablon_estadisticas</span><span class="p">[</span><span class="s1">&#39;CLUSTER&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">algo_kmeans</span><span class="o">.</span><span class="n">labels_</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="analisis-de-las-nuevas-posiciones">
+<h2>3. Análisis de las nuevas posiciones<a class="headerlink" href="#analisis-de-las-nuevas-posiciones" title="Link to this heading">#</a></h2>
+<p>Tras la reducción dimensional y la aplicación del algoritmo k-means, han sido agrupados los jugadores por sus estadísticas a lo largo de las temporadas. Es por este motivo que durante este apartado se realizará el análisis de los resultados tras la clusterización. Como primer paso, se pasa a mostrar la distribución de los jugadores dentro de cada grupo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtención de volumetrías por cluster</span>
+<span class="n">vol_clusters</span> <span class="o">=</span> <span class="n">df_tablon_estadisticas</span><span class="p">[</span><span class="s1">&#39;CLUSTER&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">vol_clusters</span> <span class="o">=</span> <span class="n">vol_clusters</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+
+<span class="c1"># Creación de la visualización</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">wedges</span><span class="p">,</span> <span class="n">texts</span><span class="p">,</span> <span class="n">autotexts</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">vol_clusters</span><span class="p">,</span> <span class="n">autopct</span><span class="o">=</span><span class="k">lambda</span> <span class="n">pct</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pct</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%</span><span class="se">\n</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">pct</span><span class="o">/</span><span class="mf">100.</span><span class="o">*</span><span class="nb">sum</span><span class="p">(</span><span class="n">vol_clusters</span><span class="p">))</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">startangle</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">wedgeprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">texts</span><span class="p">:</span>
+    <span class="n">text</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">autotext</span> <span class="ow">in</span> <span class="n">autotexts</span><span class="p">:</span>
+    <span class="n">autotext</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribución de clusters&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">wedges</span><span class="p">,</span> <span class="n">vol_clusters</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;center left&quot;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Clusters&#39;</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">vol_clusters</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/2de6b7fefa61ac2a58547ad6a49cb638b63889cfebf072360a29e403a1b50833.png" src="_images/2de6b7fefa61ac2a58547ad6a49cb638b63889cfebf072360a29e403a1b50833.png" />
+</div>
+</div>
+<p>Como puede observarse, dentro de cada uno de los grupos, el número de jugadores asignados a esto es similar siendo el cluster en el que hay más presencia el número 1 mientra en los que mnos son el 3 y el 4. Se pasa ahora al análsis de cada uno de los clusters con el fin de identificar el tipo de perfil de jugadores que componen los cluster. Para ello, se realiza la creación del tablón de medias del <em>Tablón de estadístas</em> y se carga la información referencia a los jugadores en la tabal de control:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Carga de información de la tabla de control</span>
+<span class="n">ruta_estadisticas</span> <span class="o">=</span> <span class="s1">&#39;E:/TFM/02. Datos/ACB/ESTADISTICAS&#39;</span>
+<span class="n">df_tablon_control</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+<span class="c1"># Se extrae el listado de directorios de temporadas</span>
+<span class="n">l_dir_temporadas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;2020&#39;</span><span class="p">,</span> <span class="s1">&#39;2021&#39;</span><span class="p">,</span> <span class="s1">&#39;2022&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">temporada</span> <span class="ow">in</span> <span class="n">l_dir_temporadas</span><span class="p">:</span>
+    <span class="c1"># Se extrae el listado de directorios de equipos</span>
+    <span class="n">ruta_dir_temporada</span> <span class="o">=</span> <span class="n">ruta_estadisticas</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">temporada</span>
+    <span class="n">l_dir_equipos</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">ruta_dir_temporada</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">equipo</span> <span class="ow">in</span> <span class="n">l_dir_equipos</span><span class="p">:</span>
+        <span class="c1"># Se inicializa la ruta de estadísticas de un equipo</span>
+        <span class="n">ruta_dir_estadisticas_equipo</span> <span class="o">=</span> <span class="n">ruta_dir_temporada</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">equipo</span>
+        
+        <span class="c1"># Se realiza la carga de ficheros de estadísticas de jugadores</span>
+        <span class="n">df_tablon_control_equipo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">ruta_dir_estadisticas_equipo</span> <span class="o">+</span> <span class="s1">&#39;/05_INFORMACION_JUGADORES.csv&#39;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s1">&#39;;&#39;</span><span class="p">)</span>
+        <span class="n">df_tablon_control_equipo</span><span class="p">[</span><span class="s1">&#39;TEMPORADA&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">temporada</span><span class="p">)</span>
+        <span class="n">df_tablon_control_equipo</span><span class="p">[</span><span class="s1">&#39;EQUIPO&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">equipo</span>
+        <span class="n">df_tablon_control</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_tablon_control</span><span class="p">,</span><span class="n">df_tablon_control_equipo</span><span class="p">])</span>
+        
+<span class="n">df_info_cluster</span> <span class="o">=</span> <span class="n">df_tablon_estadisticas</span><span class="p">[[</span><span class="s1">&#39;TEMPORADA&#39;</span><span class="p">,</span><span class="s1">&#39;EQUIPO&#39;</span><span class="p">,</span><span class="s1">&#39;DORSAL&#39;</span><span class="p">,</span><span class="s1">&#39;JUGADOR_BS&#39;</span><span class="p">,</span><span class="s1">&#39;CLUSTER&#39;</span><span class="p">]]</span>
+<span class="n">df_tablon_control</span> <span class="o">=</span> <span class="n">df_tablon_control</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_info_cluster</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TEMPORADA&#39;</span><span class="p">,</span><span class="s1">&#39;EQUIPO&#39;</span><span class="p">,</span><span class="s1">&#39;DORSAL&#39;</span><span class="p">,</span><span class="s1">&#39;JUGADOR_BS&#39;</span><span class="p">],</span><span class="n">right_on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TEMPORADA&#39;</span><span class="p">,</span><span class="s1">&#39;EQUIPO&#39;</span><span class="p">,</span><span class="s1">&#39;DORSAL&#39;</span><span class="p">,</span><span class="s1">&#39;JUGADOR_BS&#39;</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>        
+
+<span class="c1"># Creación del tablón de medias</span>
+<span class="n">columnas</span> <span class="o">=</span> <span class="n">df_tablon_estadisticas_aux</span><span class="o">.</span><span class="n">columns</span>
+<span class="n">media_tablon</span> <span class="o">=</span> <span class="n">df_tablon_estadisticas</span><span class="p">[</span><span class="n">columnas</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">std_tablo</span> <span class="o">=</span> <span class="n">df_tablon_estadisticas</span><span class="p">[</span><span class="n">columnas</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">df_medidas</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Media&#39;</span><span class="p">:</span> <span class="n">media_tablon</span><span class="p">,</span> <span class="s1">&#39;Desviación&#39;</span><span class="p">:</span><span class="n">std_tablo</span><span class="p">})</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;index&#39;</span><span class="p">:</span><span class="s1">&#39;MEDIDA&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Tras las obtenición de estas dos tablas, se pasa a realizar el análisis de cada uno de los clusters obtenidos con el fin de obtener que perfil de jugadores conforman cada uno de ellos:</p>
+<section id="analisis-cluster-0">
+<h3>3.1 Análisis cluster 0<a class="headerlink" href="#analisis-cluster-0" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cluster</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">df_tablon_cluster</span><span class="o">=</span> <span class="n">df_tablon_estadisticas</span><span class="p">[</span><span class="n">df_tablon_estadisticas</span><span class="p">[</span><span class="s1">&#39;CLUSTER&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">cluster</span><span class="p">]</span>
+<span class="n">df_info_jug_cluster</span> <span class="o">=</span> <span class="n">df_tablon_control</span><span class="p">[</span><span class="n">df_tablon_control</span><span class="p">[</span><span class="s1">&#39;CLUSTER&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">cluster</span><span class="p">]</span>
+<span class="n">df_vol_posiciones</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_info_jug_cluster</span><span class="o">.</span><span class="n">POSICION</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;index&#39;</span><span class="p">:</span><span class="s1">&#39;POSICIÓN&#39;</span><span class="p">,</span><span class="s1">&#39;POSICION&#39;</span><span class="p">:</span><span class="s1">&#39;VOLUMEN&#39;</span><span class="p">})</span>
+
+<span class="n">media</span> <span class="o">=</span> <span class="n">df_tablon_cluster</span><span class="p">[</span><span class="n">columnas</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">desviacion</span> <span class="o">=</span> <span class="n">df_tablon_cluster</span><span class="p">[</span><span class="n">columnas</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">df_estadisticas</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Media&#39;</span><span class="p">:</span> <span class="n">media</span><span class="p">,</span> <span class="s1">&#39;Desviación&#39;</span><span class="p">:</span> <span class="n">desviacion</span><span class="p">})</span>
+<span class="n">df_estadisticas</span> <span class="o">=</span> <span class="n">df_estadisticas</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;index&#39;</span><span class="p">:</span><span class="s1">&#39;MEDIDA&#39;</span><span class="p">})</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de jugadores dentro del cluster:&quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">df_info_jug_cluster</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">#####################################################################&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;# MEDIAS DE CADA VARIABLE DE LOS JUGADORES PERTENECIENTES AL CLUSTER&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;#####################################################################&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_estadisticas</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_space</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">#####################################################################&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;# DIFERENCIA  MEDIAS DEL CLUSTER vs MEDIAS DE TABLON&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;#####################################################################&#39;</span><span class="p">)</span>
+<span class="n">df_diferencia</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">((</span><span class="n">df_estadisticas</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;MEDIDA&#39;</span><span class="p">)</span> <span class="o">-</span> <span class="n">df_medidas</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;MEDIDA&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_diferencia</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_space</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nº de jugadores dentro del cluster: 137
+
+#####################################################################
+# MEDIAS DE CADA VARIABLE DE LOS JUGADORES PERTENECIENTES AL CLUSTER
+#####################################################################
+    MEDIDA     ORB%     DRB%     STL%     BLK%     TOV%     AST%      FTr      TL%  PINTURA_p  PINTURA_v  MID_RANGE_p  MID_RANGE_v  3FRONT_p  3FRONT_v  3CORNER_p  3CORNER_v
+     Media 0.025445 0.097474 0.023209 0.003980 0.193849 0.120954 0.265723 0.769942   0.499771   0.411023     0.369743     0.147905  0.322107  0.424499   0.079527   0.016574
+Desviación 0.013477 0.029884 0.008018 0.005599 0.054800 0.043460 0.113973 0.120297   0.098711   0.138042     0.145555     0.071942  0.088968  0.134075   0.126733   0.020206
+
+#####################################################################
+# DIFERENCIA  MEDIAS DEL CLUSTER vs MEDIAS DE TABLON
+#####################################################################
+MEDIDA      ORB%     DRB%      STL%      BLK%      TOV%      AST%       FTr       TL% PINTURA_p PINTURA_v MID_RANGE_p MID_RANGE_v  3FRONT_p  3FRONT_v 3CORNER_p 3CORNER_v
+ Media -0.034436 -0.04505  0.004384 -0.010524  0.035232  0.059158 -0.025641  0.025448 -0.055257 -0.082858    0.021668    0.001371  0.022872  0.090181 -0.195149 -0.008694
+</pre></div>
+</div>
+</div>
+</div>
+<p>En el <em>cluster 0</em> han sido agrupados 137 jugadores para los cuales, con respecto a la media del tablón, superan un 6% el porcentaje de asistencias repartidas (AST%), superar en un 3.5% en volumen de pérdidas cometidas (TOV%), tiene una menor incidencia en el rebote ofensivo (ORB%) y defensivo (DRB%), y superar el volumen de la liga en tiros frontales de tres puntos(3FRONT_v) y su volumen de tiro en pintura (PINTURA_v) es casi un 8% menor a la media. Por lo tanto, con estos valores, podemos asumir que los jugadores que se incluyen dentro de este grupo son jugadores que son más capaces de manejar el balón y que su zona de tiro está lejos del aro por lo que será catalogados como <em>Organizadores del juego</em>.</p>
+</section>
+<section id="analisis-cluster-1">
+<h3>3.2 Análisis cluster 1<a class="headerlink" href="#analisis-cluster-1" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cluster</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">df_tablon_cluster</span><span class="o">=</span> <span class="n">df_tablon_estadisticas</span><span class="p">[</span><span class="n">df_tablon_estadisticas</span><span class="p">[</span><span class="s1">&#39;CLUSTER&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">cluster</span><span class="p">]</span>
+<span class="n">df_info_jug_cluster</span> <span class="o">=</span> <span class="n">df_tablon_control</span><span class="p">[</span><span class="n">df_tablon_control</span><span class="p">[</span><span class="s1">&#39;CLUSTER&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">cluster</span><span class="p">]</span>
+<span class="n">df_vol_posiciones</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_info_jug_cluster</span><span class="o">.</span><span class="n">POSICION</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;index&#39;</span><span class="p">:</span><span class="s1">&#39;POSICIÓN&#39;</span><span class="p">,</span><span class="s1">&#39;POSICION&#39;</span><span class="p">:</span><span class="s1">&#39;VOLUMEN&#39;</span><span class="p">})</span>
+
+<span class="n">media</span> <span class="o">=</span> <span class="n">df_tablon_cluster</span><span class="p">[</span><span class="n">columnas</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">desviacion</span> <span class="o">=</span> <span class="n">df_tablon_cluster</span><span class="p">[</span><span class="n">columnas</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">df_estadisticas</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Media&#39;</span><span class="p">:</span> <span class="n">media</span><span class="p">,</span> <span class="s1">&#39;Desviación&#39;</span><span class="p">:</span> <span class="n">desviacion</span><span class="p">})</span>
+<span class="n">df_estadisticas</span> <span class="o">=</span> <span class="n">df_estadisticas</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;index&#39;</span><span class="p">:</span><span class="s1">&#39;MEDIDA&#39;</span><span class="p">})</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de jugadores dentro del cluster:&quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">df_info_jug_cluster</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">#####################################################################&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;# MEDIAS DE CADA VARIABLE DE LOS JUGADORES PERTENECIENTES AL CLUSTER&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;#####################################################################&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_estadisticas</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_space</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">#####################################################################&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;# DIFERENCIA MEDIAS DE TABLON VS MEDIAS DEL CLUSTER&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;#####################################################################&#39;</span><span class="p">)</span>
+<span class="n">df_diferencia</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">((</span><span class="n">df_estadisticas</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;MEDIDA&#39;</span><span class="p">)</span> <span class="o">-</span> <span class="n">df_medidas</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;MEDIDA&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_diferencia</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_space</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nº de jugadores dentro del cluster: 149
+
+#####################################################################
+# MEDIAS DE CADA VARIABLE DE LOS JUGADORES PERTENECIENTES AL CLUSTER
+#####################################################################
+    MEDIDA     ORB%     DRB%     STL%     BLK%     TOV%     AST%      FTr      TL%  PINTURA_p  PINTURA_v  MID_RANGE_p  MID_RANGE_v  3FRONT_p  3FRONT_v  3CORNER_p  3CORNER_v
+     Media 0.038418 0.118354 0.017380 0.007246 0.117669 0.039156 0.203409 0.784105   0.543073   0.277737     0.385584     0.185307  0.346576  0.493173   0.260745   0.043783
+Desviación 0.019506 0.045290 0.006484 0.008147 0.036244 0.020154 0.105698 0.135563   0.106780   0.103750     0.129263     0.065699  0.089426  0.101263   0.183412   0.033802
+
+#####################################################################
+# DIFERENCIA MEDIAS DE TABLON VS MEDIAS DEL CLUSTER
+#####################################################################
+MEDIDA      ORB%     DRB%      STL%      BLK%      TOV%     AST%       FTr       TL% PINTURA_p PINTURA_v MID_RANGE_p MID_RANGE_v  3FRONT_p  3FRONT_v 3CORNER_p 3CORNER_v
+ Media -0.021463 -0.02417 -0.001446 -0.007258 -0.040947 -0.02264 -0.087954  0.039611 -0.011955 -0.216143     0.03751    0.038773  0.047341  0.158855 -0.013931  0.018515
+</pre></div>
+</div>
+</div>
+</div>
+<p>En el <em>cluster 1</em> han sido agrupados 149 jugadores para los cuales, con respecto a la media del tablón, en todos los aspecto salvo en el porcentaje de tiros libres (TL%), porcentaje y volumen de tiro de media distancia, porcentaje y volumen de tiro de tres frontal y volumen de tiro de 3 desde esquina se encuentran por debajo de la media. Es por este motivo, que este grupo de jugadores será clasificado como <em>Tiradores frontales</em>.</p>
+</section>
+<section id="analisis-cluster-2">
+<h3>3.3 Análisis cluster 2<a class="headerlink" href="#analisis-cluster-2" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cluster</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">df_tablon_cluster</span><span class="o">=</span> <span class="n">df_tablon_estadisticas</span><span class="p">[</span><span class="n">df_tablon_estadisticas</span><span class="p">[</span><span class="s1">&#39;CLUSTER&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">cluster</span><span class="p">]</span>
+<span class="n">df_info_jug_cluster</span> <span class="o">=</span> <span class="n">df_tablon_control</span><span class="p">[</span><span class="n">df_tablon_control</span><span class="p">[</span><span class="s1">&#39;CLUSTER&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">cluster</span><span class="p">]</span>
+<span class="n">df_vol_posiciones</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_info_jug_cluster</span><span class="o">.</span><span class="n">POSICION</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;index&#39;</span><span class="p">:</span><span class="s1">&#39;POSICIÓN&#39;</span><span class="p">,</span><span class="s1">&#39;POSICION&#39;</span><span class="p">:</span><span class="s1">&#39;VOLUMEN&#39;</span><span class="p">})</span>
+
+<span class="n">media</span> <span class="o">=</span> <span class="n">df_tablon_cluster</span><span class="p">[</span><span class="n">columnas</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">desviacion</span> <span class="o">=</span> <span class="n">df_tablon_cluster</span><span class="p">[</span><span class="n">columnas</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">df_estadisticas</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Media&#39;</span><span class="p">:</span> <span class="n">media</span><span class="p">,</span> <span class="s1">&#39;Desviación&#39;</span><span class="p">:</span> <span class="n">desviacion</span><span class="p">})</span>
+<span class="n">df_estadisticas</span> <span class="o">=</span> <span class="n">df_estadisticas</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;index&#39;</span><span class="p">:</span><span class="s1">&#39;MEDIDA&#39;</span><span class="p">})</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de jugadores dentro del cluster:&quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">df_info_jug_cluster</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">#####################################################################&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;# MEDIAS DE CADA VARIABLE DE LOS JUGADORES PERTENECIENTES AL CLUSTER&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;#####################################################################&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_estadisticas</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_space</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">#####################################################################&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;# DIFERENCIA MEDIAS DE TABLON VS MEDIAS DEL CLUSTER&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;#####################################################################&#39;</span><span class="p">)</span>
+<span class="n">df_diferencia</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">((</span><span class="n">df_estadisticas</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;MEDIDA&#39;</span><span class="p">)</span> <span class="o">-</span> <span class="n">df_medidas</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;MEDIDA&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_diferencia</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_space</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nº de jugadores dentro del cluster: 120
+
+#####################################################################
+# MEDIAS DE CADA VARIABLE DE LOS JUGADORES PERTENECIENTES AL CLUSTER
+#####################################################################
+    MEDIDA     ORB%     DRB%     STL%     BLK%     TOV%     AST%      FTr      TL%  PINTURA_p  PINTURA_v  MID_RANGE_p  MID_RANGE_v  3FRONT_p  3FRONT_v  3CORNER_p  3CORNER_v
+     Media 0.090061 0.180744 0.017541 0.022552 0.154134 0.039419 0.337248 0.700800   0.588467   0.626554     0.332155     0.140258  0.342011  0.216163   0.058155   0.017026
+Desviación 0.029470 0.041079 0.007387 0.018531 0.044723 0.020833 0.125751 0.111239   0.072690   0.134982     0.147631     0.069834  0.171632  0.118347   0.109064   0.018770
+
+#####################################################################
+# DIFERENCIA MEDIAS DE TABLON VS MEDIAS DEL CLUSTER
+#####################################################################
+MEDIDA      ORB%     DRB%      STL%      BLK%      TOV%      AST%       FTr       TL% PINTURA_p PINTURA_v MID_RANGE_p MID_RANGE_v  3FRONT_p  3FRONT_v 3CORNER_p 3CORNER_v
+ Media  0.030179  0.03822 -0.001285  0.008049 -0.004482 -0.022377  0.045884 -0.043694  0.033439  0.132673   -0.015919   -0.006276  0.042776 -0.118155  -0.21652 -0.008242
+</pre></div>
+</div>
+</div>
+</div>
+<p>En el <em>cluster 2</em> han sido agrupados 120 jugadores para los cuales, con respecto a la media del tablón, superan a la media en su impacto en el rebote ofensivo en un 3% y rebote defensivo en casi un 4%, superan en un 4.6% en verticalidad al aro y superan el porcentaje en el tiro tanto en la pintura con un 3% como en frontal en un 4%. Por lo tanto, los jugadores que componen este grupo será definido como <em>Reboteadores con buen porcentaje de tiro en media y larga distancia frontal</em>.</p>
+</section>
+<section id="analisis-cluster-3">
+<h3>3.4 Análisis cluster 3<a class="headerlink" href="#analisis-cluster-3" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cluster</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">df_tablon_cluster</span><span class="o">=</span> <span class="n">df_tablon_estadisticas</span><span class="p">[</span><span class="n">df_tablon_estadisticas</span><span class="p">[</span><span class="s1">&#39;CLUSTER&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">cluster</span><span class="p">]</span>
+<span class="n">df_info_jug_cluster</span> <span class="o">=</span> <span class="n">df_tablon_control</span><span class="p">[</span><span class="n">df_tablon_control</span><span class="p">[</span><span class="s1">&#39;CLUSTER&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">cluster</span><span class="p">]</span>
+<span class="n">df_vol_posiciones</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_info_jug_cluster</span><span class="o">.</span><span class="n">POSICION</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;index&#39;</span><span class="p">:</span><span class="s1">&#39;POSICIÓN&#39;</span><span class="p">,</span><span class="s1">&#39;POSICION&#39;</span><span class="p">:</span><span class="s1">&#39;VOLUMEN&#39;</span><span class="p">})</span>
+
+<span class="n">media</span> <span class="o">=</span> <span class="n">df_tablon_cluster</span><span class="p">[</span><span class="n">columnas</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">desviacion</span> <span class="o">=</span> <span class="n">df_tablon_cluster</span><span class="p">[</span><span class="n">columnas</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">df_estadisticas</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Media&#39;</span><span class="p">:</span> <span class="n">media</span><span class="p">,</span> <span class="s1">&#39;Desviación&#39;</span><span class="p">:</span> <span class="n">desviacion</span><span class="p">})</span>
+<span class="n">df_estadisticas</span> <span class="o">=</span> <span class="n">df_estadisticas</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;index&#39;</span><span class="p">:</span><span class="s1">&#39;MEDIDA&#39;</span><span class="p">})</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de jugadores dentro del cluster:&quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">df_info_jug_cluster</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">#####################################################################&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;# MEDIAS DE CADA VARIABLE DE LOS JUGADORES PERTENECIENTES AL CLUSTER&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;#####################################################################&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_estadisticas</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_space</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">#####################################################################&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;# DIFERENCIA MEDIAS DE TABLON VS MEDIAS DEL CLUSTER&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;#####################################################################&#39;</span><span class="p">)</span>
+<span class="n">df_diferencia</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">((</span><span class="n">df_estadisticas</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;MEDIDA&#39;</span><span class="p">)</span> <span class="o">-</span> <span class="n">df_medidas</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;MEDIDA&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_diferencia</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_space</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nº de jugadores dentro del cluster: 108
+
+#####################################################################
+# MEDIAS DE CADA VARIABLE DE LOS JUGADORES PERTENECIENTES AL CLUSTER
+#####################################################################
+    MEDIDA     ORB%     DRB%     STL%     BLK%     TOV%     AST%      FTr      TL%  PINTURA_p  PINTURA_v  MID_RANGE_p  MID_RANGE_v  3FRONT_p  3FRONT_v  3CORNER_p  3CORNER_v
+     Media 0.024469 0.095110 0.021070 0.003870 0.177304 0.101067 0.252848 0.790467   0.506506   0.353829     0.363911     0.162821  0.357328  0.458900   0.687629   0.024450
+Desviación 0.011620 0.027861 0.006137 0.004141 0.055527 0.045359 0.096205 0.120815   0.080284   0.125129     0.118184     0.069601  0.072419  0.129794   0.210538   0.015632
+
+#####################################################################
+# DIFERENCIA MEDIAS DE TABLON VS MEDIAS DEL CLUSTER
+#####################################################################
+MEDIDA      ORB%      DRB%      STL%      BLK%      TOV%     AST%       FTr       TL% PINTURA_p PINTURA_v MID_RANGE_p MID_RANGE_v  3FRONT_p  3FRONT_v 3CORNER_p 3CORNER_v
+ Media -0.035412 -0.047414  0.002245 -0.010633  0.018687  0.03927 -0.038515  0.045973 -0.048522 -0.140051    0.015837    0.016287  0.058093  0.124582  0.412953 -0.000818
+</pre></div>
+</div>
+</div>
+</div>
+<p>En el <em>cluster 3</em> han sido agrupados 108 jugadores para los cuales, con respecto a la media del tablón, tienen un 3% menos de incidencia en el rebote ofensivo y un 4.7% menos en el defensivo, superan ligeramente la media en el volumen de robo de balón, pierden el balón casi un 2% más, dan un total de un 4% más de asistencia y son capaces ce tirar desde totas las posiciones especialmente desde la esquina de tres con un 41% más de acierto. Por lo tanto, este grupo de jugadores será catalogado como <em>Organizadores especialistas del tiro de esquina</em>.</p>
+</section>
+<section id="analisis-cluster-4">
+<h3>3.5 Análisis cluster 4<a class="headerlink" href="#analisis-cluster-4" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cluster</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">df_tablon_cluster</span><span class="o">=</span> <span class="n">df_tablon_estadisticas</span><span class="p">[</span><span class="n">df_tablon_estadisticas</span><span class="p">[</span><span class="s1">&#39;CLUSTER&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">cluster</span><span class="p">]</span>
+<span class="n">df_info_jug_cluster</span> <span class="o">=</span> <span class="n">df_tablon_control</span><span class="p">[</span><span class="n">df_tablon_control</span><span class="p">[</span><span class="s1">&#39;CLUSTER&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">cluster</span><span class="p">]</span>
+<span class="n">df_vol_posiciones</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_info_jug_cluster</span><span class="o">.</span><span class="n">POSICION</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;index&#39;</span><span class="p">:</span><span class="s1">&#39;POSICIÓN&#39;</span><span class="p">,</span><span class="s1">&#39;POSICION&#39;</span><span class="p">:</span><span class="s1">&#39;VOLUMEN&#39;</span><span class="p">})</span>
+
+<span class="n">media</span> <span class="o">=</span> <span class="n">df_tablon_cluster</span><span class="p">[</span><span class="n">columnas</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">desviacion</span> <span class="o">=</span> <span class="n">df_tablon_cluster</span><span class="p">[</span><span class="n">columnas</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">df_estadisticas</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Media&#39;</span><span class="p">:</span> <span class="n">media</span><span class="p">,</span> <span class="s1">&#39;Desviación&#39;</span><span class="p">:</span> <span class="n">desviacion</span><span class="p">})</span>
+<span class="n">df_estadisticas</span> <span class="o">=</span> <span class="n">df_estadisticas</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;index&#39;</span><span class="p">:</span><span class="s1">&#39;MEDIDA&#39;</span><span class="p">})</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de jugadores dentro del cluster:&quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">df_info_jug_cluster</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">#####################################################################&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;# MEDIAS DE CADA VARIABLE DE LOS JUGADORES PERTENECIENTES AL CLUSTER&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;#####################################################################&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_estadisticas</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_space</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">#####################################################################&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;# DIFERENCIA MEDIAS DE TABLON VS MEDIAS DEL CLUSTER&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;#####################################################################&#39;</span><span class="p">)</span>
+<span class="n">df_diferencia</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">((</span><span class="n">df_estadisticas</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;MEDIDA&#39;</span><span class="p">)</span> <span class="o">-</span> <span class="n">df_medidas</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;MEDIDA&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_diferencia</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_space</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nº de jugadores dentro del cluster: 109
+
+#####################################################################
+# MEDIAS DE CADA VARIABLE DE LOS JUGADORES PERTENECIENTES AL CLUSTER
+#####################################################################
+    MEDIDA     ORB%     DRB%     STL%     BLK%     TOV%     AST%      FTr      TL%  PINTURA_p  PINTURA_v  MID_RANGE_p  MID_RANGE_v  3FRONT_p  3FRONT_v  3CORNER_p  3CORNER_v
+     Media 0.124344 0.199667 0.014845 0.038850 0.187968 0.033417 0.456547 0.632384   0.617183   0.901135     0.273511     0.072345  0.062594  0.025860   0.004587   0.000661
+Desviación 0.027826 0.044844 0.006543 0.025181 0.057917 0.019281 0.159246 0.153967   0.082394   0.072850     0.230888     0.056377  0.150601  0.050543   0.047891   0.003267
+
+#####################################################################
+# DIFERENCIA MEDIAS DE TABLON VS MEDIAS DEL CLUSTER
+#####################################################################
+MEDIDA      ORB%      DRB%      STL%      BLK%      TOV%     AST%       FTr      TL% PINTURA_p PINTURA_v MID_RANGE_p MID_RANGE_v  3FRONT_p  3FRONT_v 3CORNER_p 3CORNER_v
+ Media  0.064463  0.057143 -0.003981  0.024347  0.029351 -0.02838  0.165183 -0.11211  0.062154  0.407254   -0.074563   -0.074189 -0.236641 -0.308458 -0.270089 -0.024607
+</pre></div>
+</div>
+</div>
+</div>
+<p>En el <em>cluster 4</em> han sido agrupados 109 jugadores para los cuales, con respecto a la media del tablón, tienen un mayor impacto el rebote ofensivo con un 6.4% y defensivo 5.7% que la media, una mayor capacidad de protección del aro con un 2.5% en el volumen de tapones. Además destacan en las medias de los jugadores del grupo en que tiene un 90% de volumen de tiro desde puntura y casi mínimo en el resto de áreas. Por lo tanto, este grupo será categorizado como <em>Dominadores de pitura</em>.</p>
+</section>
+<section id="analisis-cluster-5">
+<h3>3.6 Análisis cluster 5<a class="headerlink" href="#analisis-cluster-5" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cluster</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">df_tablon_cluster</span><span class="o">=</span> <span class="n">df_tablon_estadisticas</span><span class="p">[</span><span class="n">df_tablon_estadisticas</span><span class="p">[</span><span class="s1">&#39;CLUSTER&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">cluster</span><span class="p">]</span>
+<span class="n">df_info_jug_cluster</span> <span class="o">=</span> <span class="n">df_tablon_control</span><span class="p">[</span><span class="n">df_tablon_control</span><span class="p">[</span><span class="s1">&#39;CLUSTER&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">cluster</span><span class="p">]</span>
+<span class="n">df_vol_posiciones</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_info_jug_cluster</span><span class="o">.</span><span class="n">POSICION</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;index&#39;</span><span class="p">:</span><span class="s1">&#39;POSICIÓN&#39;</span><span class="p">,</span><span class="s1">&#39;POSICION&#39;</span><span class="p">:</span><span class="s1">&#39;VOLUMEN&#39;</span><span class="p">})</span>
+
+<span class="n">media</span> <span class="o">=</span> <span class="n">df_tablon_cluster</span><span class="p">[</span><span class="n">columnas</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">desviacion</span> <span class="o">=</span> <span class="n">df_tablon_cluster</span><span class="p">[</span><span class="n">columnas</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">df_estadisticas</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Media&#39;</span><span class="p">:</span> <span class="n">media</span><span class="p">,</span> <span class="s1">&#39;Desviación&#39;</span><span class="p">:</span> <span class="n">desviacion</span><span class="p">})</span>
+<span class="n">df_estadisticas</span> <span class="o">=</span> <span class="n">df_estadisticas</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;index&#39;</span><span class="p">:</span><span class="s1">&#39;MEDIDA&#39;</span><span class="p">})</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de jugadores dentro del cluster:&quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">df_info_jug_cluster</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">#####################################################################&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;# MEDIAS DE CADA VARIABLE DE LOS JUGADORES PERTENECIENTES AL CLUSTER&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;#####################################################################&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_estadisticas</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_space</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">#####################################################################&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;# DIFERENCIA MEDIAS DE TABLON VS MEDIAS DEL CLUSTER&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;#####################################################################&#39;</span><span class="p">)</span>
+<span class="n">df_diferencia</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">((</span><span class="n">df_estadisticas</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;MEDIDA&#39;</span><span class="p">)</span> <span class="o">-</span> <span class="n">df_medidas</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;MEDIDA&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_diferencia</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_space</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nº de jugadores dentro del cluster: 129
+
+#####################################################################
+# MEDIAS DE CADA VARIABLE DE LOS JUGADORES PERTENECIENTES AL CLUSTER
+#####################################################################
+    MEDIDA     ORB%     DRB%     STL%     BLK%     TOV%     AST%      FTr      TL%  PINTURA_p  PINTURA_v  MID_RANGE_p  MID_RANGE_v  3FRONT_p  3FRONT_v  3CORNER_p  3CORNER_v
+     Media 0.068350 0.174143 0.018519 0.014904 0.132219 0.037039 0.270173 0.768602   0.584520   0.481251     0.346290     0.155184  0.331790  0.321307   0.581918   0.042258
+Desviación 0.024885 0.040436 0.006706 0.013128 0.039835 0.018784 0.102657 0.103852   0.081202   0.124848     0.121028     0.056875  0.091881  0.103334   0.194721   0.030639
+
+#####################################################################
+# DIFERENCIA MEDIAS DE TABLON VS MEDIAS DEL CLUSTER
+#####################################################################
+MEDIDA      ORB%      DRB%      STL%      BLK%      TOV%      AST%      FTr       TL% PINTURA_p PINTURA_v MID_RANGE_p MID_RANGE_v  3FRONT_p  3FRONT_v 3CORNER_p 3CORNER_v
+ Media  0.008468  0.031619 -0.000307  0.000401 -0.026397 -0.024758 -0.02119  0.024107  0.029492 -0.012629   -0.001784     0.00865  0.032555 -0.013011  0.307243  0.016991
+</pre></div>
+</div>
+</div>
+</div>
+<p>En el <em>cluster 5</em> han sido agrupados 129 jugadores para los cuales, con respecto a la media del tablón, son un 3% mejor que la media en el rebote y mejoran el porcentaje de tres punto desde esquina en un 30% además de tener un 3% en el porcentaje de tiro desde esquina. Por lo tanto, este grupo será nombrado como <em>Reboteadores con capacidad de tirar de tres puntos</em>.</p>
+</section>
+</section>
+<section id="guardado-de-la-informacion">
+<h2>4. Guardado de la información<a class="headerlink" href="#guardado-de-la-informacion" title="Link to this heading">#</a></h2>
+<p>Tras el agrupamiento de los jugadores y el análisis de las agrupaciones obtenidas, se procede al guardado de la información para su uso en el resto de los análisis:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ruta de clustering</span>
+<span class="n">ruta_clustering</span> <span class="o">=</span> <span class="s1">&#39;E:/TFM/02. Datos/ACB/CLUSTERING&#39;</span>
+<span class="n">df_tablon_control</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">ruta_clustering</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="s1">&#39;01_CLUSTERING_PLAYERS_KMEANS.csv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="5.2%20EDA%20Tablon%20estad%C3%ADsticas.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">5.2 Análisis exploratorio del Tablon estadísticas</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="5.4%20Regresi%C3%B3n.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">5.4 Selección de los mejores quintetos</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reduccion-de-dimensiones">1. Reducción de dimensiones.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#obtenicion-de-agrupaciones">2. Obtenición de agrupaciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-del-numero-optimo-de-agrupaciones">2.1 Selección del número óptimo de agrupaciones.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-del-algoritmo-kmeans">2.2 Aplicación del algoritmo kmeans</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-las-nuevas-posiciones">3. Análisis de las nuevas posiciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-cluster-0">3.1 Análisis cluster 0</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-cluster-1">3.2 Análisis cluster 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-cluster-2">3.3 Análisis cluster 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-cluster-3">3.4 Análisis cluster 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-cluster-4">3.5 Análisis cluster 4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-cluster-5">3.6 Análisis cluster 5</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#guardado-de-la-informacion">4. Guardado de la información</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Francisco Javier Cantero Zorita
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

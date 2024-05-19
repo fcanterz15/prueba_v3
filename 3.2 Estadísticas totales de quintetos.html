@@ -1,0 +1,722 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3.2 Estadísticas totales de quintetos &#8212; Redefinición de las posiciones de jugadores de baloncesto e identificación de quintetos más eficientes según las nuevas definiciones</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="_static/styles.css?v=9a6b6d33" />
+    <link rel="stylesheet" type="text/css" href="_static/.ipynb_checkpoints/styles-checkpoint.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '3.2 Estadísticas totales de quintetos';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3.3 Estadísticas totales de tiro" href="3.3%20Estad%C3%ADsticas%20totales%20de%20tiro.html" />
+    <link rel="prev" title="3.1 Estadisticas totales" href="3.1%20Estadisticas%20totales.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="1.%20Introduccion.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Redefinición de las posiciones de jugadores de baloncesto e identificación de quintetos más eficientes según las nuevas definiciones - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Redefinición de las posiciones de jugadores de baloncesto e identificación de quintetos más eficientes según las nuevas definiciones - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="1.%20Introduccion.html">
+                    1. Introducción
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="2.%20Descarga%20de%20datos.html">2. Descarga de datos</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.1%20Diccionario%20de%20partidos.html">2.1 Diccionario de partidos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.2%20Diccionario%20de%20plantillas.html">2.2 Diccinario de plantillas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.3%20Box%20Score.html">2.3 Descarga de <em>Box Score</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.4%20Play%20by%20play.html">2.4 Descarga de <em>Play by play</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.5%20Carta%20de%20tiro.html">2.5 Descarga de las <em>Cartas de tiro</em></a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="3.%20Procesamiento%20de%20los%20datos.html">3. Procesamiento de los datos</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="3.1%20Estadisticas%20totales.html">3.1 <em>Estadisticas totales</em></a></li>
+
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.2 <em>Estadísticas totales de quintetos</em></a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="3.3%20Estad%C3%ADsticas%20totales%20de%20tiro.html">3.3 <em>Estadísticas totales de tiro</em></a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="3.4%20Estad%C3%ADsticas%20avanzadas%20individuales.html">3.4 <em>Estadisticas avanzadas individuales</em></a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="4.%20An%C3%A1lisis%20exploratorios.html">4. Análisis exploratorios</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="4.1%20EDA%20Estad%C3%ADsticas%20totales.html">4.1 Análisis exploratorio de <em>estadísticas totales de jugadores</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="4.2%20EDA%20Estad%C3%ADsticas%20totales%20de%20quintetos.html">4.2 Análisis exploratorio de <em>estadísticas totales de quintetos</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="4.3%20EDA%20Estad%C3%ADsticas%20totales%20de%20tiro.html">4.3 Análisis exploratorio de <em>estadísticas totales de tiro</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="4.4%20EDA%20Estad%C3%ADsticas%20avanzadas%20individuales.html">4.4 Análisis exploratorio de <em>estadísticas avanzadas individuales</em></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="5.%20Implementacion.html">5. Implementación</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="5.1%20Construcci%C3%B3n%20de%20tabl%C3%B3n%20de%20estad%C3%ADsticas.html">5.1 Construcción de tablón de estadísticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5.2%20EDA%20Tablon%20estad%C3%ADsticas.html">5.2 Análisis exploratorio del Tablon estadísticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5.3%20PCA%20y%20Kmeans.html">5.3 Redefinición de posiciones de los jugadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5.4%20Regresi%C3%B3n.html">5.4 Selección de los mejores quintetos</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/3.2 Estadísticas totales de quintetos.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>3.2 Estadísticas totales de quintetos</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">3.2 <em>Estadísticas totales de quintetos</em></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#base-teorica-de-la-construccion-de-las-estadisticas">1. Base teórica de la construcción de las estadísticas</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#procesamiento-de-los-datos">2. Procesamiento de los datos</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">funciones_auxiliares</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="estadisticas-totales-de-quintetos">
+<h1>3.2 <em>Estadísticas totales de quintetos</em><a class="headerlink" href="#estadisticas-totales-de-quintetos" title="Link to this heading">#</a></h1>
+<p>Las <em>estadisticas totales de quinteto</em>, también conocidas como estadísticas acumuladas de quinteto, es la información que representa las estadísticas obtenidas durante por un cojunto de cinco jugadores en un periodo de tiempo como puede ser un número de partidos específicos, una temporada o varias temporadas cuando estos están juntos en pista. En este notebook se buscará dar explicación de manera entendible y visualizada a todo el procesamiento realizado para la construcción de estas estadísticas a través de los siguientes puntos:</p>
+<ul class="simple">
+<li><p><strong>1. Base teórica de la construcción de las estadísticas.</strong> Se realizará la explicación teórica de los pasos realizados para la construcción de este tipo de estadísticas.</p></li>
+<li><p><strong>2. Procesamiento de los datos.</strong> Se realizará la explicación guiada del procesamiento de los datos para la construcción de las estadísticas totales.</p></li>
+</ul>
+<p>A través de esos puntos se realizará la comprensión y entendimiento del trabajo realizado para la construcción de las <em>estadísticas totales</em>.</p>
+<section id="base-teorica-de-la-construccion-de-las-estadisticas">
+<h2>1. Base teórica de la construcción de las estadísticas<a class="headerlink" href="#base-teorica-de-la-construccion-de-las-estadisticas" title="Link to this heading">#</a></h2>
+<p>Como ha sido comentado en la introducción de este notebook, las estadísticas totales de quintos, es la forma de representación creada para la representación de las estadísticas que se producen en pista cuando cinco jugadores de un mismo equipo se encuentran en pista. Para la construcción de este tipo de estadística, es necesario poder haber descargado toda la información referente a los <em>play by play</em> de los equipos durante un periodo de tiempo. Como ha sido explicado a través del apartado <a class="reference internal" href="2.4%20Play%20by%20play.html"><span class="doc std std-doc">Descarga del <em>Play by play</em>.</span></a>, han sido descargados todos los datos referentes al <em>play by play</em> de los encuentros disputados entre las temporadas <em>2019-2020</em>, *2020-2021’, <em>2021-2022</em> y <em>2022-2023</em> los cuales serán utilizados para el cálculo de las <em>estadisticas totales de quintetos</em> para cada uno de los equipos en cada una de las temporadas.</p>
+<p>Teniendo esto presente, la construcción de las <em>estadísticas totales de los quintetos</em> de un equipo en una temporada, está compuesta por dos procesamientos de los datos. Por un lado, es necesario el procesamiento del <em>play by play</em> en donde se realizá la extracción de los cinco jugadores de un mismo equipo y la costrucción de diferentes estadísticas acumuladas que son realizadas por los jugadores que conforman el quinteto o los jugadores contralos que se enfrenta el quinteto. La estadísticas que son construidas para cada quinteto son las siguientes:</p>
+<ul class="simple">
+<li><p><em>T2A.</em> Número de tiro de dos puntos anotados por los jugadores que conforman el quinteto.</p></li>
+<li><p><em>T2L.</em> Número de tiro de dos puntos lanzados por los jugadores que conforman el quinteto.</p></li>
+<li><p><em>T3A.</em> Número de tiro de tres puntos anotados por los jugadores que conforman el quinteto.</p></li>
+<li><p><em>T3L.</em> Número de tiro de tres puntos lanzados por los jugadores que conforman el quinteto.</p></li>
+<li><p><em>TLA.</em> Número de tiro libres anotados por los jugadores que conforman el quinteto.</p></li>
+<li><p><em>TLL.</em> Número de tiro libres lanzados por los jugadores que conforman el quinteto.</p></li>
+<li><p><em>RO.</em> Número de rebotes ofensivos capturados por los jugadores que conforman el quinteto.</p></li>
+<li><p><em>RD.</em> Número de rebotes defensivos capturados por los jugadores que conforman el quinteto.</p></li>
+<li><p><em>STL.</em> Número de robos realizados por los jugadores que conforman el quinteto.</p></li>
+<li><p><em>TOV.</em> Número de pérdidas realizadas por los jugadores que conforman el quinteto.</p></li>
+<li><p><em>AST.</em> Número de asistencias realizadas por los jugadores que conforman el quinteto.</p></li>
+<li><p><em>BLK.</em> Número de tapones realizados por los jugadores que conforman el quinteto.</p></li>
+<li><p><em>T2A_R.</em> Número de tiro de dos puntos anotados por los jugadores a los que se enfrenta el quinteto.</p></li>
+<li><p><em>T2L_R.</em> Número de tiro de dos puntos lanzados por los jugadores a los que se enfrenta el quinteto.</p></li>
+<li><p><em>T3A_R.</em> Número de tiro de tres puntos anotados por los jugadores a los que se enfrenta el quinteto.</p></li>
+<li><p><em>T3L_R.</em> Número de tiro de tres puntos lanzados por los jugadores a los que se enfrenta el quinteto.</p></li>
+<li><p><em>TLA_R.</em> Número de tiro libres anotados por los jugadores a los que se enfrenta el quinteto.</p></li>
+<li><p><em>TLL_R.</em> Número de tiro libres lanzados por los jugadores a los que se enfrenta el quinteto.</p></li>
+<li><p><em>RO_R.</em> Número de rebotes ofensivos capturados por los jugadores a los que se enfrentaa los que se enfrenta el quinteto.</p></li>
+<li><p><em>RD_R.</em> Número de rebotes defensivos capturados por los jugadores que conforman el quinteto.</p></li>
+<li><p><em>STL_R.</em> Número de robos realizados por los jugadores a los que se enfrenta el quinteto.</p></li>
+<li><p><em>TOV_R.</em> Número de pérdidas realizadas por los jugadores a los que se enfrenta el quinteto</p></li>
+<li><p><em>AST_R.</em> Número de asistencias realizadas por los jugadores a los que se enfrenta el quinteto.</p></li>
+<li><p><em>BLK_R.</em> Número de tapones realizados por los jugadores a los que se enfrenta el quinteto.</p></li>
+<li><p><em>TIEMPO_PISTA.</em> Número de segundos disputados por el quinteto.</p></li>
+</ul>
+<p>Tras la construcción de estas estadísticas, y como segundo procesamiento, se realizará el sumatorio de todos los apartados estadísticos del quinteto para cada equipo y en cada temporada teniendo como resultado todos los apartados estadísticos de los quintetos de un equipo a lo largo de una temporada que hayan participado en la competición.</p>
+<p>Para la construcción de las <em>estadísticas totales de quinteto</em> ha sido desarrollado el script de código <a class="reference download internal" download="" href="_downloads/092fff03ea6e8aa1b1b17c890d51c32c/03_Procesamiento_PBP.py"><span class="xref download myst">03_Procesamiento_PBP</span></a> el cual permite la lectura de todos los <em>play by play</em> de los encuentros disputados por los equipos y se procede a la construcción de este tipo de estadística.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="procesamiento-de-los-datos">
+<h1>2. Procesamiento de los datos<a class="headerlink" href="#procesamiento-de-los-datos" title="Link to this heading">#</a></h1>
+<p>Como ha sido explicado en el apartado anterior, para la construcción de las estadísticas totales, es necesario realizar primero el procesamiento del <em>play by play</em> con el fin de construir las estadísticas de cada uno de los quintetos en los partidos que haya disputado. Para ello, se realiza la carga del primer partido disputado en la jornada 1 de la temporada <em>2022-2022</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ruta para acceder al fichero del play by play del partido y lectura del partido</span>
+<span class="n">partido_2022</span> <span class="o">=</span> <span class="s1">&#39;E:/TFM/02. Datos/ACB/JORNADAS/2022/Jornada 1/20220928_Bàsquet Girona_VS_Real Madrid/PBP_Bàsquet Girona_VS_Real Madrid.csv&#39;</span>
+<span class="n">df_partido_2022</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">partido_2022</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;################################################################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# PLAY BY PLAY DESCARGADO&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;################################################################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_partido_2022</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_space</span><span class="o">=</span><span class="mi">8</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>################################################################################
+# PLAY BY PLAY DESCARGADO
+################################################################################
+        EQUIPO   CUARTO   MINUTO  PTs_LOCAL  PTS_VISITANTE   NOMBRE             ACCION
+Bàsquet Girona       4C    00:02         88             94    Colom         Asistencia
+Bàsquet Girona       4C    00:02         88             94 Figueras     Triple anotado
+Bàsquet Girona       4C    00:09         85             94    Gasol   Rebote Defensivo
+   Real Madrid       4C    00:09         85             94     Musa     Triple fallado
+Bàsquet Girona       4C    00:28         85             94    Gasol Tiro Libre anotado
+Bàsquet Girona       4C    00:28         84             94    Gasol Tiro Libre anotado
+   Real Madrid       4C    00:28         83             94  Poirier      Entra a pista
+   Real Madrid       4C    00:28         83             94 Cornelie   Sale de la pista
+Bàsquet Girona       4C    00:28         83             94    Gasol     Falta Recibida
+   Real Madrid       4C    00:28         83             94 Cornelie Falta Personal 2TL
+Bàsquet Girona       4C    00:28         83             94    Gasol   Rebote Defensivo
+   Real Madrid       4C    00:28         83             94 Yabusele Tiro Libre fallado
+   Real Madrid       4C    00:28         83             94 Yabusele     Falta Recibida
+Bàsquet Girona       4C    00:28         83             94  Miletic Falta Personal 1TL
+   Real Madrid       4C    00:28         83             94 Yabusele  Tiro de 2 anotado
+   Real Madrid       4C    00:28         83             92 Yabusele    Rebote Ofensivo
+   Real Madrid       4C    00:28         83             92  Hezonja     Triple fallado
+Bàsquet Girona       4C    00:49         83             92    Colom  Tiro de 2 anotado
+   Real Madrid       4C    01:02         81             92 Cornelie      Entra a pista
+   Real Madrid       4C    01:02         81             92  Tavares   Sale de la pista
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como ha sido comendato, el procesamiento del <em>play by play</em> consiste en la extracción de cada combinación de cinco jugadores que compartieron pista para un mismo equipo durante el encuentro y la extracción de las diferentes estadísticas anteriormente comentadas. Se muestra a continuación el procesamiento del <em>play by play</em> de ambos equipos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;################################################################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# PLAY BY PLAY PROCESADO Real Madrid&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;################################################################################&quot;</span><span class="p">)</span>
+
+<span class="n">pbp_procesado</span> <span class="o">=</span> <span class="n">procesar_pbp</span><span class="p">(</span><span class="n">df_partido_2022</span><span class="p">,</span><span class="s1">&#39;Real Madrid&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pbp_procesado</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_space</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">################################################################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# PLAY BY PLAY PROCESADO Bàsquet Girona&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;################################################################################&quot;</span><span class="p">)</span>
+
+<span class="n">pbp_procesado</span> <span class="o">=</span> <span class="n">procesar_pbp</span><span class="p">(</span><span class="n">df_partido_2022</span><span class="p">,</span><span class="s1">&#39;Bàsquet Girona&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pbp_procesado</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_space</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>################################################################################
+# PLAY BY PLAY PROCESADO Real Madrid
+################################################################################
+     EQUIPO T2A T2L T3A T3L TLA TLL RO RD STL TOV AST BLK T2A_R T2L_R T3A_R T3L_R TLA_R TLL_R RO_R RD_R STL_R TOV_R AST_R BLK_R  TIEMPO_PISTA       J1       J2        J3        J4        J5
+Real Madrid   1   4   1   2   0   0  0  2   0   3   1   1     2     4     2     3     1     1    1    4     1     3     2     1           257     Deck     Musa Rodríguez   Tavares  Yabusele
+Real Madrid   0   2   0   1   0   0  1  1   0   0   0   0     0     0     1     2     1     2    0    2     0     0     2     0            56  Causeur     Deck Rodríguez   Tavares  Yabusele
+Real Madrid   1   3   0   1   1   2  1  4   0   1   0   0     1     4     0     0     0     0    0    2     1     0     0     1           122  Causeur  Hezonja     Llull   Tavares  Yabusele
+Real Madrid   0   0   3   3   0   0  0  2   0   0   2   0     0     2     1     1     0     0    0    0     0     0     1     0           112  Causeur Cornelie   Hezonja     Llull   Poirier
+Real Madrid   0   0   0   0   0   0  0  2   0   0   0   0     0     1     0     2     0     0    1    0     0     0     0     0            53  Causeur Cornelie     Llull      Musa   Poirier
+Real Madrid   2   3   3   5   1   2  1  4   0   0   3   0     2     4     0     2     2     2    0    2     0     0     2     0           251 Cornelie  Hezonja     Llull      Musa   Poirier
+Real Madrid   1   1   1   2   0   0  1  1   0   0   1   0     0     1     0     0     1     2    0    1     0     0     1     0            93 Cornelie  Hezonja      Musa   Poirier Rodríguez
+Real Madrid   3   5   1   3   0   0  0  2   2   0   2   1     2     5     1     3     2     2    3    3     0     2     3     0           245  Hezonja     Musa   Poirier Rodríguez  Yabusele
+Real Madrid   0   0   0   1   0   0  0  0   0   0   0   0     0     0     0     1     0     0    0    1     0     0     0     1            11    Llull     Musa   Poirier Rodríguez  Yabusele
+Real Madrid   2   2   2   2   1   2  0  2   1   5   3   1     5     7     1     2     2     2    1    1     3     2     3     0           306     Deck     Musa Rodríguez   Tavares  Yabusele
+Real Madrid   0   1   0   0   0   0  0  0   0   0   0   0     1     1     0     0     0     0    0    1     0     0     1     0            29  Hezonja    Llull      Musa   Tavares  Yabusele
+Real Madrid   3   5   3   5   0   0  1  4   1   2   3   0     2     5     0     3     2     2    2    2     1     4     1     1           380  Causeur  Hezonja     Llull   Tavares  Yabusele
+Real Madrid   0   0   0   0   3   3  0  0   0   1   0   0     1     1     0     0     0     0    0    0     0     0     1     0            34  Causeur Cornelie   Hezonja     Llull   Poirier
+Real Madrid   1   2   0   1   0   0  0  0   0   1   0   1     2     4     0     0     5     7    2    2     1     0     1     0           128 Cornelie  Hezonja     Llull      Musa   Poirier
+Real Madrid   0   0   0   0   0   0  0  1   0   1   0   0     0     0     0     1     2     2    0    0     1     0     0     0            32     Deck    Llull      Musa   Poirier  Yabusele
+Real Madrid   1   1   1   1   0   0  0  1   0   2   1   0     0     0     0     1     3     3    0    0     1     0     0     0            79     Deck    Llull      Musa   Tavares  Yabusele
+Real Madrid   0   0   2   2   0   0  0  1   0   0   2   1     0     1     1     1     0     0    0    0     0     0     1     0            77     Deck    Llull      Musa Rodríguez   Tavares
+Real Madrid   1   1   1   1   0   0  0  1   0   0   2   1     0     1     1     1     0     0    0    0     0     0     0     0            50    Llull     Musa Rodríguez   Tavares  Yabusele
+Real Madrid   0   0   0   0   0   0  0  0   0   0   0   0     0     0     0     0     0     0    0    0     0     0     1     0            23  Hezonja     Musa Rodríguez   Tavares  Yabusele
+Real Madrid   1   1   0   1   0   1  0  0   0   1   0   0     1     1     0     0     2     2    0    0     0     0     0     0            34 Cornelie  Hezonja      Musa Rodríguez  Yabusele
+Real Madrid   0   0   0   1   0   0  1  0   0   0   0   0     0     0     1     1     0     0    0    2     0     0     1     0            28  Hezonja     Musa   Poirier Rodríguez  Yabusele
+
+################################################################################
+# PLAY BY PLAY PROCESADO Bàsquet Girona
+################################################################################
+        EQUIPO T2A T2L T3A T3L TLA TLL RO RD STL TOV AST BLK T2A_R T2L_R T3A_R T3L_R TLA_R TLL_R RO_R RD_R STL_R TOV_R AST_R BLK_R  TIEMPO_PISTA       J1        J2        J3      J4      J5
+Bàsquet Girona   2   4   3   5   2   3  1  6   1   3   4   1     1     6     1     3     0     0    1    3     0     3     1     1           313   Franch     Gasol   Miletic  Taylor    Vila
+Bàsquet Girona   1   4   0   0   0   0  0  2   1   0   0   1     1     3     0     1     1     2    1    4     0     1     0     0           122   Bursac  Figueras   Miletic  Taylor    Vila
+Bàsquet Girona   0   1   1   1   0   0  0  0   0   0   1   0     0     0     2     2     0     0    0    1     0     0     2     0            71   Bursac  Figueras    Garino Prkacin  Taylor
+Bàsquet Girona   0   2   0   2   0   0  1  0   0   0   0   0     0     0     1     1     0     0    0    3     0     0     0     0            94   Bursac     Colom  Figueras  Garino Prkacin
+Bàsquet Girona   2   2   0   1   2   2  0  2   0   0   2   0     2     2     0     2     0     0    0    1     0     0     0     0           131    Colom Fjellerup    Garino   Gasol Prkacin
+Bàsquet Girona   0   2   0   1   1   2  0  1   0   0   0   0     0     1     3     3     1     2    1    3     0     0     3     0           134    Colom Fjellerup     Gasol Hanzlik Prkacin
+Bàsquet Girona   0   1   0   0   0   0  0  0   0   0   1   0     1     1     1     2     0     0    1    1     0     0     1     0            79    Colom     Gasol   Hanzlik Miletic  Taylor
+Bàsquet Girona   1   1   1   1   2   2  0  1   0   0   2   0     0     1     1     1     0     0    0    0     0     0     0     0            70    Colom     Gasol   Miletic  Taylor    Vila
+Bàsquet Girona   1   4   0   3   0   0  3  3   0   2   1   1     3     4     0     3     0     0    0    2     2     0     2     1           186   Bursac    Franch   Miletic  Taylor    Vila
+Bàsquet Girona   5   7   1   2   2   2  1  1   3   2   3   0     2     2     2     2     1     2    0    2     1     5     3     1           306   Franch     Gasol   Miletic  Taylor    Vila
+Bàsquet Girona   2   2   0   0   0   0  0  2   0   0   1   1     0     2     1     2     0     0    1    0     0     0     1     0            87   Bursac     Colom   Miletic  Taylor    Vila
+Bàsquet Girona   0   0   0   0   2   2  0  0   0   1   0   0     1     1     0     0     0     0    0    0     0     0     0     0            37   Bursac     Colom  Figueras  Garino Miletic
+Bàsquet Girona   0   2   0   1   0   0  1  1   1   3   0   0     1     2     2     3     0     0    0    2     1     1     2     0           170   Bursac     Colom  Figueras  Garino Prkacin
+Bàsquet Girona   2   3   0   2   0   0  1  0   0   0   2   0     1     1     0     0     3     3    0    2     0     2     0     0           138    Colom  Figueras Fjellerup   Gasol    Vila
+Bàsquet Girona   2   4   0   0   5   7  2  2   1   0   1   0     1     2     0     1     0     0    0    0     0     1     0     1           139 Figueras Fjellerup     Gasol  Taylor    Vila
+Bàsquet Girona   0   0   0   2   5   5  0  0   2   0   0   0     1     1     1     1     0     0    0    2     0     3     1     0           111 Figueras Fjellerup   Miletic  Taylor    Vila
+Bàsquet Girona   0   1   1   1   0   0  0  0   0   0   1   0     0     0     2     2     0     0    0    1     0     0     2     1            77 Figueras Fjellerup     Gasol Miletic  Taylor
+Bàsquet Girona   1   2   2   2   2   2  0  2   0   0   2   0     2     2     1     3     0     1    1    1     0     1     2     1           135    Colom  Figueras Fjellerup   Gasol Miletic
+</pre></div>
+</div>
+</div>
+</div>
+<p>Tras el procesamiento de cada <em>play by play</em> para cada uno de los equipos en cada una de las temporadas que hayan participado en la liga ACB han sido construidas las estadísticas totales de los quintetos de estos equipos. Se muestra a continuación las <em>estadísticas totales de quintetos</em> del Real Madrid durante la temporada <em>2022-2023</em> tras la realización del sumatorio de estadísticas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ruta para acceder al fichero de estadísticas totales del Real Madrid y lectura del fichero</span>
+<span class="n">fichero_total_2022</span> <span class="o">=</span> <span class="s1">&#39;E:/TFM/02. Datos/ACB/ESTADISTICAS/2022/Real Madrid/03_ESTADISTICAS_QUINTETO_EQUIPO.csv&#39;</span>
+<span class="n">df_estadisticas_totales_quinteto</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fichero_total_2022</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;################################################################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# ESTADISTICAS TOTALES DE QUINTETOS DE REAL MADRID EN LA TEMPORADA 2022-2023&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;################################################################################&quot;</span><span class="p">)</span>
+
+<span class="n">pbp_procesado</span> <span class="o">=</span> <span class="n">procesar_pbp</span><span class="p">(</span><span class="n">df_partido_2022</span><span class="p">,</span><span class="s1">&#39;Real Madrid&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_estadisticas_totales_quinteto</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;TIEMPO_PISTA&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_space</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>################################################################################
+# ESTADISTICAS TOTALES DE QUINTETOS DE REAL MADRID EN LA TEMPORADA 2022-2023
+################################################################################
+     EQUIPO       J1       J2        J3         J4         J5  T2A  T2L  T3A  T3L  TLA  TLL  RO  RD  STL  TOV  AST  BLK  T2A_R  T2L_R  T3A_R  T3L_R  TLA_R  TLL_R  RO_R  RD_R  STL_R  TOV_R  AST_R  BLK_R  TIEMPO_PISTA
+Real Madrid Cornelie     Deck      Musa    Tavares Will.-Goss   18   41   11   25   12   14  13  34    8    9   22    5      9     35      4     19      9      9     6    24      4     11      7      1          2194
+Real Madrid     Deck    Hanga      Musa    Tavares   Yabusele   22   36   10   18   13   19   6  25   10    9   15    6     17     38      6     19      3      6    10    19      7     12      9      4          1968
+Real Madrid     Deck     Musa   Tavares Will.-Goss   Yabusele   18   31    3    5   12   17   8  12    2    7   10    5     17     27      4     13      7      9     6     8      5      5     12      1          1354
+Real Madrid   Abalde  Causeur    Ndiaye Will.-Goss   Yabusele   11   22    9   15    2    2   6  13    4    9   10    1      9     15      6     13      9     12     1    11      5      7     13      3          1319
+Real Madrid  Causeur Cornelie   Hezonja    Poirier Will.-Goss    9   19   11   20    4    6   8  13    6    7   11    1     13     21      4     13      0      0     4    10      6      7      8      1          1280
+Real Madrid Cornelie  Hezonja     Llull       Musa    Poirier    9   18    6   14    7   11   4  17    5    8    8    2      8     20      2     11     16     21     5    15      5      6      8      1          1208
+Real Madrid Cornelie  Hezonja      Musa    Tavares Will.-Goss   14   21    4    7    8   13   1  15    4    4    9    5      7     16      5     17      9     11     6    10      2      5      6      0          1169
+Real Madrid     Deck     Musa Rodríguez    Tavares   Yabusele    9   18    6    9    7    9   3   8    1    9    7    2     15     21      4      9      9     11     3     9      4      5     10      1          1159
+Real Madrid  Causeur  Hezonja   Poirier  Rodríguez   Yabusele    8   15    7   13   11   13   6  11    3    8    6    1      8     18      6     12      1      2     3     8      4      5     11      1          1153
+Real Madrid   Abalde     Musa Rodríguez    Tavares   Yabusele   10   18    1    6    3    4   3  11    4    5    7    2      7     18      3      8      2      3     5    10      3      6      6      2          1041
+Real Madrid  Causeur Cornelie   Hezonja      Llull    Poirier    8   12    5   11    5    7   3   8    1    2    6    0      6     15      5     12      3      4     8     8      1      5      8      1           969
+Real Madrid     Deck    Hanga      Musa    Poirier Will.-Goss   10   15    3    6    7    8   1  12    2    5    6    2      9     19      3      9      2      3     5     7      4      3      9      2           895
+Real Madrid Cornelie Cornelie   Hezonja       Musa    Poirier    9   18    3    8    8   10   6  11    1    2   10    1      8     14      0      9      3      5     4    10      1      4      3      2           895
+Real Madrid  Causeur    Hanga   Poirier  Rodríguez   Yabusele    7   13    2    8    5   10   2  14    3    2    4    1      4     15      2     10      4      4     4    10      1      3      6      1           887
+Real Madrid  Causeur Cornelie      Deck      Hanga    Tavares   12   18    5   11    9   10   7  10    4    3   14    5      6     16      2      8      1      3     6     5      1      8      6      1           846
+Real Madrid  Causeur Cornelie   Hezonja    Poirier  Rodríguez    6   11    4    6    7    7   2   9    3    6    7    3      9     16      1      8      1      1     4     5      2      5      3      0           822
+Real Madrid  Causeur  Hezonja     Llull    Tavares   Yabusele    7   13    4    8    5    6   4  11    1    4    7    0      7     15      0      7      3      4     5     5      3      4      2      2           815
+Real Madrid  Hezonja    Llull      Musa    Tavares   Yabusele    7   11    3   10   13   17   4  16    3    6    9    2      2     13      1      7     10     12     3     7      3      7      1      0           813
+Real Madrid   Abalde  Causeur  Cornelie  Rodríguez   Yabusele    6   13    2    7    2    2   3  10    1    3    5    2      4     11      1      7      9     13     2     9      1      1      4      1           787
+Real Madrid  Causeur    Hanga   Hezonja    Tavares   Yabusele   10   13    1    4    2    5   2   7    5    5    8    0      5      9      5      9      0      0     1     6      4      5      5      0           736
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="3.1%20Estadisticas%20totales.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">3.1 <em>Estadisticas totales</em></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="3.3%20Estad%C3%ADsticas%20totales%20de%20tiro.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">3.3 <em>Estadísticas totales de tiro</em></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">3.2 <em>Estadísticas totales de quintetos</em></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#base-teorica-de-la-construccion-de-las-estadisticas">1. Base teórica de la construcción de las estadísticas</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#procesamiento-de-los-datos">2. Procesamiento de los datos</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Francisco Javier Cantero Zorita
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
