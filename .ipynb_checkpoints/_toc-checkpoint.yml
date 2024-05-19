@@ -1,0 +1,32 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: 1. Introduccion
+chapters:
+  - file: 2. Descarga de datos
+    sections:
+      - file: 2.1 Diccionario de partidos.ipynb
+      - file: 2.2 Diccionario de plantillas.ipynb
+      - file: 2.3 Box Score.ipynb
+      - file: 2.4 Play by play.ipynb
+      - file: 2.5 Carta de tiro.ipynb
+  - file: 3. Procesamiento de los datos
+    sections:
+      - file: 3.1 Estadisticas totales.ipynb
+      - file: 3.2 Estadísticas totales de quintetos.ipynb
+      - file: 3.3 Estadísticas totales de tiro.ipynb
+      - file: 3.4 Estadísticas avanzadas individuales.ipynb
+  - file: 4. Análisis exploratorios
+    sections:
+      - file: 4.1 EDA Estadísticas totales.ipynb
+      - file: 4.2 EDA Estadísticas totales de quintetos.ipynb
+      - file: 4.3 EDA Estadísticas totales de tiro.ipynb
+      - file: 4.4 EDA Estadísticas avanzadas individuales.ipynb
+  - file: 5. Implementacion
+    sections:
+      - file: 5.1 Construcción de tablón de estadísticas.ipynb
+      - file: 5.2 EDA Tablon estadísticas.ipynb
+      - file: 5.3 PCA y Kmeans.ipynb
+      - file: 5.4 Regresión.ipynb
+      

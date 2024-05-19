@@ -1,0 +1,656 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3.4 Estadisticas avanzadas individuales &#8212; Redefinición de las posiciones de jugadores de baloncesto e identificación de quintetos más eficientes según las nuevas definiciones</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="_static/styles.css?v=9a6b6d33" />
+    <link rel="stylesheet" type="text/css" href="_static/.ipynb_checkpoints/styles-checkpoint.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '3.4 Estadísticas avanzadas individuales';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4. Análisis exploratorios" href="4.%20An%C3%A1lisis%20exploratorios.html" />
+    <link rel="prev" title="3.3 Estadísticas totales de tiro" href="3.3%20Estad%C3%ADsticas%20totales%20de%20tiro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="1.%20Introduccion.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Redefinición de las posiciones de jugadores de baloncesto e identificación de quintetos más eficientes según las nuevas definiciones - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Redefinición de las posiciones de jugadores de baloncesto e identificación de quintetos más eficientes según las nuevas definiciones - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="1.%20Introduccion.html">
+                    1. Introducción
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="2.%20Descarga%20de%20datos.html">2. Descarga de datos</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.1%20Diccionario%20de%20partidos.html">2.1 Diccionario de partidos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.2%20Diccionario%20de%20plantillas.html">2.2 Diccinario de plantillas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.3%20Box%20Score.html">2.3 Descarga de <em>Box Score</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.4%20Play%20by%20play.html">2.4 Descarga de <em>Play by play</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.5%20Carta%20de%20tiro.html">2.5 Descarga de las <em>Cartas de tiro</em></a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="3.%20Procesamiento%20de%20los%20datos.html">3. Procesamiento de los datos</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="3.1%20Estadisticas%20totales.html">3.1 <em>Estadisticas totales</em></a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="3.2%20Estad%C3%ADsticas%20totales%20de%20quintetos.html">3.2 <em>Estadísticas totales de quintetos</em></a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="3.3%20Estad%C3%ADsticas%20totales%20de%20tiro.html">3.3 <em>Estadísticas totales de tiro</em></a></li>
+
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.4 <em>Estadisticas avanzadas individuales</em></a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="4.%20An%C3%A1lisis%20exploratorios.html">4. Análisis exploratorios</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="4.1%20EDA%20Estad%C3%ADsticas%20totales.html">4.1 Análisis exploratorio de <em>estadísticas totales de jugadores</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="4.2%20EDA%20Estad%C3%ADsticas%20totales%20de%20quintetos.html">4.2 Análisis exploratorio de <em>estadísticas totales de quintetos</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="4.3%20EDA%20Estad%C3%ADsticas%20totales%20de%20tiro.html">4.3 Análisis exploratorio de <em>estadísticas totales de tiro</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="4.4%20EDA%20Estad%C3%ADsticas%20avanzadas%20individuales.html">4.4 Análisis exploratorio de <em>estadísticas avanzadas individuales</em></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="5.%20Implementacion.html">5. Implementación</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="5.1%20Construcci%C3%B3n%20de%20tabl%C3%B3n%20de%20estad%C3%ADsticas.html">5.1 Construcción de tablón de estadísticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5.2%20EDA%20Tablon%20estad%C3%ADsticas.html">5.2 Análisis exploratorio del Tablon estadísticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5.3%20PCA%20y%20Kmeans.html">5.3 Redefinición de posiciones de los jugadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5.4%20Regresi%C3%B3n.html">5.4 Selección de los mejores quintetos</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/3.4 Estadísticas avanzadas individuales.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>3.4 Estadisticas avanzadas individuales</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">3.4 <em>Estadisticas avanzadas individuales</em></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#base-teorica-de-la-construccion-de-las-estadisticas">1. Base teórica de la construcción de las estadísticas</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#procesamiento-de-los-datos">2. Procesamiento de los datos</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">funciones_auxiliares</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="estadisticas-avanzadas-individuales">
+<h1>3.4 <em>Estadisticas avanzadas individuales</em><a class="headerlink" href="#estadisticas-avanzadas-individuales" title="Link to this heading">#</a></h1>
+<p>Las <em>estadísticas avnzadas individuales</em> son el tipo de estadística definida por <em>Dean Oliver</em> en su libro <em>Basketball on Paper</em> las cuales permiten medir diferentes aspectos de los jugadores de baloncesto a partir de las <em>estadísticas totales</em> en un periodo de tiempo. En este notebook se buscará dar explicación de manera entendible y visualizada a todo el procesamiento realizado para la construcción de estas estadísticas a través de los siguientes puntos:</p>
+<ul class="simple">
+<li><p><strong>1. Base teórica de la construcción de las estadísticas.</strong> Se realizará la explicación teórica de los pasos realizados para la construcción de este tipo de estadísticas.</p></li>
+<li><p><strong>2. Procesamiento de los datos.</strong> Se realizará la explicación guiada del procesamiento de los datos para la construcción de las estadísticas totales.</p></li>
+</ul>
+<p>A través de esos puntos se realizará la comprensión y entendimiento del trabajo realizado para la construcción de las <em>estadísticas totales</em>.</p>
+<section id="base-teorica-de-la-construccion-de-las-estadisticas">
+<h2>1. Base teórica de la construcción de las estadísticas<a class="headerlink" href="#base-teorica-de-la-construccion-de-las-estadisticas" title="Link to this heading">#</a></h2>
+<p>Como ha sido comentado al inicio de este notebook, las <em>estadísticas avanzadas individuales</em> fueron diseñadas por <em>Dean Oliver</em> en su libro <em>Baskeball on Paper</em> en el cual se definieron diferentes métricas las cuales permiten saber el desempeño de los jugadores de baloncesto en función de su estadísticas individuales totales. Estas estadísticas permite mostrar el desempeño de los jugadores de baloncesto dentro de una pista ya que representan cada una de las estadísticas teniendo en cuenta el contexto en el que las realizó el jugador. Es por este motivo que para la construcción de las <em>estadísticas avanzadas individuales</em> han sido utilizadas las estadísticas totales contruidas en el apartado <a class="reference internal" href="3.1%20Estadisticas%20totales.html"><span class="doc std std-doc">Construcción de las <em>estadísticas totales</em>.</span></a> tanto de jugadores como de equipos. Mediante este tipo de estadísticas será construidas las siguientes estadísticas avanzadas:</p>
+<ul class="simple">
+<li><p><em>eFG%  - Effective Field Goal Percentage.</em> El <em>eFG%</em> conocida como <em>porcentaje de eficiencia del tiro</em>, es la métrica que permite conocer como de bunos han sido los tiros realizados por el jugador. Esta métrica es calcula a patir de la fórmula <em>eFG% = (Tiros anotados + 0.5 * Tiros de tres anotados) / Tiros lanzdaos</em>.</p></li>
+<li><p><em>3Pr - Three-Point rating.</em> El <em>3Pr</em> conocida como <em>volumen de tiros de tres lanzados</em>, es la métrica que permite conocer el porcentaje de tiros de tres que ha sido lanzado por el jugador con respecto a su tiros totales. Est métrica es calculada a partir de la fórmula *3Pr = Tiros de tres lanzados / Tiros lanzados.</p></li>
+<li><p><em>FTr - Free Throw rating.</em> El <em>Ftr</em> conocida como <em>volumen de tiros libres</em> es la métrica que permite conocer el volumen de tiros libres anotados con respecto a los tiros lanzados por el jugador. Esta métrica es calculada a partir de la fórmula *FTr = Tiros libres anotados / Tiros de campo lanzados.</p></li>
+<li><p><em>ORB% -  Offensive Rebound Percentage.</em> El <em>ORB%</em> tambien conocida por <em>Volumen de rebotes ofensivos</em> es la métrica que permite conocer cuantos rebotes ofensivos del total de rebotes diponibles fue capaz de capturar el jugador. Esta métrica es calculada a partir de la fórmula <em>ORB% = (Rebotes ofensivos capturados por el jugador * (Minutos jugados por el equipo / 5)) / (Minutos jugados por el jugador * (Rebotes ofensivos del equipo + Rebotes defensivos del equipo rival))</em>.</p></li>
+<li><p><em>DRB% -  Defensive Rebound Percentage.</em> El <em>DRB%</em> también conocida por <em>volumen de rebotes defensivos</em> es la métrica que permite conocer cuantos rebotes defensivos del total de rebotes dispones fue capaz de capturar el jugador. Esta métrica es calculada a a partir de la fórmula <em>DRB% = (Rebotes defensivos capturados por el jugador * (Minutos jugados por el equipo / 5)) / (Minutos jugados por el jugador * (Rebotes defensivos del equipo + Rebotes ofensivos del equipos rival))</em>.</p></li>
+<li><p><em>STL% - Steal Percentage.</em> El <em>STL%</em> también conocida como <em>volumen de recuperaciones realizadas</em> es la métrica que permite conocer cuantos balones fueron robados por el jugador con respecto al total de balones robados por el equipo. Esta métrica es calculada a partir de la fórmula <em>STL% = (Robos realizados por el jugador * (Minutos jugados por el equipo / 5)) / (Minutos jugados por el jugador * Posesiones realizadas por el rival)</em>.</p></li>
+<li><p><em>BLK% - Block Percentage.</em> El <em>BLK%</em> también conocida como <em>volumen de tapones realizados</em> es la métrica que permite conocer cuanto tiros del oponente fueron taponados con respecto al volumen total de tiros. Esta métrica es calculada a partir de la fórmula <em>BLK% = Tapones realizados por el jugador * (Minutos jugados por el equipo / 5)) / (Minutos jugados por el jugador * (Tiros de campo anotados por el rival - Tiros de tres anotados por el rival)</em>.</p></li>
+<li><p><em>TOV% - Turnover Percentage.</em> El <em>TOV%</em> también conocida como <em>volumen de pérdidas realizadas</em> es la métrica que permite conocer cuantos balonces fueron perdidos por el jugador con respecto al total de balones perdidos del equipo. Esta métrica es calculada a partir de la fórmula <em>TOV% = Pérdidas realizadas por el jugador / (Tiros de campo anotados por el jugador + 0.44 * Tiros libres anotados por el jugador + Pérdidas realizadas por el jugador)</em>.</p></li>
+<li><p><em>AST% - Assist Percentage.</em> El <em>AST%</em> también conocida como <em>volumen de asistencias realizadas</em> es la metrica que permite conoces el volumen de asistencias realizadas por el jugadr con respecto a los tiros realizados del equipo. Esta métrica es calculada a apartir de la fórmula <em>AST% = Asistencias del jugador / (((Minutos jugados por el jugador / (Minutos jugados por el equipo / 5)) * Tiros realizados por el equipo) - Tiros realizados por el jugador</em>.</p></li>
+<li><p><em>USG% - Usage Percentage.</em> El <em>USG%</em> también conocida como <em>porcentaje de uso</em> es la métrica que permite conocer cuantas posesiones del equipo fueron finalizadas por el jugador ya sea por tiro, pérdida o falta recibida de tiro. Esta métrica es calculada a partir de la fórmula <em>USG% = (Tiros de campo lanzados por el jugador + 0.44 * Tiros libres lanzados por el jugador + Pérdidas realizadas por el jugador) * (Minutos jugados por el equipo / 5)) / (Minutos jugados por el jugador * (Tiros de campo lanzados por el jugador + 0.44 * Tiros libres lanzados por el equipo + Péridas realizadas por el equipo)</em>.</p></li>
+<li><p><em>STOP%.</em></p></li>
+</ul>
+<p>A partir de estas estadísticas han sido creadas las estadísticas individuales de los jugadores. Para ello, ha sido creado el script de código <a class="reference download internal" download="" href="_downloads/1fd07ead11410195c0c49bd30165f593/04_Procesamiento_ESTADISTICA_AVANZADA.py"><span class="xref download myst">04_Procesamiento_ESTADISTICA_AVANZADA</span></a> con el cual se realiza la construcción de las estadísticas avanzadas para cada jugador en cada una de las temporadas para las que han sido construidas las <em>estadísticas totales</em>.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="procesamiento-de-los-datos">
+<h1>2. Procesamiento de los datos<a class="headerlink" href="#procesamiento-de-los-datos" title="Link to this heading">#</a></h1>
+<p>Como ha sido explicado en el apartado anterior, para el cálculo de las <em>estadísticas avanzadas individuales</em> es necesario tener la información por un lado de las estadísticas totales realizadas por los jugadores, las estadísticas totales de los equipos y las estadísticas totales de los rivales a lo que se haya enfrentado el equipo. Es por este motivo que para la construcción de este tipo de estadística se realiza la carga de todas las estadísticas totales del Real Madrid durante la temporada <em>2022-2023</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ruta para acceder al fichero de estadísticas totales del Real Madrid</span>
+<span class="n">fichero_total_jugadores_2022</span> <span class="o">=</span> <span class="s1">&#39;E:/TFM/02. Datos/ACB/ESTADISTICAS/2022/Real Madrid/01_ESTADISTICAS_TOTALES_EQUIPO.csv&#39;</span>
+
+<span class="c1"># Ruta para acceder al fichero de estadísticas totales de los rivales del Real Madrid</span>
+<span class="n">fichero_rival_2022</span> <span class="o">=</span> <span class="s1">&#39;E:/TFM/02. Datos/ACB/ESTADISTICAS/2022/Real Madrid/01_ESTADISTICAS_TOTALES_RIVAL.csv&#39;</span>
+
+<span class="n">df_totales_2022</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fichero_total_jugadores_2022</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s1">&#39;;&#39;</span><span class="p">)</span>
+<span class="n">df_totales_rival_2022</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fichero_rival_2022</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s1">&#39;;&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;##################################################################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# ESTADISTICAS TOTALES DE LOS JUGADORES DEL REAL MADRID EN LA TEMPORADA 2022-2023&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;##################################################################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_totales_2022</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_space</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">##################################################################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# ESTADISTICAS TOTALES DEL REAL MADRID EN LA TEMPORADA 2022-2023&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;##################################################################################&quot;</span><span class="p">)</span>
+<span class="n">df_totales_2022</span><span class="p">[</span><span class="s1">&#39;EQUIPO&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;EQUIPO&#39;</span>
+<span class="n">df_equipo_total</span> <span class="o">=</span> <span class="n">df_totales_2022</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;NO.&#39;</span><span class="p">,</span><span class="s1">&#39;JUGADOR&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;EQUIPO&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_equipo_total</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_space</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">##################################################################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# ESTADISTICAS TOTALES DE LOS RIVALES DEL REAL MADRID EN LA TEMPORADA 2022-2023&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;##################################################################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_totales_rival_2022</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_space</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>##################################################################################
+# ESTADISTICAS TOTALES DE LOS JUGADORES DEL REAL MADRID EN LA TEMPORADA 2022-2023
+##################################################################################
+ NO.         JUGADOR  MIN  PTS   RO   RD   RT   AS  PER  REC  TAP   TR  MAT   FP   FR    +-   VAL  T2A  T2L  T3A  T3L  TLA  TLL
+   0 N.Williams-Goss  370  137    6   35   41   63   23   16    5    5    0   39   13 154.0 144.0   42   79   16   41    5    7
+   1      F. Causeur  562  238    7   48   55   47   32   25    4   10    0   52   47 167.0 201.0   49   94   37  102   29   40
+  11      M. Hezonja  570  282   11  114  125   40   44   23    8    4    8   59   49 126.0 301.0   51   92   46  116   42   50
+  13    S. Rodríguez  447  156    4   45   49  101   42   12    0    2    0   37   36  49.0 204.0   23   48   30   71   20   23
+  14         G. Deck  473  209   31   79  110   37   23   16    2    7    5   30   46 178.0 290.0   66  112   13   28   38   47
+  17      V. Poirier  472  219   66   59  125   24   25   11   28    5   40   54   63 173.0 295.0   78  149    3    4   54   73
+  19        E. Demin    1    0    0    0    0    0    0    0    0    1    0    0    0   1.0  -3.0    0    1    0    1    0    0
+  21     P. Cornelie  456  133   21   70   91   17   15   12    7    5   11   54   35 201.0 146.0   28   51   16   61   29   36
+  22      W. Tavares  594  303   67  109  176   37   41   21   57    5   32   66   83 211.0 490.0  122  176    1    1   56   77
+  23        S. Llull  416  166    6   36   42   72   27   15    1    5    0   29   46  80.0 174.0   23   61   27   87   39   48
+  28     G. Yabusele  686  321   44   80  124   27   28   36   11   14   19   42   88 115.0 385.0   81  142   30   82   69   94
+   3     A. Randolph  101   39    2   30   32    3    4    2    1    0    1   10   10  26.0  49.0    6   15    7   21    6    7
+  30       E. Ndiaye  183   42   13   30   43    8   12    5    9    1    2   29   15 -13.0  49.0   13   28    3   15    7   11
+  31         D. Musa  652  469   19   66   85   64   50   28    5   10    5   46  131 270.0 521.0   85  143   57  120  128  162
+   4       I. Diagne    1    1    1    0    1    0    0    0    0    0    0    0    1   1.0   2.0    0    0    0    0    1    2
+   5    R. Fernández  117   58    1    9   10    5   11    3    1    1    0   10    4  23.0  37.0    5    7   16   36    0    0
+   6       A. Abalde  406  127   10   45   55   32   31   11    0    2    1   42   25  49.0 100.0   29   52   17   64   18   23
+   7     H. González    7    6    0    0    0    0    0    0    0    0    0    0    2   0.0   8.0    1    1    0    0    4    4
+   8        A. Hanga  287   99    9   30   39   32   24   13    3    3    3   33   22  69.0  92.0   23   42   13   41   14   23
+
+##################################################################################
+# ESTADISTICAS TOTALES DEL REAL MADRID EN LA TEMPORADA 2022-2023
+##################################################################################
+EQUIPO  MIN  PTS   RO   RD   RT   AS  PER  REC  TAP   TR  MAT   FP   FR     +-    VAL  T2A  T2L  T3A  T3L  TLA  TLL
+EQUIPO 6801 3005  318  885 1203  609  432  249  142   80  127  632  716 1880.0 3485.0  725 1293  332  891  559  727
+
+##################################################################################
+# ESTADISTICAS TOTALES DE LOS RIVALES DEL REAL MADRID EN LA TEMPORADA 2022-2023
+##################################################################################
+     JUGADOR  MIN  PTS   RO   RD   RT   AS  PER  REC  TAP   TR  MAT   FP   FR      +-    VAL  T2A  T2L  T3A  T3L  TLA  TLL
+EQUIPO_RIVAL 6804 2629  307  732 1039  538  391  254   87  141  108  720  611 -1880.0 2490.0  721 1423  263  864  398  511
+</pre></div>
+</div>
+</div>
+</div>
+<p>A partir de las estadísticas totales mostradas y la aplicación de las fórmulas definidas en el primer apartado se pasa a mostrar la <em>estadísticas totales avanzadas</em> de los jugadores del Real Madrid durante la temporada <em>2022-2023</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;######################################################################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# ESTADISTICAS AVANZADAS DE LOS JUGADORES DEL REAL MADRID EN LA TEMPORADA 2022-2023&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;######################################################################################&quot;</span><span class="p">)</span>
+<span class="n">df_estadisticas_avanzadas</span> <span class="o">=</span> <span class="n">procesar_ADVANCED_STATS</span><span class="p">(</span><span class="n">df_totales_2022</span><span class="p">,</span> <span class="n">df_equipo_total</span><span class="p">,</span> <span class="n">df_totales_rival_2022</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_estadisticas_avanzadas</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_space</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>######################################################################################
+# ESTADISTICAS AVANZADAS DE LOS JUGADORES DEL REAL MADRID EN LA TEMPORADA 2022-2023
+######################################################################################
+ NO.         JUGADOR   eFG%    3Pr    FTr   ORB%   DRB%   STL%   BLK%   TOV%    AST%   USG%  STOP%
+   0 N.Williams-Goss 0.5500 0.3417 0.0583 0.0210 0.1079 0.0232 0.0129 0.1584  0.1329 0.1829 0.4525
+   1      F. Causeur 0.5332 0.5204 0.2041 0.0161 0.0975 0.0239 0.0068 0.1329  0.0665 0.2025 0.4237
+  11      M. Hezonja 0.5769 0.5577 0.2404 0.0250 0.2282 0.0217 0.0134 0.1627  0.0566 0.2227 0.6043
+  13    S. Rodríguez 0.5714 0.5966 0.1933 0.0116 0.1149 0.0144 0.0000 0.2473  0.1687 0.1774 0.3801
+  14         G. Deck 0.6107 0.2000 0.3357 0.0849 0.1906 0.0182 0.0040 0.1280  0.0597 0.1799 0.5093
+  17      V. Poirier 0.5392 0.0261 0.4771 0.1811 0.1426 0.0125 0.0567 0.1239  0.0397 0.2062 0.5678
+  19        E. Demin 0.0000 0.5000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 -0.0000 0.9266 0.7107
+  21     P. Cornelie 0.4643 0.5446 0.3214 0.0597 0.1752 0.0141 0.0147 0.1073  0.0274 0.1451 0.5010
+  22      W. Tavares 0.6977 0.0056 0.4350 0.1461 0.2094 0.0190 0.0917 0.1690  0.0476 0.1965 0.7863
+  23        S. Llull 0.4291 0.5878 0.3243 0.0187 0.0987 0.0194 0.0023 0.1405  0.1385 0.2184 0.3895
+  28     G. Yabusele 0.5625 0.3661 0.4196 0.0831 0.1331 0.0282 0.0153 0.0992  0.0308 0.1981 0.5147
+   3     A. Randolph 0.4583 0.5833 0.1944 0.0257 0.3389 0.0106 0.0095 0.0938  0.0238 0.1976 0.6886
+  30       E. Ndiaye 0.4070 0.3488 0.2558 0.0920 0.1871 0.0147 0.0470 0.2066  0.0319 0.1515 0.6138
+  31         D. Musa 0.6483 0.4563 0.6160 0.0378 0.1155 0.0231 0.0073 0.1354  0.0816 0.2731 0.4438
+   4       I. Diagne 0.0000 0.0000    inf 1.2954 0.0000 0.0000 0.0000 0.0000  0.0000 0.4077 0.7107
+   5    R. Fernández 0.6744 0.8372 0.0000 0.0111 0.0878 0.0138 0.0082 0.2037  0.0345 0.2138 0.3677
+   6       A. Abalde 0.4698 0.5517 0.1983 0.0319 0.1265 0.0146 0.0000 0.2001  0.0597 0.1793 0.3971
+   7     H. González 1.0000 0.0000 4.0000 0.0000 0.0000 0.0000 0.0000 0.0000  0.0000 0.1827 0.2314
+   8        A. Hanga 0.5120 0.4940 0.2771 0.0406 0.1193 0.0243 0.0100 0.2121  0.0847 0.1891 0.4656
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="3.3%20Estad%C3%ADsticas%20totales%20de%20tiro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">3.3 <em>Estadísticas totales de tiro</em></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="4.%20An%C3%A1lisis%20exploratorios.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">4. Análisis exploratorios</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">3.4 <em>Estadisticas avanzadas individuales</em></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#base-teorica-de-la-construccion-de-las-estadisticas">1. Base teórica de la construcción de las estadísticas</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#procesamiento-de-los-datos">2. Procesamiento de los datos</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Francisco Javier Cantero Zorita
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

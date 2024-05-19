@@ -1,0 +1,1836 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>4.3 Análisis exploratorio de estadísticas totales de tiro &#8212; Redefinición de las posiciones de jugadores de baloncesto e identificación de quintetos más eficientes según las nuevas definiciones</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="_static/styles.css?v=9a6b6d33" />
+    <link rel="stylesheet" type="text/css" href="_static/.ipynb_checkpoints/styles-checkpoint.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '4.3 EDA Estadísticas totales de tiro';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4.4 Análisis exploratorio de estadísticas avanzadas individuales" href="4.4%20EDA%20Estad%C3%ADsticas%20avanzadas%20individuales.html" />
+    <link rel="prev" title="4.2 Análisis exploratorio de estadísticas totales de quintetos" href="4.2%20EDA%20Estad%C3%ADsticas%20totales%20de%20quintetos.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="1.%20Introduccion.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Redefinición de las posiciones de jugadores de baloncesto e identificación de quintetos más eficientes según las nuevas definiciones - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Redefinición de las posiciones de jugadores de baloncesto e identificación de quintetos más eficientes según las nuevas definiciones - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="1.%20Introduccion.html">
+                    1. Introducción
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="2.%20Descarga%20de%20datos.html">2. Descarga de datos</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.1%20Diccionario%20de%20partidos.html">2.1 Diccionario de partidos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.2%20Diccionario%20de%20plantillas.html">2.2 Diccinario de plantillas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.3%20Box%20Score.html">2.3 Descarga de <em>Box Score</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.4%20Play%20by%20play.html">2.4 Descarga de <em>Play by play</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.5%20Carta%20de%20tiro.html">2.5 Descarga de las <em>Cartas de tiro</em></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="3.%20Procesamiento%20de%20los%20datos.html">3. Procesamiento de los datos</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="3.1%20Estadisticas%20totales.html">3.1 <em>Estadisticas totales</em></a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="3.2%20Estad%C3%ADsticas%20totales%20de%20quintetos.html">3.2 <em>Estadísticas totales de quintetos</em></a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="3.3%20Estad%C3%ADsticas%20totales%20de%20tiro.html">3.3 <em>Estadísticas totales de tiro</em></a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="3.4%20Estad%C3%ADsticas%20avanzadas%20individuales.html">3.4 <em>Estadisticas avanzadas individuales</em></a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="4.%20An%C3%A1lisis%20exploratorios.html">4. Análisis exploratorios</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="4.1%20EDA%20Estad%C3%ADsticas%20totales.html">4.1 Análisis exploratorio de <em>estadísticas totales de jugadores</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="4.2%20EDA%20Estad%C3%ADsticas%20totales%20de%20quintetos.html">4.2 Análisis exploratorio de <em>estadísticas totales de quintetos</em></a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.3 Análisis exploratorio de <em>estadísticas totales de tiro</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="4.4%20EDA%20Estad%C3%ADsticas%20avanzadas%20individuales.html">4.4 Análisis exploratorio de <em>estadísticas avanzadas individuales</em></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="5.%20Implementacion.html">5. Implementación</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="5.1%20Construcci%C3%B3n%20de%20tabl%C3%B3n%20de%20estad%C3%ADsticas.html">5.1 Construcción de tablón de estadísticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5.2%20EDA%20Tablon%20estad%C3%ADsticas.html">5.2 Análisis exploratorio del Tablon estadísticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5.3%20PCA%20y%20Kmeans.html">5.3 Redefinición de posiciones de los jugadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5.4%20Regresi%C3%B3n.html">5.4 Selección de los mejores quintetos</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/4.3 EDA Estadísticas totales de tiro.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>4.3 Análisis exploratorio de estadísticas totales de tiro</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-consistencia-de-los-datos">1. Análisis de consistencia de los datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-univariante-de-los-datos">2. Análisis univariante de los datos.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-1-in">2.1 Variable <em>GRUPO 1_IN</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-1-out">2.2 Variable <em>GRUPO 1_OUT</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-2-in">2.3 Variable <em>GRUPO 2_IN</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.4 Variable <em>GRUPO 1_OUT</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-3-in">2.5 Variable <em>GRUPO 3_IN</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-3-out">2.6 Variable <em>GRUPO 3_OUT</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-4-in">2.7 Variable <em>GRUPO 4_IN</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-4-out">2.8 Variable <em>GRUPO 4_OUT</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-5-in">2.9 Variable <em>GRUPO 5_IN</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-5-out">2.10 Variable <em>GRUPO 5_OUT</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-6-in">2.11 Variable <em>GRUPO 6_IN</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-6-out">2.12 Variable <em>GRUPO 6_OUT</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-7-in">2.13 Variable <em>GRUPO 7_IN</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-7-out">2.14 Variable <em>GRUPO 7_OUT</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-8-in">2.15 Variable <em>GRUPO 8_IN</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-8-out">2.16 Variable <em>GRUPO 8_OUT</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-9-in">2.17 Variable <em>GRUPO 9_IN</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-9-out">2.18 Variable <em>GRUPO 9_OUT</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-10-in">2.19 Variable <em>GRUPO 10_IN</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-10-out">2.20 Variable <em>GRUPO 10_OUT</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-11-in">2.21 Variable <em>GRUPO 11_IN</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-11-out">2.22 Variable <em>GRUPO 11_OUT</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-fuera-de-limites-out">2.23 Variable <em>Fuera de límites_OUT</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones">3. Conclusiones</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">funciones_auxiliares</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="analisis-exploratorio-de-estadisticas-totales-de-tiro">
+<h1>4.3 Análisis exploratorio de <em>estadísticas totales de tiro</em><a class="headerlink" href="#analisis-exploratorio-de-estadisticas-totales-de-tiro" title="Link to this heading">#</a></h1>
+<p>En el siguiente notebook, se pasa a realizar el análisis exploratorio de los datos procesados referentes a las <em>estadísticas totales de quintetos</em>. Este análisis exploratorio estará dividido en los siguientes apartados con el fin de poder comprender y conocer los datos que han sido descargados y transformados:</p>
+<ul class="simple">
+<li><p><strong>1. Análisis de consistencia de los datos.</strong> Se realizará el análisis de volumetrías referentes a los datos descargados con el fin de tener una imagen global de estos.</p></li>
+<li><p><strong>2. Análisis univariante de los datos.</strong> Se realizará una análisis de cada una de las variables para conocer la información que esta almacena y la distribución de esta dentro de la variable.</p></li>
+<li><p><strong>3. Conclusiones.</strong> Se cerrará el documento destacando los puntos más relevantes tras la realización del análisis.</p></li>
+</ul>
+<p>A través de estos puntos se espere conocer por completo la informaición que se tiene para el cumplimiento de los objetivos del Trabajo Fin de Máster.</p>
+<section id="analisis-de-consistencia-de-los-datos">
+<h2>1. Análisis de consistencia de los datos<a class="headerlink" href="#analisis-de-consistencia-de-los-datos" title="Link to this heading">#</a></h2>
+<p>En el análisis de consistencia de los datos se buscará concocer la estructura de estos y la información que en su variables se almacena. Es por este motivo que se pasa a realiza la construcción de un dataframe con todos los registros de los quintetos en el que se almacenen estadísticas totales de quintetos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ruta de estadísticas</span>
+<span class="n">ruta_estadisticas</span> <span class="o">=</span> <span class="s1">&#39;E:/TFM/02. Datos/ACB/ESTADISTICAS&#39;</span>
+
+<span class="c1"># Se realiza la inicialización del tablon de estadísticas</span>
+<span class="n">df_estadisticas_totales</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+<span class="c1"># Se extrae el listado de directorios de temporadas</span>
+<span class="n">l_dir_temporadas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;2019&#39;</span><span class="p">,</span><span class="s1">&#39;2020&#39;</span><span class="p">,</span> <span class="s1">&#39;2021&#39;</span><span class="p">,</span> <span class="s1">&#39;2022&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">temporada</span> <span class="ow">in</span> <span class="n">l_dir_temporadas</span><span class="p">:</span>
+    <span class="c1"># Se extrae el listado de directorios de equipos</span>
+    <span class="n">ruta_dir_temporada</span> <span class="o">=</span> <span class="n">ruta_estadisticas</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">temporada</span>
+    <span class="n">l_dir_equipos</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">ruta_dir_temporada</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">equipo</span> <span class="ow">in</span> <span class="n">l_dir_equipos</span><span class="p">:</span>
+        <span class="c1"># Se inicializa la ruta de estadísticas de un equipo</span>
+        <span class="n">ruta_dir_estadisticas_equipo</span> <span class="o">=</span> <span class="n">ruta_dir_temporada</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">equipo</span>
+        
+        <span class="c1"># Se realiza la carga de ficheros de estadísticas de jugadores</span>
+        <span class="n">df_estadisticas_totales_equipo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">ruta_dir_estadisticas_equipo</span> <span class="o">+</span> <span class="s1">&#39;/02_ESTADISTICAS_CARTA_TIRO_EQUIPO.csv&#39;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s1">&#39;;&#39;</span><span class="p">)</span>
+        
+        <span class="c1"># Se incluye el fichero cargado en el dataframe de estadísticas totales</span>
+        <span class="n">df_estadisticas_totales</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_estadisticas_totales</span><span class="p">,</span><span class="n">df_estadisticas_totales_equipo</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Tras la construccion del fichero global con las estadísticas totales de los jugadores, se pasa a realizar la extracción de volumetrías del conjunto de datos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#######################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# RESUMEN DEL TABLÓN DE ESTADISTICAS&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#######################################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de registros:&quot;</span><span class="p">,</span><span class="n">df_estadisticas_totales</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de columnas:&quot;</span><span class="p">,</span><span class="n">df_estadisticas_totales</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Columnas:&quot;</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39; | &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="o">.</span><span class="n">columns</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de elementos vacíos:&quot;</span><span class="p">,(</span><span class="n">df_estadisticas_totales</span><span class="o">==</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de elementos nulos:&quot;</span><span class="p">,</span><span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">df_estadisticas_totales</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">df_estadisticas_totales</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_space</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#######################################
+# RESUMEN DEL TABLÓN DE ESTADISTICAS
+#######################################
+Nº de registros: 1242
+Nº de columnas: 25
+Columnas: D | NOMBRE | GRUPO 1_IN | GRUPO 1_OUT | GRUPO 10_IN | GRUPO 10_OUT | GRUPO 11_IN | GRUPO 11_OUT | GRUPO 2_IN | GRUPO 2_OUT | GRUPO 3_IN | GRUPO 3_OUT | GRUPO 4_IN | GRUPO 4_OUT | GRUPO 5_IN | GRUPO 5_OUT | GRUPO 6_IN | GRUPO 6_OUT | GRUPO 7_IN | GRUPO 7_OUT | GRUPO 8_IN | GRUPO 8_OUT | GRUPO 9_IN | GRUPO 9_OUT | Fuera de límites_OUT
+Nº de elementos vacíos: 0
+Nº de elementos nulos: 6988
+
+    D    NOMBRE  GRUPO 1_IN  GRUPO 1_OUT  GRUPO 10_IN  GRUPO 10_OUT  GRUPO 11_IN  GRUPO 11_OUT  GRUPO 2_IN  GRUPO 2_OUT  GRUPO 3_IN  GRUPO 3_OUT  GRUPO 4_IN  GRUPO 4_OUT  GRUPO 5_IN  GRUPO 5_OUT  GRUPO 6_IN  GRUPO 6_OUT  GRUPO 7_IN  GRUPO 7_OUT  GRUPO 8_IN  GRUPO 8_OUT  GRUPO 9_IN  GRUPO 9_OUT  Fuera de límites_OUT
+   0 B. Davies       114.0         96.0          NaN           NaN          NaN           NaN         NaN          NaN         NaN          NaN         NaN          NaN         NaN          NaN         NaN          NaN         NaN          NaN         NaN          NaN         NaN          NaN                   NaN
+   3 K. Pangos         2.0          2.0          NaN           NaN          NaN           NaN         NaN          NaN         NaN          NaN         NaN          NaN         NaN          NaN         NaN          NaN         NaN          NaN         NaN          NaN         NaN          NaN                   NaN
+   5  P. Ribas        18.0         23.0          NaN           NaN          NaN           NaN         NaN          NaN         NaN          NaN         NaN          NaN         NaN          NaN         NaN          NaN         NaN          NaN         NaN          NaN         NaN          NaN                   NaN
+   8  A. Hanga        70.0         84.0          NaN           NaN          NaN           NaN         NaN          NaN         NaN          NaN         NaN          NaN         NaN          NaN         NaN          NaN         NaN          NaN         NaN          NaN         NaN          NaN                   NaN
+  10  R. Smits        19.0         27.0          NaN           NaN          NaN           NaN         NaN          NaN         NaN          NaN         NaN          NaN         NaN          NaN         NaN          NaN         NaN          NaN         NaN          NaN         NaN          NaN                   NaN
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como se puede observar, el número de registros de estadísticas totales de jugadores es de 1.242 que dan información a 25 variables diferentes como ya se había observado durante el procesamiento de este tipo de estadística. Con respecto a la estructura de los datos que esta variable almacena, de manera genérica, podemos observar todas las variables estadísticas son de tipo numérico y que existen 6.988 elementos nulos que pertenecen a los registros de la temporada <em>2019-2020</em>.</p>
+</section>
+<section id="analisis-univariante-de-los-datos">
+<h2>2. Análisis univariante de los datos.<a class="headerlink" href="#analisis-univariante-de-los-datos" title="Link to this heading">#</a></h2>
+<p>Tras la inspección de manera general todos los registros en los que se almacena información referente a las estadísticas totales, se pasa a realizar el análisis univariante de cada una de ellas para conocer su estructura y el tipo de información que en estas variables se almacena:</p>
+<section id="variable-grupo-1-in">
+<h3>2.1 Variable <em>GRUPO 1_IN</em><a class="headerlink" href="#variable-grupo-1-in" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;INFORMACIÖN DE LA VARIABLE&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;GRUPO 1_IN&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tipo de variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de valores únicos:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Media de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mediana de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Desviación típica de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor mínimo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor máximo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sumatorio de tiros realizados:&quot;</span><span class="p">,</span><span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+
+<span class="c1"># Obtención de visualizaciónes</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">obtener_distribucion_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax1</span><span class="p">)</span>
+<span class="n">obtener_boxplot_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#############################
+INFORMACIÖN DE LA VARIABLE
+#############################
+Tipo de variable: float64
+Nº de valores únicos: 142
+Media de la variable: 38.34460547504026
+Mediana de la variable: 29.0
+Desviación típica de la variable: 35.37063465668472
+Valor mínimo: 0.0
+Valor máximo: 210.0
+Sumatorio de tiros realizados: 47624.0
+</pre></div>
+</div>
+<img alt="_images/d6eced8cd8e4be3b9868e68da6518be0816c866d7a745d8accf74acd8bed93ad.png" src="_images/d6eced8cd8e4be3b9868e68da6518be0816c866d7a745d8accf74acd8bed93ad.png" />
+</div>
+</div>
+</section>
+<section id="variable-grupo-1-out">
+<h3>2.2 Variable <em>GRUPO 1_OUT</em><a class="headerlink" href="#variable-grupo-1-out" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;INFORMACIÖN DE LA VARIABLE&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;GRUPO 1_OUT&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tipo de variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de valores únicos:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Media de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mediana de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Desviación típica de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor mínimo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor máximo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sumatorio de tiros realizados:&quot;</span><span class="p">,</span><span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+
+<span class="c1"># Obtención de visualizaciónes</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">obtener_distribucion_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax1</span><span class="p">)</span>
+<span class="n">obtener_boxplot_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#############################
+INFORMACIÖN DE LA VARIABLE
+#############################
+Tipo de variable: float64
+Nº de valores únicos: 134
+Media de la variable: 33.72302737520129
+Mediana de la variable: 26.0
+Desviación típica de la variable: 31.70107054698937
+Valor mínimo: 0.0
+Valor máximo: 210.0
+Sumatorio de tiros realizados: 41884.0
+</pre></div>
+</div>
+<img alt="_images/8c05e0bdbc9f3297e9ffee9ca1eebd75aca203ac48ada546c778e82caf3bcf7c.png" src="_images/8c05e0bdbc9f3297e9ffee9ca1eebd75aca203ac48ada546c778e82caf3bcf7c.png" />
+</div>
+</div>
+</section>
+<section id="variable-grupo-2-in">
+<h3>2.3 Variable <em>GRUPO 2_IN</em><a class="headerlink" href="#variable-grupo-2-in" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;INFORMACIÖN DE LA VARIABLE&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;GRUPO 2_IN&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tipo de variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de valores únicos:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Media de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mediana de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Desviación típica de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor mínimo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor máximo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sumatorio de tiros realizados:&quot;</span><span class="p">,</span><span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+
+<span class="c1"># Obtención de visualizaciónes</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">obtener_distribucion_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax1</span><span class="p">)</span>
+<span class="n">obtener_boxplot_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#############################
+INFORMACIÖN DE LA VARIABLE
+#############################
+Tipo de variable: float64
+Nº de valores únicos: 15
+Media de la variable: 1.8598524762908324
+Mediana de la variable: 1.0
+Desviación típica de la variable: 2.4296777015662205
+Valor mínimo: 0.0
+Valor máximo: 19.0
+Sumatorio de tiros realizados: 1765.0
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<img alt="_images/fd7a13bf8abc14c595190e572bb72b065d1b1fbd0daa1af0e85b4cca1813ae9c.png" src="_images/fd7a13bf8abc14c595190e572bb72b065d1b1fbd0daa1af0e85b4cca1813ae9c.png" />
+</div>
+</div>
+</section>
+<section id="id1">
+<h3>2.4 Variable <em>GRUPO 1_OUT</em><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;INFORMACIÖN DE LA VARIABLE&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;GRUPO 2_OUT&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tipo de variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de valores únicos:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Media de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mediana de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Desviación típica de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor mínimo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor máximo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sumatorio de tiros realizados:&quot;</span><span class="p">,</span><span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+
+<span class="c1"># Obtención de visualizaciónes</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">obtener_distribucion_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax1</span><span class="p">)</span>
+<span class="n">obtener_boxplot_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#############################
+INFORMACIÖN DE LA VARIABLE
+#############################
+Tipo de variable: float64
+Nº de valores únicos: 20
+Media de la variable: 3.095890410958904
+Mediana de la variable: 2.0
+Desviación típica de la variable: 3.2882404546437316
+Valor mínimo: 0.0
+Valor máximo: 20.0
+Sumatorio de tiros realizados: 2938.0
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<img alt="_images/3773ce567d5f465dff44bff3fa3d837aafd0e7be4b324c41518891ff499f7df8.png" src="_images/3773ce567d5f465dff44bff3fa3d837aafd0e7be4b324c41518891ff499f7df8.png" />
+</div>
+</div>
+</section>
+<section id="variable-grupo-3-in">
+<h3>2.5 Variable <em>GRUPO 3_IN</em><a class="headerlink" href="#variable-grupo-3-in" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;INFORMACIÖN DE LA VARIABLE&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;GRUPO 3_IN&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tipo de variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de valores únicos:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Media de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mediana de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Desviación típica de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor mínimo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor máximo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sumatorio de tiros realizados:&quot;</span><span class="p">,</span><span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+
+<span class="c1"># Obtención de visualizaciónes</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">obtener_distribucion_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax1</span><span class="p">)</span>
+<span class="n">obtener_boxplot_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#############################
+INFORMACIÖN DE LA VARIABLE
+#############################
+Tipo de variable: float64
+Nº de valores únicos: 13
+Media de la variable: 1.7049525816649105
+Mediana de la variable: 1.0
+Desviación típica de la variable: 2.133564083693283
+Valor mínimo: 0.0
+Valor máximo: 14.0
+Sumatorio de tiros realizados: 1618.0
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<img alt="_images/a9584ecbf21d5520eb4340a5794dc47d5aefc29e391745cce4d4f321e8b729c4.png" src="_images/a9584ecbf21d5520eb4340a5794dc47d5aefc29e391745cce4d4f321e8b729c4.png" />
+</div>
+</div>
+</section>
+<section id="variable-grupo-3-out">
+<h3>2.6 Variable <em>GRUPO 3_OUT</em><a class="headerlink" href="#variable-grupo-3-out" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;INFORMACIÖN DE LA VARIABLE&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;GRUPO 3_OUT&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tipo de variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de valores únicos:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Media de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mediana de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Desviación típica de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor mínimo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor máximo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sumatorio de tiros realizados:&quot;</span><span class="p">,</span><span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+
+<span class="c1"># Obtención de visualizaciónes</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">obtener_distribucion_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax1</span><span class="p">)</span>
+<span class="n">obtener_boxplot_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#############################
+INFORMACIÖN DE LA VARIABLE
+#############################
+Tipo de variable: float64
+Nº de valores únicos: 18
+Media de la variable: 2.822971548998946
+Mediana de la variable: 2.0
+Desviación típica de la variable: 2.9763943334330945
+Valor mínimo: 0.0
+Valor máximo: 18.0
+Sumatorio de tiros realizados: 2679.0
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<img alt="_images/6dd01104705c5453f8776263f3d0edc639b13f1b5c24aef872612ae2a78613e5.png" src="_images/6dd01104705c5453f8776263f3d0edc639b13f1b5c24aef872612ae2a78613e5.png" />
+</div>
+</div>
+</section>
+<section id="variable-grupo-4-in">
+<h3>2.7 Variable <em>GRUPO 4_IN</em><a class="headerlink" href="#variable-grupo-4-in" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;INFORMACIÖN DE LA VARIABLE&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;GRUPO 4_IN&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tipo de variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de valores únicos:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Media de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mediana de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Desviación típica de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor mínimo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor máximo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sumatorio de tiros realizados:&quot;</span><span class="p">,</span><span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+
+<span class="c1"># Obtención de visualizaciónes</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">obtener_distribucion_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax1</span><span class="p">)</span>
+<span class="n">obtener_boxplot_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#############################
+INFORMACIÖN DE LA VARIABLE
+#############################
+Tipo de variable: float64
+Nº de valores únicos: 15
+Media de la variable: 1.0769230769230769
+Mediana de la variable: 0.0
+Desviación típica de la variable: 1.928408707408974
+Valor mínimo: 0.0
+Valor máximo: 22.0
+Sumatorio de tiros realizados: 1022.0
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<img alt="_images/4585913ec939345ac1761f413ce599af784714498ff2c6d4c882609c34fcbcd4.png" src="_images/4585913ec939345ac1761f413ce599af784714498ff2c6d4c882609c34fcbcd4.png" />
+</div>
+</div>
+</section>
+<section id="variable-grupo-4-out">
+<h3>2.8 Variable <em>GRUPO 4_OUT</em><a class="headerlink" href="#variable-grupo-4-out" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;INFORMACIÖN DE LA VARIABLE&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;GRUPO 4_OUT&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tipo de variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de valores únicos:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Media de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mediana de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Desviación típica de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor mínimo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor máximo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sumatorio de tiros realizados:&quot;</span><span class="p">,</span><span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+
+<span class="c1"># Obtención de visualizaciónes</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">obtener_distribucion_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax1</span><span class="p">)</span>
+<span class="n">obtener_boxplot_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#############################
+INFORMACIÖN DE LA VARIABLE
+#############################
+Tipo de variable: float64
+Nº de valores únicos: 18
+Media de la variable: 1.898840885142255
+Mediana de la variable: 1.0
+Desviación típica de la variable: 2.6422182386086805
+Valor mínimo: 0.0
+Valor máximo: 18.0
+Sumatorio de tiros realizados: 1802.0
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<img alt="_images/69686a1adf608e15f26117a3fd5e4ce5505ac059fc93dca6d5207d27b6621b9a.png" src="_images/69686a1adf608e15f26117a3fd5e4ce5505ac059fc93dca6d5207d27b6621b9a.png" />
+</div>
+</div>
+</section>
+<section id="variable-grupo-5-in">
+<h3>2.9 Variable <em>GRUPO 5_IN</em><a class="headerlink" href="#variable-grupo-5-in" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;INFORMACIÖN DE LA VARIABLE&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;GRUPO 5_IN&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tipo de variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de valores únicos:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Media de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mediana de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Desviación típica de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor mínimo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor máximo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sumatorio de tiros realizados:&quot;</span><span class="p">,</span><span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+
+<span class="c1"># Obtención de visualizaciónes</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">obtener_distribucion_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax1</span><span class="p">)</span>
+<span class="n">obtener_boxplot_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#############################
+INFORMACIÖN DE LA VARIABLE
+#############################
+Tipo de variable: float64
+Nº de valores únicos: 18
+Media de la variable: 1.5374077976817704
+Mediana de la variable: 0.0
+Desviación típica de la variable: 2.6144522913887007
+Valor mínimo: 0.0
+Valor máximo: 23.0
+Sumatorio de tiros realizados: 1459.0
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<img alt="_images/b1aec7b66db144f93c0758b7a12bb2995ab8c76cc7328f71b2070f1551521be4.png" src="_images/b1aec7b66db144f93c0758b7a12bb2995ab8c76cc7328f71b2070f1551521be4.png" />
+</div>
+</div>
+</section>
+<section id="variable-grupo-5-out">
+<h3>2.10 Variable <em>GRUPO 5_OUT</em><a class="headerlink" href="#variable-grupo-5-out" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;INFORMACIÖN DE LA VARIABLE&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;GRUPO 5_OUT&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tipo de variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de valores únicos:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Media de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mediana de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Desviación típica de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor mínimo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor máximo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sumatorio de tiros realizados:&quot;</span><span class="p">,</span><span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+
+<span class="c1"># Obtención de visualizaciónes</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">obtener_distribucion_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax1</span><span class="p">)</span>
+<span class="n">obtener_boxplot_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#############################
+INFORMACIÖN DE LA VARIABLE
+#############################
+Tipo de variable: float64
+Nº de valores únicos: 23
+Media de la variable: 2.243414120126449
+Mediana de la variable: 1.0
+Desviación típica de la variable: 3.359094233552364
+Valor mínimo: 0.0
+Valor máximo: 31.0
+Sumatorio de tiros realizados: 2129.0
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<img alt="_images/6e060ab69b2eaf6d9f466431a36ccc420f81a9de92024d519e03846db3b93b07.png" src="_images/6e060ab69b2eaf6d9f466431a36ccc420f81a9de92024d519e03846db3b93b07.png" />
+</div>
+</div>
+</section>
+<section id="variable-grupo-6-in">
+<h3>2.11 Variable <em>GRUPO 6_IN</em><a class="headerlink" href="#variable-grupo-6-in" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;INFORMACIÖN DE LA VARIABLE&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;GRUPO 6_IN&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tipo de variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de valores únicos:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Media de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mediana de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Desviación típica de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor mínimo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor máximo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sumatorio de tiros realizados:&quot;</span><span class="p">,</span><span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+
+<span class="c1"># Obtención de visualizaciónes</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">obtener_distribucion_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax1</span><span class="p">)</span>
+<span class="n">obtener_boxplot_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#############################
+INFORMACIÖN DE LA VARIABLE
+#############################
+Tipo de variable: float64
+Nº de valores únicos: 17
+Media de la variable: 1.0052687038988408
+Mediana de la variable: 0.0
+Desviación típica de la variable: 2.0160154272818644
+Valor mínimo: 0.0
+Valor máximo: 25.0
+Sumatorio de tiros realizados: 954.0
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<img alt="_images/19698224887dd4da3b9e51bd673f57eec25c2076de10de4f42a42e3160bc04a0.png" src="_images/19698224887dd4da3b9e51bd673f57eec25c2076de10de4f42a42e3160bc04a0.png" />
+</div>
+</div>
+</section>
+<section id="variable-grupo-6-out">
+<h3>2.12 Variable <em>GRUPO 6_OUT</em><a class="headerlink" href="#variable-grupo-6-out" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;INFORMACIÖN DE LA VARIABLE&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;GRUPO 6_OUT&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tipo de variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de valores únicos:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Media de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mediana de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Desviación típica de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor mínimo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor máximo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sumatorio de tiros realizados:&quot;</span><span class="p">,</span><span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+
+<span class="c1"># Obtención de visualizaciónes</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">obtener_distribucion_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax1</span><span class="p">)</span>
+<span class="n">obtener_boxplot_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#############################
+INFORMACIÖN DE LA VARIABLE
+#############################
+Tipo de variable: float64
+Nº de valores únicos: 18
+Media de la variable: 1.719704952581665
+Mediana de la variable: 1.0
+Desviación típica de la variable: 2.4954476521428206
+Valor mínimo: 0.0
+Valor máximo: 23.0
+Sumatorio de tiros realizados: 1632.0
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<img alt="_images/fe670369c5f6d68c2bc215dc16cddc245be46fa171cc310d6a4cb0635fdbad6a.png" src="_images/fe670369c5f6d68c2bc215dc16cddc245be46fa171cc310d6a4cb0635fdbad6a.png" />
+</div>
+</div>
+</section>
+<section id="variable-grupo-7-in">
+<h3>2.13 Variable <em>GRUPO 7_IN</em><a class="headerlink" href="#variable-grupo-7-in" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;INFORMACIÖN DE LA VARIABLE&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;GRUPO 7_IN&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tipo de variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de valores únicos:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Media de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mediana de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Desviación típica de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor mínimo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor máximo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sumatorio de tiros realizados:&quot;</span><span class="p">,</span><span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+
+<span class="c1"># Obtención de visualizaciónes</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">obtener_distribucion_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax1</span><span class="p">)</span>
+<span class="n">obtener_boxplot_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#############################
+INFORMACIÖN DE LA VARIABLE
+#############################
+Tipo de variable: float64
+Nº de valores únicos: 8
+Media de la variable: 0.5795574288724974
+Mediana de la variable: 0.0
+Desviación típica de la variable: 1.0287242796719793
+Valor mínimo: 0.0
+Valor máximo: 7.0
+Sumatorio de tiros realizados: 550.0
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<img alt="_images/674816b26614ce391eac80ed72581e9f50c0b9c8b3d20f794a43012c934b2bb9.png" src="_images/674816b26614ce391eac80ed72581e9f50c0b9c8b3d20f794a43012c934b2bb9.png" />
+</div>
+</div>
+</section>
+<section id="variable-grupo-7-out">
+<h3>2.14 Variable <em>GRUPO 7_OUT</em><a class="headerlink" href="#variable-grupo-7-out" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;INFORMACIÖN DE LA VARIABLE&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;GRUPO 7_OUT&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tipo de variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de valores únicos:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Media de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mediana de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Desviación típica de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor mínimo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor máximo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sumatorio de tiros realizados:&quot;</span><span class="p">,</span><span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+
+<span class="c1"># Obtención de visualizaciónes</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">obtener_distribucion_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax1</span><span class="p">)</span>
+<span class="n">obtener_boxplot_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#############################
+INFORMACIÖN DE LA VARIABLE
+#############################
+Tipo de variable: float64
+Nº de valores únicos: 9
+Media de la variable: 0.9209694415173867
+Mediana de la variable: 0.0
+Desviación típica de la variable: 1.3165101819552252
+Valor mínimo: 0.0
+Valor máximo: 9.0
+Sumatorio de tiros realizados: 874.0
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<img alt="_images/8f096c39c70a8d04cdd2fc8ff73f107b66f6ea0c78298211a4b8b1d9ad5c9bcd.png" src="_images/8f096c39c70a8d04cdd2fc8ff73f107b66f6ea0c78298211a4b8b1d9ad5c9bcd.png" />
+</div>
+</div>
+</section>
+<section id="variable-grupo-8-in">
+<h3>2.15 Variable <em>GRUPO 8_IN</em><a class="headerlink" href="#variable-grupo-8-in" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;INFORMACIÖN DE LA VARIABLE&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;GRUPO 8_IN&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tipo de variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de valores únicos:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Media de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mediana de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Desviación típica de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor mínimo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor máximo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sumatorio de tiros realizados:&quot;</span><span class="p">,</span><span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+
+<span class="c1"># Obtención de visualizaciónes</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">obtener_distribucion_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax1</span><span class="p">)</span>
+<span class="n">obtener_boxplot_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#############################
+INFORMACIÖN DE LA VARIABLE
+#############################
+Tipo de variable: float64
+Nº de valores únicos: 37
+Media de la variable: 5.798735511064278
+Mediana de la variable: 3.0
+Desviación típica de la variable: 6.919561832379534
+Valor mínimo: 0.0
+Valor máximo: 44.0
+Sumatorio de tiros realizados: 5503.0
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<img alt="_images/186a5803a5fcb53141e57d98e4c94977f9b6e7e5f276db717db750f0deeb43dc.png" src="_images/186a5803a5fcb53141e57d98e4c94977f9b6e7e5f276db717db750f0deeb43dc.png" />
+</div>
+</div>
+</section>
+<section id="variable-grupo-8-out">
+<h3>2.16 Variable <em>GRUPO 8_OUT</em><a class="headerlink" href="#variable-grupo-8-out" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;INFORMACIÖN DE LA VARIABLE&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;GRUPO 8_OUT&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tipo de variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de valores únicos:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Media de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mediana de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Desviación típica de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor mínimo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor máximo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sumatorio de tiros realizados:&quot;</span><span class="p">,</span><span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+
+<span class="c1"># Obtención de visualizaciónes</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">obtener_distribucion_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax1</span><span class="p">)</span>
+<span class="n">obtener_boxplot_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#############################
+INFORMACIÖN DE LA VARIABLE
+#############################
+Tipo de variable: float64
+Nº de valores únicos: 52
+Media de la variable: 10.461538461538462
+Mediana de la variable: 7.0
+Desviación típica de la variable: 11.234827844803391
+Valor mínimo: 0.0
+Valor máximo: 72.0
+Sumatorio de tiros realizados: 9928.0
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<img alt="_images/05570d27a7099aae4b5d48bcb2cef3e7594cf5dde6d643edb3b9efbef5640f17.png" src="_images/05570d27a7099aae4b5d48bcb2cef3e7594cf5dde6d643edb3b9efbef5640f17.png" />
+</div>
+</div>
+</section>
+<section id="variable-grupo-9-in">
+<h3>2.17 Variable <em>GRUPO 9_IN</em><a class="headerlink" href="#variable-grupo-9-in" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;INFORMACIÖN DE LA VARIABLE&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;GRUPO 9_IN&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tipo de variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de valores únicos:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Media de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mediana de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Desviación típica de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor mínimo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor máximo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sumatorio de tiros realizados:&quot;</span><span class="p">,</span><span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+
+<span class="c1"># Obtención de visualizaciónes</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">obtener_distribucion_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax1</span><span class="p">)</span>
+<span class="n">obtener_boxplot_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#############################
+INFORMACIÖN DE LA VARIABLE
+#############################
+Tipo de variable: float64
+Nº de valores únicos: 27
+Media de la variable: 3.613277133825079
+Mediana de la variable: 1.0
+Desviación típica de la variable: 4.860834684200275
+Valor mínimo: 0.0
+Valor máximo: 27.0
+Sumatorio de tiros realizados: 3429.0
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<img alt="_images/12738ae65c3095fffb494925a708bbf42048733b510200316b7c22e194e6ecc5.png" src="_images/12738ae65c3095fffb494925a708bbf42048733b510200316b7c22e194e6ecc5.png" />
+</div>
+</div>
+</section>
+<section id="variable-grupo-9-out">
+<h3>2.18 Variable <em>GRUPO 9_OUT</em><a class="headerlink" href="#variable-grupo-9-out" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;INFORMACIÖN DE LA VARIABLE&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;GRUPO 9_OUT&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tipo de variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de valores únicos:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Media de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mediana de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Desviación típica de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor mínimo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor máximo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sumatorio de tiros realizados:&quot;</span><span class="p">,</span><span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+
+<span class="c1"># Obtención de visualizaciónes</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">obtener_distribucion_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax1</span><span class="p">)</span>
+<span class="n">obtener_boxplot_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#############################
+INFORMACIÖN DE LA VARIABLE
+#############################
+Tipo de variable: float64
+Nº de valores únicos: 41
+Media de la variable: 6.931506849315069
+Mediana de la variable: 4.0
+Desviación típica de la variable: 8.214075854062505
+Valor mínimo: 0.0
+Valor máximo: 46.0
+Sumatorio de tiros realizados: 6578.0
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<img alt="_images/86654d6c4d627bc898c152d2952cbad65f8a781f62bb10fc8f93e65dce2a89b7.png" src="_images/86654d6c4d627bc898c152d2952cbad65f8a781f62bb10fc8f93e65dce2a89b7.png" />
+</div>
+</div>
+</section>
+<section id="variable-grupo-10-in">
+<h3>2.19 Variable <em>GRUPO 10_IN</em><a class="headerlink" href="#variable-grupo-10-in" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;INFORMACIÖN DE LA VARIABLE&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;GRUPO 10_IN&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tipo de variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de valores únicos:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Media de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mediana de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Desviación típica de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor mínimo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor máximo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sumatorio de tiros realizados:&quot;</span><span class="p">,</span><span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+
+<span class="c1"># Obtención de visualizaciónes</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">obtener_distribucion_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax1</span><span class="p">)</span>
+<span class="n">obtener_boxplot_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#############################
+INFORMACIÖN DE LA VARIABLE
+#############################
+Tipo de variable: float64
+Nº de valores únicos: 38
+Media de la variable: 5.8619599578503685
+Mediana de la variable: 3.0
+Desviación típica de la variable: 7.040038954095948
+Valor mínimo: 0.0
+Valor máximo: 42.0
+Sumatorio de tiros realizados: 5563.0
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<img alt="_images/eedefb776d867070d657acaf32abfe5f995eb32a715163465c6c48a9d9dafc2d.png" src="_images/eedefb776d867070d657acaf32abfe5f995eb32a715163465c6c48a9d9dafc2d.png" />
+</div>
+</div>
+</section>
+<section id="variable-grupo-10-out">
+<h3>2.20 Variable <em>GRUPO 10_OUT</em><a class="headerlink" href="#variable-grupo-10-out" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;INFORMACIÖN DE LA VARIABLE&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;GRUPO 10_OUT&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tipo de variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de valores únicos:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Media de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mediana de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Desviación típica de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor mínimo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor máximo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sumatorio de tiros realizados:&quot;</span><span class="p">,</span><span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+
+<span class="c1"># Obtención de visualizaciónes</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">obtener_distribucion_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax1</span><span class="p">)</span>
+<span class="n">obtener_boxplot_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#############################
+INFORMACIÖN DE LA VARIABLE
+#############################
+Tipo de variable: float64
+Nº de valores únicos: 55
+Media de la variable: 11.066385669125395
+Mediana de la variable: 7.0
+Desviación típica de la variable: 11.807207343659467
+Valor mínimo: 0.0
+Valor máximo: 60.0
+Sumatorio de tiros realizados: 10502.0
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<img alt="_images/41fb23869b5fd356747fb4e59c9ded28edd62a8d2089d523112cf6adf26e42f2.png" src="_images/41fb23869b5fd356747fb4e59c9ded28edd62a8d2089d523112cf6adf26e42f2.png" />
+</div>
+</div>
+</section>
+<section id="variable-grupo-11-in">
+<h3>2.21 Variable <em>GRUPO 11_IN</em><a class="headerlink" href="#variable-grupo-11-in" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;INFORMACIÖN DE LA VARIABLE&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;GRUPO 11_IN&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tipo de variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de valores únicos:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Media de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mediana de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Desviación típica de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor mínimo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor máximo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sumatorio de tiros realizados:&quot;</span><span class="p">,</span><span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+
+<span class="c1"># Obtención de visualizaciónes</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">obtener_distribucion_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax1</span><span class="p">)</span>
+<span class="n">obtener_boxplot_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#############################
+INFORMACIÖN DE LA VARIABLE
+#############################
+Tipo de variable: float64
+Nº de valores únicos: 9
+Media de la variable: 0.5742887249736565
+Mediana de la variable: 0.0
+Desviación típica de la variable: 1.0504231842057852
+Valor mínimo: 0.0
+Valor máximo: 8.0
+Sumatorio de tiros realizados: 545.0
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<img alt="_images/8ab024096bf2b766f6ca9866e5afe77fd1fe735883cce42a55d75302f9aaf242.png" src="_images/8ab024096bf2b766f6ca9866e5afe77fd1fe735883cce42a55d75302f9aaf242.png" />
+</div>
+</div>
+</section>
+<section id="variable-grupo-11-out">
+<h3>2.22 Variable <em>GRUPO 11_OUT</em><a class="headerlink" href="#variable-grupo-11-out" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;INFORMACIÖN DE LA VARIABLE&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;GRUPO 11_OUT&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tipo de variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de valores únicos:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Media de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mediana de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Desviación típica de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor mínimo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor máximo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sumatorio de tiros realizados:&quot;</span><span class="p">,</span><span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+
+<span class="c1"># Obtención de visualizaciónes</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">obtener_distribucion_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax1</span><span class="p">)</span>
+<span class="n">obtener_boxplot_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#############################
+INFORMACIÖN DE LA VARIABLE
+#############################
+Tipo de variable: float64
+Nº de valores únicos: 8
+Media de la variable: 0.8240252897787145
+Mediana de la variable: 0.0
+Desviación típica de la variable: 1.2973570274769117
+Valor mínimo: 0.0
+Valor máximo: 7.0
+Sumatorio de tiros realizados: 782.0
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<img alt="_images/154ac9a3ba3487211b8398bb2d1aefed820871b085159b02b2ef609dbe76e07b.png" src="_images/154ac9a3ba3487211b8398bb2d1aefed820871b085159b02b2ef609dbe76e07b.png" />
+</div>
+</div>
+</section>
+<section id="variable-fuera-de-limites-out">
+<h3>2.23 Variable <em>Fuera de límites_OUT</em><a class="headerlink" href="#variable-fuera-de-limites-out" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;INFORMACIÖN DE LA VARIABLE&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################&quot;</span><span class="p">)</span>
+<span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;Fuera de límites_OUT&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tipo de variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nº de valores únicos:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Media de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mediana de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Desviación típica de la variable:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor mínimo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor máximo:&quot;</span><span class="p">,</span> <span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sumatorio de tiros realizados:&quot;</span><span class="p">,</span><span class="n">df_estadisticas_totales</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+
+<span class="c1"># Obtención de visualizaciónes</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">obtener_distribucion_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax1</span><span class="p">)</span>
+<span class="n">obtener_boxplot_variable</span><span class="p">(</span><span class="n">df_estadisticas_totales</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#############################
+INFORMACIÖN DE LA VARIABLE
+#############################
+Tipo de variable: float64
+Nº de valores únicos: 2
+Media de la variable: 0.07017543859649122
+Mediana de la variable: 0.0
+Desviación típica de la variable: 0.2565702389853346
+Valor mínimo: 0.0
+Valor máximo: 1.0
+Sumatorio de tiros realizados: 8.0
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posx and posy should be finite values
+posx and posy should be finite values
+</pre></div>
+</div>
+<img alt="_images/f881efe75f13824d0d5321205d15e3e706dafb0fb8761caea2f424f4c654efd2.png" src="_images/f881efe75f13824d0d5321205d15e3e706dafb0fb8761caea2f424f4c654efd2.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="conclusiones">
+<h2>3. Conclusiones<a class="headerlink" href="#conclusiones" title="Link to this heading">#</a></h2>
+<p>Tras el análisis de todas las variables que constiyen las <em>estadísticas totales individuales</em> se pasa a comentar las siguientes conclusiones sobre el conjunto de datos:</p>
+<ul class="simple">
+<li><p><strong>Estructura de la información.</strong> Como ha sido observado, todas las variables que conforman el conjunto de datos se encuentra en formato numérico (ya sea en formato int64 o float). Además, ha sido detectado que en la temporada <em>2019-2020</em> únicamente existen tiros realizados dentro del Grupo 1 lo que hace muy dificil la utilización de estos datos para esta temporada.</p></li>
+<li><p><strong>Distribución y variabilidad en las variables.</strong> De manera general, se ha observado que en todas las variables existe un alto grado de diversidad de valores y un alto grado de variabilidad de valores. Además, también se puede observar de manera generalizada que la media supera a la mediana en las variables lo que indica una tendencia en la variables a valores más altos que dependiendo del uso que se den pueden considerarse como valores atípicos.</p></li>
+<li><p><strong>Centralización de tiros.</strong> Como puede observarse en las distintas distribuciones, la mayoría de tiros han sido realizados desde el <em>Grupo 1</em> y desde donde menos los <em>Grupos 7 y 11</em>*, se pone sobre aviso que si se utilizan estas variables con los valores absolutos pueden que no sean lo más correctas a la hora de crear agrupaciones.</p></li>
+<li><p><strong>Fuera de límites.</strong> Se localizan en la temporada +2019-2020* diversos tiros que no han podido ser localizados dentro de ningún area.</p></li>
+</ul>
+<p>Estos puntos son los más relevantes tras el análisis del conjunto de datos y se tendrán en cuenta para el uso de los datos en los futuros análisis dentro del Trabajo Fin de Máster.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="4.2%20EDA%20Estad%C3%ADsticas%20totales%20de%20quintetos.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">4.2 Análisis exploratorio de <em>estadísticas totales de quintetos</em></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="4.4%20EDA%20Estad%C3%ADsticas%20avanzadas%20individuales.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">4.4 Análisis exploratorio de <em>estadísticas avanzadas individuales</em></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-consistencia-de-los-datos">1. Análisis de consistencia de los datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-univariante-de-los-datos">2. Análisis univariante de los datos.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-1-in">2.1 Variable <em>GRUPO 1_IN</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-1-out">2.2 Variable <em>GRUPO 1_OUT</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-2-in">2.3 Variable <em>GRUPO 2_IN</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.4 Variable <em>GRUPO 1_OUT</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-3-in">2.5 Variable <em>GRUPO 3_IN</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-3-out">2.6 Variable <em>GRUPO 3_OUT</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-4-in">2.7 Variable <em>GRUPO 4_IN</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-4-out">2.8 Variable <em>GRUPO 4_OUT</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-5-in">2.9 Variable <em>GRUPO 5_IN</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-5-out">2.10 Variable <em>GRUPO 5_OUT</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-6-in">2.11 Variable <em>GRUPO 6_IN</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-6-out">2.12 Variable <em>GRUPO 6_OUT</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-7-in">2.13 Variable <em>GRUPO 7_IN</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-7-out">2.14 Variable <em>GRUPO 7_OUT</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-8-in">2.15 Variable <em>GRUPO 8_IN</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-8-out">2.16 Variable <em>GRUPO 8_OUT</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-9-in">2.17 Variable <em>GRUPO 9_IN</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-9-out">2.18 Variable <em>GRUPO 9_OUT</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-10-in">2.19 Variable <em>GRUPO 10_IN</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-10-out">2.20 Variable <em>GRUPO 10_OUT</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-11-in">2.21 Variable <em>GRUPO 11_IN</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-grupo-11-out">2.22 Variable <em>GRUPO 11_OUT</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-fuera-de-limites-out">2.23 Variable <em>Fuera de límites_OUT</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones">3. Conclusiones</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Francisco Javier Cantero Zorita
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
